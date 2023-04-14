@@ -1,0 +1,19 @@
+.about-title {
+    margin-top: 3rem;
+    text-shadow: 2px 2px var(--green);
+    text-align: center;
+}
+.about{
+    background-color: var(--light-green);
+    border-radius: 0.188rem ;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 6.3rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    line-height: 2rem;
+    font-size: 1rem;
+}

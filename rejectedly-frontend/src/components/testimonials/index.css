@@ -45,6 +45,7 @@
         height: 14rem;
         margin: 0.2rem;
         font-size: 0.4rem;
+        border-radius: 3%;
     }
 
     .person-img {

@@ -1,3 +1,4 @@
+import AboutUs from '../../components/about';
 import Header from '../../components/header';
 import Navbar from '../../components/navbar'
 import Platform from '../../components/platform-features';
@@ -9,6 +10,7 @@ const Homepage=()=>{
           <Header/>
           <Platform/>
           <Testimonials/>
+          <AboutUs/>
         </div>
     )
 }
