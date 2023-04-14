@@ -1,0 +1,29 @@
+.testimonials-title {
+    margin-top: 5rem;
+    text-shadow: 2px 2px var(--green);
+    text-align: center;
+}
+.persons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    padding: 3rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+.person {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 0.6rem; */
+    width: 40%;
+    height: 28.25rem;
+    text-align: center;
+    box-shadow: 2px 2px 8px var(--green);
+
+}
+.name {
+    font-size: 1.125rem;
+    font-weight: bold;
+}

@@ -8,6 +8,8 @@
     flex-direction: row;
     gap: 4rem;
     padding: 3rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
 }
 .feature{
     display: flex;
@@ -18,8 +20,7 @@
     width: 30%;
     height: 30%;
     text-align: center;
-    margin-left: 4rem;
-    margin-right: 4rem;
+ 
 
 }
 .title{
