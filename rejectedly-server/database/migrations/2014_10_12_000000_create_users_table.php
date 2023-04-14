@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->text('biography')->nullable();
             $table->string('linkedin_url')->nullable();
+            $table->integer('is_admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

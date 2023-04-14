@@ -1,0 +1,75 @@
+:root {
+    --green: #2BC45F;
+    --light-green: #9BEDB7;
+    --white: #FFFF;
+    --black: #111111;
+    --dark: #1E1E1E;
+}
+
+.navbar {
+    max-width: 100%;
+    padding: 0.3rem;
+    padding-left: 1rem;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    background-color: var(--dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+    margin-right: 25%;
+}
+
+.navbar a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-shadow: 2px 2px 8px var(--green);
+}
+
+.signup-btnn {
+    padding: 0.7rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: var(--green);
+    color: white;
+    font-weight: bold;
+    border-radius: 0.188rem;
+}
+
+.links-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1rem;
+    gap: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .links {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .links-register {
+        padding-right: 0;
+        margin-top: 1rem;
+        justify-content: center;
+        width: 100%;
+    }
+}
