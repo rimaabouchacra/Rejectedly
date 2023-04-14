@@ -1,5 +1,5 @@
 .testimonials-title {
-    margin-top: 5rem;
+    margin-top: 1rem;
     text-shadow: 2px 2px var(--green);
     text-align: center;
 }
@@ -16,7 +16,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* gap: 0.6rem; */
+    gap: 0.4rem;
+    padding: 0.8rem;
     width: 40%;
     height: 28.25rem;
     text-align: center;

@@ -1,5 +1,5 @@
 .features-title{
-    margin-top: 5rem;
+    margin-top: 3rem;
     text-shadow: 2px 2px var(--green);
     text-align: center;
 }
@@ -10,6 +10,7 @@
     padding: 3rem;
     margin-left: 4rem;
     margin-right: 4rem;
+    
 }
 .feature{
     display: flex;
@@ -20,8 +21,6 @@
     width: 30%;
     height: 30%;
     text-align: center;
- 
-
 }
 .title{
     font-size: 1.125rem;
