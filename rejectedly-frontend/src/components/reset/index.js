@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../signup/index.css'
 import '../index.css'
+import './index.css'
 import logo1 from '../../images/logo1.png'
 const Reset = ()=>{
 
 
 return (
     <div>
-        <div className='signup-form'>
+        <div className='reset-form'>
         <div>
             <img src={logo1} alt="logo" />
         </div>
@@ -17,20 +18,20 @@ return (
         <form>
             <div className='signup-container'>
                 <label className='label' htmlFor="email">Email:</label>
-                <input className='input-field name' type="email" placeholder='Email' />
+                <input className='input-field emaill' type="email" placeholder='Email' />
             </div><br/>
 
             <div className='signup-container'>
-                <label className='label' htmlFor="email">New password</label>
-                <input className='input-field email' type="passwprd" placeholder='Password'/>
+                <label className='label' htmlFor="password">New password:</label>
+                <input className='input-field newpass' type="password" placeholder='New Password'/>
             </div><br/>
 
             <div className='signup-container'>
-                <label className='label' htmlFor="name">Confirm password:</label>
-                <input className='input-field pass' type="password" placeholder='Password'/>
+                <label className='label' htmlFor="password">Confirm password:</label>
+                <input className='input-field pass' type="password" placeholder='Confirm Password'/>
             </div><br/>
             <div className='btn'>
-                <button className='all-btn'>CHANGE</button>
+                <button className='all-btn change'>CHANGE</button>
             </div><br />
        
         </form>

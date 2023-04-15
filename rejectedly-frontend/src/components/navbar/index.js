@@ -9,8 +9,8 @@ return(
         <img src={logo} alt="logo" />
     </div>
     <div className='links'>
-        <a href="_blank">Home</a>
-        <a href="#">Analysis</a>
+        <a href="/">Home</a>
+        <a href="analysis">Analysis</a>
         <a href="#">Collaboration</a>
         <a href="#">Marketplace</a>
     </div>

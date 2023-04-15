@@ -1,0 +1,27 @@
+.pass{
+    margin-left: 1rem;
+}
+.emaill{
+    margin-left: 7rem;
+}
+.newpass{
+    margin-left: 2.8rem;
+}
+.reset-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 4rem;
+    padding: 2rem;
+    width: 23rem;
+    height: fit-content;
+    border-radius: 3%;
+    box-shadow: 0 0 10px var(--green);
+    background-color: var(--dark);
+    color: var(--white);
+}
+.change{
+    margin-left: 2rem;
+}

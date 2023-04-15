@@ -1,0 +1,37 @@
+.sidebar {
+    position: fixed;
+    /* text-align: center; */
+    justify-content: baseline;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: white;
+    border-radius: 0.188rem;
+    margin: 3rem;
+    padding: 1rem;
+    margin-left: 5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+}
+
+.sidebar li:last-child {
+    border-bottom: none;
+}
+
+.sidebar a {
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: #000;
+}

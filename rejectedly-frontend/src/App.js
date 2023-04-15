@@ -5,7 +5,7 @@ import Homepage from './pages/homepage';
 import Register from './pages/register';
 import Login from './pages/loginpage';
 import Resetpass from './pages/resetpass';
-
+import Analysis from './pages/rejectionanalysis';
 
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
           <Route path="/signup" element={<Register/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/reset" element={<Resetpass/>} />
+          <Route path="/analysis" element={<Analysis/>} />
       </Routes>  
     </Router> 
   
