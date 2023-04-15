@@ -39,7 +39,8 @@ class AuthController extends Controller
                     'type' => 'bearer',
                 ]
             ]);
-
+$token = $response->json('token');
+return $response;
     }
 
     public function register(Request $request){

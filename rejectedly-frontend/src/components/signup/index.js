@@ -22,8 +22,8 @@ const handleSubmit = async (e) => {
         }
 
         try {
-            const response = await axios.post('http://localhost:4000/auth/register', data);
-            localStorage.setItem('token', response.data.token);
+            const response = await axios.post('http://localhost:8000/api/v1/auth/signup', data);
+            localStorage.setItem('token', response.data.authorisation.token);
             console.log("success")
         } catch (error) {
             console.log(error);

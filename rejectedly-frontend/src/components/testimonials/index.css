@@ -38,6 +38,7 @@
         gap: 1rem;
         padding: 1rem;
         flex-wrap: nowrap;
+        background-color: var(--white);
     }
 
     .person {

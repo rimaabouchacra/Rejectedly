@@ -1,3 +1,6 @@
+body{
+    background-color: white;
+}
 .features-title{
     margin-top: 3rem;
     text-shadow: 2px 2px var(--green);
