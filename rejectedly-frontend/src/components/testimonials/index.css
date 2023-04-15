@@ -24,9 +24,9 @@
     box-shadow: 2px 2px 8px var(--green);
 
 }
-.name {
+.title {
     font-size: 1.125rem;
-    font-weight: bold;
+    font-weight: bolder;
 }
 @media screen and (max-width: 768px) {
     .testimonials-title {

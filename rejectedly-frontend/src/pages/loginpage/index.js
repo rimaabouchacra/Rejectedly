@@ -1,5 +1,6 @@
 import Navbar from "../../components/navbar";
 import Loginn from "../../components/login";
+import './login.css'
 
 const Login=()=>{
     return(

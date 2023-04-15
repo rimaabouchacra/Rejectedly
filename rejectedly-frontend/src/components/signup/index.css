@@ -36,6 +36,7 @@
     border-right: none;
     background-color: var(--dark);
     border-bottom: 2px solid var(--green);
+    color: white;
     outline: none;
     font-size: 14px;
     width: fit-content;

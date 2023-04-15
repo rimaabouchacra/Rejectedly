@@ -17,12 +17,12 @@ return(
             </div>
             <div className='person'>
                 <img className='person-img' src={person2} alt="p3" />
-                <p className='name'>Adriana Wilson</p>
+                <p className='title'>Adriana Wilson</p>
                 <p>“The Rejection Circles feature was a game-changer for me. Collaborating with other rejected applicants helped me gain improve my chances of success.”</p>
             </div>
             <div className='person'>
                 <img className='person-img' src={person3} alt="p3" />
-                <p className='name'>Mark Morte</p>
+                <p className='title'>Mark Morte</p>
                 <p>“Rejectedly's marketplace helped me showcase my rejected ideas to potential clients. I received numerous job offers and opportunities that I wouldn't have found otherwise.”</p>
             </div>
             

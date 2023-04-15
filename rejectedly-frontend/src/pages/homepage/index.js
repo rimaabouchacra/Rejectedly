@@ -4,6 +4,7 @@ import Header from '../../components/header';
 import Navbar from '../../components/navbar'
 import Platform from '../../components/platform-features';
 import Testimonials from '../../components/testimonials';
+import './home.css'
 
 const Homepage=()=>{
     return(
