@@ -64,6 +64,10 @@
     color: var(--green);
     text-decoration: none;
 }
+.labell a{
+    text-decoration: none;
+    font-weight: bold;
+}
 .btn{
     margin-left: 5rem;
 }

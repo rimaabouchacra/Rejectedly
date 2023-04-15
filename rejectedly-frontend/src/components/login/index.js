@@ -47,6 +47,7 @@ const Loginn = ()=>{
                 <button className='all-btn'>Login</button>
             </div><br />
             <div className='signup-container'>
+                <label className='labell' htmlFor="name"><a href="reset">Forget password?</a></label><br /><br />
                 <label className='label' htmlFor="name">Don't have an account?<a className='login-text' href='signup'>Signup</a></label>
             </div>
         </form>
