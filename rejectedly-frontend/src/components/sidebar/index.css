@@ -17,6 +17,7 @@
     padding: 1rem;
     margin-left: 5rem;
     margin-top: 5rem;
+    box-shadow: 2px 2px 8px rgb(181, 179, 179);
 }
 
 .sidebar ul {
