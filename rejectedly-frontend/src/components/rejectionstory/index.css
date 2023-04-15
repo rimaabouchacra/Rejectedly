@@ -4,22 +4,31 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 29rem;
+    width: 50rem;
     background-color: white;
     border-radius: 0.188rem;
     margin: 3rem;
-    padding: 1rem;
-    margin-left: 5rem;
+    padding: 2.5rem;
+    margin-left: 22rem;
     margin-top: 5rem;
+    box-shadow: 2px 2px 8px rgb(181, 179, 179);
 }
 .header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 .text{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    margin-top: 2rem;
+}
+.textt{
+    opacity: 50%;
 }
