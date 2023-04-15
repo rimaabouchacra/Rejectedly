@@ -1,0 +1,19 @@
+.story {
+    position: fixed;
+    justify-content: baseline;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 29rem;
+    background-color: white;
+    border-radius: 0.188rem;
+    margin: 3rem;
+    padding: 1rem;
+    margin-left: 5rem;
+    margin-top: 5rem;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
