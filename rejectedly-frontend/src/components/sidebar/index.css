@@ -1,16 +1,22 @@
+.logo{
+    text-align: center;
+    margin-top: -4rem;
+    margin-bottom: 2rem;
+    
+}
 .sidebar {
     position: fixed;
-    /* text-align: center; */
     justify-content: baseline;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 200px;
+    width: 11.25rem;
     background-color: white;
     border-radius: 0.188rem;
     margin: 3rem;
     padding: 1rem;
     margin-left: 5rem;
+    margin-top: 5rem;
 }
 
 .sidebar ul {
@@ -20,7 +26,7 @@
 }
 
 .sidebar li {
-    padding: 10px;
+    padding: 1rem;
 }
 
 .sidebar li:last-child {
@@ -33,5 +39,9 @@
 }
 
 .sidebar a:hover {
-    color: #000;
+    text-shadow: 2px 2px 8px var(--green);
+}
+.li a{
+    font-weight: bold;
+    color: red;
 }
