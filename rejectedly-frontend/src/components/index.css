@@ -1,0 +1,11 @@
+.all-btn {
+    padding: 0.7rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: var(--green);
+    color: white;
+    font-weight: bold;
+    border-radius: 0.188rem;
+    border: 1px solid var(--green);
+}
