@@ -8,7 +8,7 @@ const Profilee = () => {
   return (
     <div className="story">
       <div className='header'>
-        <h1>ffffff</h1>
+        
       </div>
 
     </div>
