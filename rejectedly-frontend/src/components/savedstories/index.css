@@ -10,11 +10,13 @@
 
   .grid-item {
       background-color: var(--green);
+      color: white;
       padding: 1rem;
+      padding-top: 0.2rem;
       width: 200px;
       height: 100px;
       gap: 20px;
-    overflow-y: scroll;
+      overflow-y: scroll;
 
   }
   
