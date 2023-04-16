@@ -23,9 +23,9 @@ const Profilee = ({ defaultImage }) => {
   };
 
   return (
-    <div className="story">
+    <div>
         <div className="container">
-            <h1>MY PROFILE</h1>
+           
              <div
               className="edit-profile-image"
               onMouseEnter={handleMouseEnter}
@@ -36,7 +36,6 @@ const Profilee = ({ defaultImage }) => {
         
       <img src={image} alt="" className="profile-image" />
       <img src={Profile} alt="" />  
-      <h1>fffffffffff</h1>
      
       </div>  
       

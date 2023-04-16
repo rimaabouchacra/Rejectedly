@@ -1,10 +1,10 @@
 import Sidebar from "../../components/sidebar"
-import Profilee from "../../components/profile";
+import EditProfile from "../../components/editprofile";
 const Profile=()=>{
     return(
         <div>
             <Sidebar/>
-            <Profilee/>
+            <EditProfile/>
         </div>
     )
 }
