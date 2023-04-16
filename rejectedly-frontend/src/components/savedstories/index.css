@@ -1,0 +1,20 @@
+  .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 150px 150px;
+      margin: 2rem;
+      grid-gap: 10px;
+      overflow-y: scroll;
+      max-height: 300px;
+  }
+
+  .grid-item {
+      background-color: var(--green);
+      padding: 1rem;
+      width: 200px;
+      height: 100px;
+      gap: 20px;
+    overflow-y: scroll;
+
+  }
+  

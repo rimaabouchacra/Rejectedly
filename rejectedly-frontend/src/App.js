@@ -6,7 +6,7 @@ import Register from './pages/register';
 import Login from './pages/loginpage';
 import Resetpass from './pages/resetpass';
 import Analysis from './pages/rejectionanalysis';
-
+import SaveAnalysis from './pages/saveanalysis';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/reset" element={<Resetpass/>} />
           <Route path="/analysis" element={<Analysis/>} />
+          <Route path="/saved" element={<SaveAnalysis/>} />
       </Routes>  
     </Router> 
   
