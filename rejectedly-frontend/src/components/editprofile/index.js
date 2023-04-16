@@ -33,11 +33,14 @@ const EditProfile = () => {
             <div className="contact-inputs">
                 <div>
                     <label  className="profile-label"  htmlFor="bio">Biography</label>
-                    <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+                    <textarea className="textarea" name="bio" id="bio" cols="30" rows="6"></textarea>
                 </div>
                 <div>
                     <label  className="profile-label"  htmlFor="linkedin">Linkedin</label>
                     <input type="text" />
+                </div>
+                <div>
+                    <button className="all-btn save">SAVE</button>
                 </div>
 
             </div>

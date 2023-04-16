@@ -12,4 +12,16 @@
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+    
+}
+input{
+    width: 13.75rem;
+    height: 1.563rem;
+}
+.save{
+    margin-top: 5rem;
+    width: 13.75rem;
+}
+.textarea{
+    width: 13.75rem;
 }
