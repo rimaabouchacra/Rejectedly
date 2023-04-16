@@ -7,7 +7,7 @@ import Login from './pages/loginpage';
 import Resetpass from './pages/resetpass';
 import Analysis from './pages/rejectionanalysis';
 import SaveAnalysis from './pages/saveanalysis';
-import Profile from './pages/profile';
+import Profile from './pages/profilepage';
 
 function App() {
   return (
