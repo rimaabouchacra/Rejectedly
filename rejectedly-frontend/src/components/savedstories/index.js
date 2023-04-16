@@ -48,7 +48,7 @@ const Saved = () => {
           <div class="grid-item">6</div>
           <div class="grid-item">6</div>
           <div class="grid-item">6</div>
-          <div class="grid-item">6</div>
+          <div class="grid-item">8</div>
         </div>
     </div>
   );
