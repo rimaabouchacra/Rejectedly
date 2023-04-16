@@ -1,0 +1,14 @@
+.analysis {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 37.5rem;
+    height: 30.063rem;
+    overflow-y: scroll;
+}
+.label2 {
+    font-weight: normal;
+    font-size: 12px;
+}
