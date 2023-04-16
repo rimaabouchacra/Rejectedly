@@ -1,3 +1,7 @@
+.container{
+    padding: 1rem;
+    padding-top: 0rem;
+}
 .edit-profile-image {
     position: relative;
     width: 150px;
