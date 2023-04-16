@@ -19,4 +19,9 @@
       overflow-y: scroll;
 
   }
-  
+  .analysis{
+    text-align: center;
+    border: none;
+    background: none;
+    /* margin-left: 1.3rem; */
+  }
