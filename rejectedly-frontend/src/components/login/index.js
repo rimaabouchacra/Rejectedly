@@ -44,7 +44,7 @@ const Loginn = ()=>{
                 <input className='input-field pass' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div><br/>
             <div className='btn'>
-                <button className='all-btn'>Login</button>
+                <button className='all-btn loginn-btn '>Login</button>
             </div><br />
             <div className='signup-container'>
                 <label className='labell' htmlFor="name"><a href="reset">Forget password?</a></label><br /><br />

@@ -55,7 +55,7 @@ return (
                 <input className='input-field pass' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div><br/>
             <div className='btn'>
-                <button className='all-btn'>SIGNUP</button>
+                <button className='all-btn singup-btn'>SIGNUP</button>
             </div><br />
             <div className='signup-container'>
                 <label className='label' htmlFor="name">Already have an account?<a className='login-text' href='login'>Login</a></label>
