@@ -43,7 +43,7 @@ const Saved = () => {
           <div class="grid-item">4</div>
           <div class="grid-item">5</div>
           <div class="grid-item">6</div>
-          <div class="grid-item">6</div>
+          <div class="grid-item">4</div>
           <div class="grid-item">6</div>
           <div class="grid-item">5</div>
           <div class="grid-item">6</div>
