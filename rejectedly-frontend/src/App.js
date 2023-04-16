@@ -7,6 +7,7 @@ import Login from './pages/loginpage';
 import Resetpass from './pages/resetpass';
 import Analysis from './pages/rejectionanalysis';
 import SaveAnalysis from './pages/saveanalysis';
+import Profile from './pages/profile';
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
           <Route path="/reset" element={<Resetpass/>} />
           <Route path="/analysis" element={<Analysis/>} />
           <Route path="/saved" element={<SaveAnalysis/>} />
+          <Route path="/profile" element={<Profile/>} />
       </Routes>  
     </Router> 
-  
+
   );
 }
 
