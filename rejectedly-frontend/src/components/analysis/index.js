@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './index.css';
 import '../index.css';
+// import '../newstory/index.css'
 const Analysis = () => {
   const [showAnalysis, setShowAnalysis] = useState(true);
   const overlayRef = useRef(null);

@@ -68,7 +68,7 @@ const Saved = () => {
             <button onClick={handleButtonClick2} className='analysiss'><h3>SHOW ANALYSIS</h3></button>
             {showAnalysis && (
         <div className='overlay' ref={overlayReff}>
-          <div>
+          <div className='popup-analysis'>
             <Analysis />
           </div>
         </div>

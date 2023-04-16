@@ -19,9 +19,13 @@
       overflow-y: scroll;
 
   }
-  .analysiss{
+ .analysiss{
     text-align: center;
     border: none;
     background: none;
     margin-left: 1.3rem;
+  }
+
+  .popup-analysis{
+    z-index: 2;
   }
