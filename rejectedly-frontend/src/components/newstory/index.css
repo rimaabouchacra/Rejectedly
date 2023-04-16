@@ -1,0 +1,15 @@
+.new-story{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 37.5rem;
+    height: 30.063rem;
+}
+.input{
+    padding: 0.2rem;
+    border: 1px solid #8C8C8C;
+    background-color: white;
+    width: 29.688rem;
+    
+}
