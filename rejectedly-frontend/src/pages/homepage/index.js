@@ -4,7 +4,7 @@ import Header from '../../components/header';
 import Navbar from '../../components/navbar'
 import Platform from '../../components/platform-features';
 import Testimonials from '../../components/testimonials';
-import './home.css'
+import './homepage.css'
 
 const Homepage=()=>{
     return(

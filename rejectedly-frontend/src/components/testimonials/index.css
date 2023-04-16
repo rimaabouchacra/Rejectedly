@@ -3,6 +3,7 @@
     text-shadow: 2px 2px var(--green);
     text-align: center;
 }
+
 .persons-container {
     display: flex;
     flex-direction: row;
@@ -22,6 +23,7 @@
     height: 28.25rem;
     text-align: center;
     box-shadow: 2px 2px 8px var(--green);
+    background-color: var(--white);
 
 }
 .title {
