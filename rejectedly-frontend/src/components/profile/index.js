@@ -3,6 +3,7 @@ import { FaCamera } from "react-icons/fa";
 import "./index.css";
 import "../index.css";
 import "../rejectionstory/index.css";
+import Profile from "../../images/profile.png";
 
 const Profilee = ({ defaultImage }) => {
   const [image, setImage] = useState(defaultImage);
@@ -33,7 +34,10 @@ const Profilee = ({ defaultImage }) => {
       
       <div className="profile-img">
         
-      <img src={image} alt="" className="profile-image" />  
+      <img src={image} alt="" className="profile-image" />
+      <img src={Profile} alt="" />  
+      <h1>fffffffffff</h1>
+     
       </div>  
       
       {isHovering && (
