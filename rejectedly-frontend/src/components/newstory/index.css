@@ -60,10 +60,12 @@ textarea{
     z-index: 2;
     position: relative;
 }
+
 @media screen and (max-width: 768px) {
     .new-story {
         width: 90%;
         height: auto;
+        
     }
 
     .input {

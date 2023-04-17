@@ -10,7 +10,7 @@ return(
     <h2 className='footer-title'>Website Links</h2>
     <div className='footer-links'>
         <div className='link-division'>
-             <a href="home">Home</a>
+             <a href="/">Home</a>
              <a href="analysis">Analysis</a>
         </div>
          <div className='link-division'>

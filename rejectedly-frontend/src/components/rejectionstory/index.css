@@ -1,5 +1,5 @@
 .story {
-    position: fixed;
+    position: relative;
     justify-content: baseline;
     top: 0;
     left: 0;
@@ -9,10 +9,12 @@
     border-radius: 0.188rem;
     margin: 3rem;
     padding: 2.5rem;
+    /* padding-bottom: 5.3rem; */
     margin-left: 22rem;
     margin-top: 5rem;
     box-shadow: 2px 2px 8px rgb(181, 179, 179);
 }
+
 .header{
     display: flex;
     flex-direction: row;
@@ -31,4 +33,21 @@
 }
 .textt{
     opacity: 50%;
+}
+@media only screen and (max-width: 768px) {
+    .story {
+        width: 90%;
+        margin: 3rem auto;
+        padding: 1.5rem;
+    }
+
+    .text {
+        padding: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }

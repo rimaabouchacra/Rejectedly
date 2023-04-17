@@ -11,7 +11,7 @@ return (
       </div>
         
       <ul>
-        <li><a href='stories'>MY STORIES</a></li>
+        <li><a href='saved'>MY STORIES</a></li>
         <li><a href='profile'>EDIT PROFILE</a></li>
         <li><a href='marketplace'>MARKETPLACE</a></li>
         <li><a href='collaboration'>COLLABORATION</a></li><br/><br/><br/><br/><br/><br /><br />

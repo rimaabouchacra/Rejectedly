@@ -15,3 +15,9 @@
 .analysis-type{
     align-self: start;
 }
+@media screen and (max-width: 768px) {
+    .analysis {
+        width: 90%;
+        height: auto;
+    }
+}

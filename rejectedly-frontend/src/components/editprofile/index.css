@@ -11,8 +11,7 @@
 .contact-inputs{
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-    
+    gap: 0.6rem; 
 }
 input{
     width: 13.75rem;
@@ -24,4 +23,23 @@ input{
 }
 .textarea{
     width: 13.75rem;
+}
+@media screen and (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-label {
+        margin-right: 2rem;
+    }
+
+    input{
+        width: 7rem;
+        height: auto;
+    }
+
+    .contact-inputs {
+        align-items: center;
+    }
 }
