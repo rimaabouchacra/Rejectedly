@@ -14,12 +14,12 @@ return(
              <a href="analysis">Analysis</a>
         </div>
          <div className='link-division'>
-            <a href="#">Collaboration</a>
-            <a href="#">Marketplace</a>
+            <a href="collaboration">Collaboration</a>
+            <a href="marketplace">Marketplace</a>
         </div>
         <div className='link-division'>
-            <a href="#">Signup</a>
-            <a href="#">Login</a>
+            <a href="signup">Signup</a>
+            <a href="login">Login</a>
         </div> 
 
     </div>
