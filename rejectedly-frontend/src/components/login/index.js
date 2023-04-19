@@ -33,7 +33,7 @@ const Loginn = ()=>{
             <img src={logo1} alt="logo" />
         </div>
         <h1>Login</h1><br/>
-        <form onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleSubmit}>
             <div className='signup-container'>
                 <label className='label' htmlFor="email">Email:</label>
                 <input className='input-field email' type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}/>
@@ -46,7 +46,7 @@ const Loginn = ()=>{
             <div className='btn'>
                 <button className='all-btn loginn-btn '>Login</button>
             </div><br />
-            <div className='signup-container'>
+            <div>
                 <label className='labell' htmlFor="name"><a href="reset">Forget password?</a></label><br /><br />
                 <label className='label' htmlFor="name">Don't have an account?<a className='login-text' href='signup'>Signup</a></label>
             </div>

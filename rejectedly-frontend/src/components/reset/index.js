@@ -15,7 +15,7 @@ return (
             <img src={logo1} alt="logo" />
         </div>
         <h1>Reset Password</h1><br/>
-        <form>
+        <form className='form'>
             <div className='signup-container'>
                 <label className='label' htmlFor="email">Email:</label>
                 <input className='input-field emaill' type="email" placeholder='Email' />
@@ -30,8 +30,8 @@ return (
                 <label className='label' htmlFor="password">Confirm password:</label>
                 <input className='input-field pass' type="password" placeholder='Confirm Password'/>
             </div><br/>
-            <div className='btn'>
-                <button className='all-btn change'>CHANGE</button>
+            <div>
+                <button className='all-btn'>CHANGE</button>
             </div><br />
        
         </form>

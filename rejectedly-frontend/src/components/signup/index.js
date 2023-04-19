@@ -39,7 +39,7 @@ return (
             <img src={logo1} alt="logo" />
         </div>
         <h1>Create Account</h1><br/>
-        <form onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleSubmit}>
             <div className='signup-container'>
                 <label className='label' htmlFor="name">Name:</label>
                 <input className='input-field name' type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
@@ -54,10 +54,10 @@ return (
                 <label className='label' htmlFor="name">Password:</label>
                 <input className='input-field pass' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div><br/>
-            <div className='btn'>
+            <div>
                 <button className='all-btn singup-btn'>SIGNUP</button>
             </div><br />
-            <div className='signup-container'>
+            <div>
                 <label className='label' htmlFor="name">Already have an account?<a className='login-text' href='login'>Login</a></label>
             </div>
         </form>
