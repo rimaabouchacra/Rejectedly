@@ -1,5 +1,5 @@
 .story {
-    position: relative;
+    position: fixed;
     justify-content: baseline;
     top: 0;
     left: 0;
