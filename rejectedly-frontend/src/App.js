@@ -9,6 +9,7 @@ import Analysis from './pages/rejectionanalysis_page';
 import SaveAnalysis from './pages/saveanalysis_page';
 import Profile from './pages/profile_page';
 import PostImproved from './pages/marketplace_page';
+import PostYourStory from './pages/collaboration_page';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/saved" element={<SaveAnalysis/>} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/marketplace" element={<PostImproved/>} />
+          <Route path="/collaboration" element={<PostYourStory/>} />
       </Routes>  
     </Router> 
 

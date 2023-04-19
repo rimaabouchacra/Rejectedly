@@ -2,13 +2,18 @@ import './index.css'
 import '../index.css'
 import '../rejectionstory/index.css'
 import '../newstory/index.css'
+import '../improvedstory/index.css'
 import React from 'react';
 
-const PostImprovedStory = () => {
+const PostStory = () => {
 return(
-    <div className="story">
+    <div className="story collaborate">
+        <div className='header'>
+        <h1>POST YOUR REJECTION</h1>
+        <button className='all-btn'>CREATE GROUP</button>
+        </div>
     <div className='new-story improved'>
-        <h1>REJECTION-TO-OPPORTUNITY MARKETPLACE</h1>
+        
         <div className='label-input'>
             <label className='label3 type' htmlFor="type">Rejection type</label>
             <select className='input type' name="types" id="type">
@@ -21,11 +26,9 @@ return(
  
         <label className='label3 before' htmlFor="story">Rejected idea or project before improvement</label>
         <textarea name="textarea" id="story" cols="30" rows="10"></textarea>
-        <label className='label3 after' htmlFor="story">Rejected idea or project after improvement</label>
-        <textarea name="textarea" id="story" cols="30" rows="10"></textarea>
         <button className='all-btn'>POST</button>
     </div>
     </div>
 )
 }
-export default PostImprovedStory
+export default PostStory
