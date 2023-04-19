@@ -24,6 +24,9 @@ input{
 .textarea{
     width: 13.75rem;
 }
+.myprofile{
+    align-self: start;
+}
 @media screen and (max-width: 768px) {
     .profile-container {
         flex-direction: column;

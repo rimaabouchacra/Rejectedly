@@ -9,7 +9,7 @@ const EditProfile = () => {
  
   return (
     <div className="story">
-        <h1>MY PROFILE</h1>
+        <h1 className="myprofile">MY PROFILE</h1>
         <div className="profile-container">
             <Profilee/>
             <div className="contact-inputs">
