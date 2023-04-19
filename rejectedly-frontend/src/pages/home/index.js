@@ -2,9 +2,9 @@ import AboutUs from '../../components/about';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
 import Navbar from '../../components/navbar'
-import Platform from '../../components/platform-features';
+import Platform from '../../components/platformfeatures';
 import Testimonials from '../../components/testimonials';
-import './homepage.css'
+import './home.css'
 
 const Homepage=()=>{
     return(
