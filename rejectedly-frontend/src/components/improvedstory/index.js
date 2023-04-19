@@ -7,8 +7,9 @@ import React from 'react';
 const PostImprovedStory = () => {
 return(
     <div className="story">
+        
     <div className='new-story improved'>
-        <h1>REJECTION-TO-OPPORTUNITY MARKETPLACE</h1>
+        <h1 className='r-title'>REJECTION-TO-OPPORTUNITY</h1>
         <div className='label-input'>
             <label className='label3 type' htmlFor="type">Rejection type</label>
             <select className='input type' name="types" id="type">

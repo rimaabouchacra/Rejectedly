@@ -25,9 +25,9 @@ return(
         </div>
  
         <label className='label3 before' htmlFor="story">Rejected idea or project before improvement</label>
-        <textarea name="textarea" id="story" cols="30" rows="10"></textarea>
+        <textarea className='textarea-before' name="textarea" id="story" cols="30" rows="10"></textarea>
         <button className='all-btn'>POST</button>
-    </div>
+    </div><br /><br />
     </div>
 )
 }

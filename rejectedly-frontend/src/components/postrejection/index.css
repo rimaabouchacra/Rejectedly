@@ -1,4 +1,9 @@
 .collaborate{
-    height: fit-content;
-    margin-bottom: 5rem;
+    height: 400px;
+    /* overflow-y:visible; */
+    /* background-color: aqua; */
+}
+.textarea-before{
+    height: 3rem;
+    
 }

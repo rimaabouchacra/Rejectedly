@@ -17,3 +17,7 @@ margin-right: 6rem;
     flex-direction: column;
     gap: 0.4rem;
 }
+.r-title{
+    width: 100%;
+    text-align: center;
+}
