@@ -8,11 +8,12 @@ import React from 'react';
 const PostStory = () => {
 return(
     <div className="story">
-    <div className='new-story'>
-        <div className='header'>
+        <div className='header collaborate'>
         <h1>POST YOUR REJECTION</h1>
         <button className='all-btn'>CREATE GROUP</button>
         </div>
+    <div className='new-story'>
+        
         <div className='label-input'>
             <label className='label3 type' htmlFor="type">Rejection type</label>
             <select className='input type' name="types" id="type">

@@ -29,6 +29,9 @@
     margin-left: 22rem;
     margin-top: 5rem;
     box-shadow: 2px 2px 8px rgb(181, 179, 179);
+    max-height: 448px;
+    overflow-y: scroll;
+
 }
 
 .header{
