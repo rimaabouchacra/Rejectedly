@@ -6,15 +6,21 @@ const NewStory = () => {
 return(
     <div className='new-story'>
         <h1>NEW STORY</h1>
-        <label className='label2' htmlFor="type">Story type</label>
-        <select className='input type' name="types" id="type">
-            <option value="Select">Select Rejection type</option>
-            <option value="JobApplication">Job Application</option>
-            <option value="Proposal">Proposal</option>
-            <option value="ProjectIdea">Project Idea</option>
-        </select><br/>
-        <label className='label1' htmlFor="story">Tell us what happened</label>
-        <textarea name="textarea" id="story" cols="30" rows="10"></textarea>
+        <div className='label-input'>
+            {/* <label className='label2' htmlFor="type">Story type</label> */}
+            <label htmlFor="type">Story type</label>
+            <select className='input type' name="types" id="type">
+               <option value="Select">Select Rejection type</option>
+               <option value="JobApplication">Job Application</option>
+               <option value="Proposal">Proposal</option>
+               <option value="ProjectIdea">Project Idea</option>
+            </select><br/>
+        </div>
+        <div className='label-input'>
+            {/* <label className='label1' htmlFor="story">Tell us what happened</label> */}
+            <label  htmlFor="story">Tell us what happened</label>
+            <textarea name="textarea" id="story" cols="30" rows="10"></textarea>
+        </div>
         <button className='all-btn'>SAVE&ANALYZE</button>
     </div>
 )

@@ -6,7 +6,16 @@
     gap: 0.5rem;
     width: 37.5rem;
     height: 25.063rem;
+    background-color: white;
     
+}
+.label-input {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 12px;
 }
 .input{
     padding: 0.2rem;
@@ -23,16 +32,7 @@ textarea{
 .type{
     width: 19.688rem;
 }
-.label1{
-    font-weight: normal;
-    margin-right: 12.8rem;
-    font-size: 12px;
-}
-.label2{
-    font-weight: normal;
-    margin-right: 16rem;
-    font-size: 12px;
-}
+
 .story {
     position: relative;
 }
