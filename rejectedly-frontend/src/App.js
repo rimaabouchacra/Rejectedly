@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Homepage from './pages/homepage';
-import Register from './pages/register';
-import Login from './pages/loginpage';
-import Resetpass from './pages/resetpass';
-import Analysis from './pages/rejectionanalysis';
-import SaveAnalysis from './pages/saveanalysis';
-import Profile from './pages/profilepage';
+import Register from './pages/register_page';
+import Login from './pages/login_page';
+import Resetpass from './pages/resetpass_page';
+import Analysis from './pages/rejectionanalysis_page';
+import SaveAnalysis from './pages/saveanalysis_page';
+import Profile from './pages/profile_page';
 
 function App() {
   return (
