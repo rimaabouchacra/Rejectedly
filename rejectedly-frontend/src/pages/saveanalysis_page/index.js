@@ -5,7 +5,7 @@ import Sidebar from "../../components/sidebar";
 const SaveAnalysis=()=>{
     return(
         <div>
-          <Sidebar/>  
+          <Sidebar activePage="saved"/>  
           <Saved/>
         </div>
     )

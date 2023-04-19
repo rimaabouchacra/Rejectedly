@@ -3,7 +3,7 @@ import EditProfile from "../../components/editprofile";
 const Profile=()=>{
     return(
         <div>
-            <Sidebar/>
+            <Sidebar activePage="profile"/>
             <EditProfile/>
         </div>
     )

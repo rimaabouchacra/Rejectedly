@@ -22,7 +22,9 @@
     width: 40%;
     height: 28.25rem;
     text-align: center;
-    box-shadow: 2px 2px 8px var(--green);
+    box-shadow: 10px 10px 8px rgba(184, 183, 183, 0.5);
+    /* box-shadow: inset 0px 0px 5px white; */
+    border-radius: 3px;
     background-color: var(--white);
 
 }

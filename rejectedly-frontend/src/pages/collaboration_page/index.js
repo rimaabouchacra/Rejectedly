@@ -3,7 +3,7 @@ import PostStory from "../../components/postrejection"
 const PostYourStory=()=>{
     return(
         <div>
-            <Sidebar/>
+            <Sidebar activePage="collaboration"/>
             <PostStory/>
         </div>
     )

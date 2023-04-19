@@ -4,6 +4,9 @@
     margin-bottom: 2rem;
     
 }
+.active {
+    font-weight: bold;
+}
 .sidebar {
     position: fixed;
     justify-content: baseline;
@@ -41,6 +44,9 @@
 
 .sidebar a:hover {
     text-shadow: 2px 2px 8px var(--green);
+}
+.li{
+    margin-top: 9rem;
 }
 .li a{
     font-weight: bold;

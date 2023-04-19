@@ -4,7 +4,7 @@ import PostImprovedStory from "../../components/improvedstory"
 const PostImproved=()=>{
     return(
         <div>
-            <Sidebar/>
+            <Sidebar  activePage="marketplace"/>
             <PostImprovedStory/>
         </div>
     )
