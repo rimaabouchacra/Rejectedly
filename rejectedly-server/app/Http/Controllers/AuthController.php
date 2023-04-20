@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
+
 class AuthController extends Controller
 {
 
@@ -48,12 +49,14 @@ return $response;
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
+            'is_admin' => 'boolean',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'is_admin' => $request->input('is_admin', false),
         ]);
 
         $token = Auth::login($user);
@@ -88,5 +91,22 @@ return $response;
             ]
         ]);
     }
+
+    public function getUsers(Request $request)
+    {
+        if (!Auth::user()->is_admin) { 
+           return response()->json([
+               'status' => 'error',
+               'message' => 'Unauthorized',
+           ], 401);
+        }
+
+        $users = User::all();
+        return response()->json([
+           'status' => 'success',
+           'users' => $users
+        ]);
+    }
+
 
 }
