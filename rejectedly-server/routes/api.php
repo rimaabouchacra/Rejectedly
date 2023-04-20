@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RejectionStoriesController;
 
 
 Route::group(['prefix' => 'v1'], function(){
@@ -10,12 +11,13 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/login', [AuthController::class, "login"]);
         Route::post('/signup', [AuthController::class, "register"]);
         Route::post('/refresh', [AuthController::class, "refresh"]);
+        Route::post('/rejection-stories', [RejectionStoriesController::class, "storeStory"]);
+        Route::post('/rejection-stories/improved', [RejectionStoriesController::class, "storeStoryWithImprovement"]);
     });
 
     Route::group(['middleware' => ['auth:api', 'admin']], function() {
     Route::get('/users', [AuthController::class, "getUsers"]);
-    Route::post('/rejection-stories', [RejectionStoryController::class, "storeStory"]);
-    Route::post('/rejection-stories/improved', [RejectionStoryController::class, "storeStoryWithImprovement"]);
+
     });
 
     Route::group(['middleware' => 'auth:api'], function(){

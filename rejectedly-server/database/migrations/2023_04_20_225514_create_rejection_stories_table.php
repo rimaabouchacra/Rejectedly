@@ -17,7 +17,7 @@ class CreateRejectionStoriesTable extends Migration
             $table->id();
             $table->string('story_type');
             $table->text('story_text');
-            $table->text('story_text_improved');
+            $table->text('story_text_improved')->nullable()->default('');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
@@ -34,4 +34,3 @@ class CreateRejectionStoriesTable extends Migration
         Schema::dropIfExists('rejection_stories');
     }
 }
-
