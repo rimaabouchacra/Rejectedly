@@ -20,8 +20,15 @@
 }
 .search-img{
     border: 1px solid gray;
-    padding: 0.33rem;
+    padding: 0.31rem;
     height: 1.35rem;
     width: 1.35rem;
     
+}
+.view{
+    display: flex;
+    color: var(--green);
+    justify-content: baseline;
+    align-items: center;
+    font-size: 15px;
 }
