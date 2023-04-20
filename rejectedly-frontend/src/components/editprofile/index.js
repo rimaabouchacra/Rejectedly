@@ -3,12 +3,14 @@ import { FaCamera } from "react-icons/fa";
 import "./index.css";
 import "../index.css";
 import "../rejectionstory/index.css";
+import "../newstory/index.css";
 import Profilee from "../profileimage";
 
 const EditProfile = () => {
  
   return (
-    <div className="story">
+    <div className="story edit-profile">
+        
         <h1 className="myprofile">MY PROFILE</h1>
         <div className="profile-container">
             <Profilee/>

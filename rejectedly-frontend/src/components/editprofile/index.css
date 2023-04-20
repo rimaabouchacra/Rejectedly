@@ -8,6 +8,9 @@
     margin-right: 12.8rem;
     font-size: 14px;
 }
+.edit-profile{
+    padding-bottom: 3.6rem;
+}
 .contact-inputs{
     display: flex;
     flex-direction: column;
