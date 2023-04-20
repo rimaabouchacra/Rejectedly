@@ -14,6 +14,8 @@ Route::group(['prefix' => 'v1'], function(){
 
     Route::group(['middleware' => ['auth:api', 'admin']], function() {
     Route::get('/users', [AuthController::class, "getUsers"]);
+    Route::post('/rejection-stories', [RejectionStoryController::class, "storeStory"]);
+    Route::post('/rejection-stories/improved', [RejectionStoryController::class, "storeStoryWithImprovement"]);
     });
 
     Route::group(['middleware' => 'auth:api'], function(){
