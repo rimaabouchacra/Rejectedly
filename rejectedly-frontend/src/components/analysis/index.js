@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './index.css';
 import '../index.css';
 
+
 const Analysis = () => {
   const [showAnalysis, setShowAnalysis] = useState(true);
   const overlayRef = useRef(null);
@@ -22,7 +23,7 @@ const Analysis = () => {
   }, []);
 
   return (
-    <>
+    <div>
       {showAnalysis && (
         <div className="analysis" ref={overlayRef}>
           <h1>ANALYSIS</h1>
@@ -53,7 +54,7 @@ const Analysis = () => {
    
         </div>
       )}
-    </>
+    </div>
   );
 };
 

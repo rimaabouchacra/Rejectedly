@@ -4,7 +4,7 @@ import Sidebar from "../../components/sidebar"
 const CreateGroup=()=>{
     return(
         <div>
-            <Sidebar/>
+            <Sidebar activePage="collaboration"/>
             <Group/>
         </div>
     )

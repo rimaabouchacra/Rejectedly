@@ -1,7 +1,27 @@
 .headergroup{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+}
+.search{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    height: 1.25rem;
+    padding: 0.33rem;
+    border: none;
+}
 
+.search-text{
+    font-size: 15px;
+    
+}
+.search-img{
+    border: 1px solid gray;
+    padding: 0.33rem;
+    height: 1.35rem;
+    width: 1.35rem;
+    
 }
