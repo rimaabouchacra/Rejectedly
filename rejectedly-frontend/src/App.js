@@ -10,6 +10,7 @@ import SaveAnalysis from './pages/saveanalysis_page';
 import Profile from './pages/profile_page';
 import PostImproved from './pages/marketplace_page';
 import PostYourStory from './pages/collaboration_page';
+import CreateGroup from './pages/group_page';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/profile" element={<Profile/>} />
           <Route path="/marketplace" element={<PostImproved/>} />
           <Route path="/collaboration" element={<PostYourStory/>} />
+          <Route path="/group" element={<CreateGroup/>} />
       </Routes>  
     </Router> 
 

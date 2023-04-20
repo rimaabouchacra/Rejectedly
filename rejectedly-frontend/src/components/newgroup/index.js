@@ -7,6 +7,7 @@ import '../newstory/index.css'
 const Group = () => {
 
     return (
+    <div className="story">
      <div className='new-story'>
         <div className="headergroup">
             <img src={groupImg} alt="grpImg" />
@@ -22,6 +23,7 @@ const Group = () => {
             <textarea name="textarea" id="description" cols="30" rows="10"></textarea>
         </div>
         <button className='all-btn'>SAVE</button>
+    </div>
     </div>
   );
 }

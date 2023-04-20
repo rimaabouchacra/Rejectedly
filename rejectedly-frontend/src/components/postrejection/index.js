@@ -2,43 +2,19 @@ import '../index.css'
 import '../rejectionstory/index.css'
 import '../newstory/index.css'
 import '../improvedstory/index.css'
-import React, { useState, useRef, useEffect } from 'react';
-import Group from '../newgroup';
+import React from 'react'
 
 
 const PostStory = () => {
-  const [showGroup, setShowGroup] = useState(false);
-  const overlayRef3 = useRef(null);
-
-  function handleButtonClick3() {
-    setShowGroup(true);
-  }
-
-  function handleOverlayClick3(e) {
-    if (e.target === overlayRef3.current) {
-      setShowGroup(false);
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleOverlayClick3);
-    return () => {
-      document.removeEventListener('mousedown', handleOverlayClick3);
-    };
-  }, []);
-
+  const handleClick = () => {
+    window.location.href = '/group';
+  };
+  
 return(
     <div className="story">
         <div className='header collaborate'>
         <h1>POST YOUR REJECTION</h1>
-        <button onClick={handleButtonClick3} className='all-btn'>CREATE GROUP</button>
-        {showGroup && (
-        <div className='overlay' ref={overlayRef3}>
-          <div className='popup'>
-            <Group/>
-          </div>
-        </div>
-      )}
+        <button onClick={handleClick} className='all-btn'>CREATE GROUP</button>
         </div>
     <div className='new-story'>
         
