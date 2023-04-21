@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RejectionStoriesController;
+use App\Http\Controllers\GroupController;
 
 
 Route::group(['prefix' => 'v1'], function(){
@@ -13,7 +14,12 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/refresh', [AuthController::class, "refresh"]);
         Route::post('/rejection-stories', [RejectionStoriesController::class, "storeStory"]);
         Route::post('/rejection-stories/improved', [RejectionStoriesController::class, "storeStoryWithImprovement"]);
+        Route::post('/creategroup', [GroupController::class, 'create']);
+        Route::post('/groups/{group}/users', [GroupController::class, 'addUsersToGroup']);
+
     });
+
+
 
     Route::group(['middleware' => ['auth:api', 'admin']], function() {
     Route::get('/users', [AuthController::class, "getUsers"]);
