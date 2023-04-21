@@ -35,4 +35,14 @@ class UserController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+    public function showComment(RejectionStory $story, Comment $comment)
+    {
+       $user = $comment->user;
+       return response()->json([
+          'story' => $story,
+          'comment' => $comment,
+          'user' => $user
+        ]);
+    }
+
 }
