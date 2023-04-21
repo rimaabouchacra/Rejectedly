@@ -39,7 +39,7 @@ class UserController extends Controller
     {
         $comments = Comment::where('story_id', $story->id)->get();
 
-        return response()->json($comments);
+        return response()->json($comments)
     }
 
 
