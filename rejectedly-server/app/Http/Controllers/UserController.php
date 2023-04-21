@@ -41,14 +41,23 @@ class UserController extends Controller
 
     //     return response()->json($comments);
     // }
-    public function getComments(Request $request, RejectionStory $story)
-{
-    $comments = Comment::with('user')
-                        ->where('story_id', $story->id)
-                        ->get();
+    public function getComments(RejectionStory $story)
+    {
+       $comments = Comment::where('story_id', $story->id)->with('user')->get(['comment_text', 'user_id']);
 
-    return response()->json(['comments' => $comments]);
-}
+       $commentsWithUser = $comments->map(function ($comment) {
+          $userName = $comment->user->name;
+          return [
+              'comment_text' => $comment->comment_text,
+              'user_name' => $userName,
+          ];
+       });
+
+       return response()->json([
+            'comments' => $commentsWithUser,
+        ]);
+    }
+
 
 
 
