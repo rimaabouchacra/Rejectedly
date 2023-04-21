@@ -53,7 +53,7 @@ class GroupController extends Controller
 
         return response()->json([
             'message' => 'Users added to group successfully'
-        ], 201);
+        ], 200);
 }
 
 
