@@ -8,7 +8,7 @@ use App\Models\User;
 
 class GroupController extends Controller
 {
-    public function create(Request $request)
+    public function createGroup(Request $request)
     {
         $request->validate([
            'grp_name' => 'required|string',
@@ -25,10 +25,10 @@ class GroupController extends Controller
     }
 
     public function addUsersToGroup(Request $request)
-{
-    $request->validate([
-            'group_id' => 'required|exists:groups,id',
-            'user_ids' => 'required|array',
+    {
+        $request->validate([
+              'group_id' => 'required|exists:groups,id',
+              'user_ids' => 'required|array',
         ]);
 
         $group = Group::find($request->group_id);
@@ -54,7 +54,7 @@ class GroupController extends Controller
         return response()->json([
             'message' => 'Users added to group successfully'
         ], 200);
-}
+    }
 
 
 

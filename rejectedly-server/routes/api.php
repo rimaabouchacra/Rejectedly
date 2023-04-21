@@ -14,7 +14,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/refresh', [AuthController::class, "refresh"]);
         Route::post('/rejection-stories', [RejectionStoriesController::class, "storeStory"]);
         Route::post('/rejection-stories/improved', [RejectionStoriesController::class, "storeStoryWithImprovement"]);
-        Route::post('/creategroup', [GroupController::class, 'create']);
+        Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/{group}/users', [GroupController::class, 'addUsersToGroup']);
 
     });
