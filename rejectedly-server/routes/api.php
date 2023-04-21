@@ -18,7 +18,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
         Route::post('/stories/{story}/comments', [UserController::class, 'store']);
-        Route::get('/stories/comments/', [UserController::class, 'getAllComments']);
+        Route::get('/stories/{story}/comments', [UserController::class, 'getComments']);
 
 
     });
