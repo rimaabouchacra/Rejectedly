@@ -35,12 +35,21 @@ class UserController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-    public function getComments(RejectionStory $story)
-    {
-        $comments = Comment::where('story_id', $story->id)->get();
+    // public function getComments(RejectionStory $story)
+    // {
+    //     $comments = Comment::where('story_id', $story->id)->get();
 
-        return response()->json($comments);
-    }
+    //     return response()->json($comments);
+    // }
+    public function getComments(Request $request, RejectionStory $story)
+{
+    $comments = Comment::with('user')
+                        ->where('story_id', $story->id)
+                        ->get();
+
+    return response()->json(['comments' => $comments]);
+}
+
 
 
 }
