@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RejectionStoriesController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\UserController;
 
 
 Route::group(['prefix' => 'v1'], function(){
@@ -16,6 +17,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/rejection-stories/improved', [RejectionStoriesController::class, "storeStoryWithImprovement"]);
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
+        Route::post('/stories/{story}/comments', [UserController::class, 'store']);
 
     });
 
@@ -27,7 +29,7 @@ Route::group(['prefix' => 'v1'], function(){
     });
 
     Route::group(['middleware' => 'auth:api'], function(){
-        Route::post('/logout', [AuthController::class, "logout"]);
+    Route::post('/logout', [AuthController::class, "logout"]);
 
     });
 });

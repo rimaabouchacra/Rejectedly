@@ -2,23 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\RejectionStory;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function store(Request $request, RejectionStory $story)
     {
-        $validatedData = $request->validate([
-            'comment_text' => 'required|string|max:255',
-        ]);
+        try {
+            $validatedData = $request->validate([
+                'comment_text' => 'required|string|max:255',
+            ]);
 
-        $comment = new Comment();
-        $comment->comment_text = $validatedData['comment_text'];
-        $comment->user_id = auth()->user()->id;
-        $comment->story_id = $story->id;
+            if (!$story) {
+                throw new \Exception('Story not found');
+            }
 
-        $comment->save();
+            logger()->debug('Story ID: ' . $story->id);
 
-        return redirect()->back();
+            $comment = new Comment();
+            $comment->comment_text = $validatedData['comment_text'];
+            $comment->user_id = auth()->user()->id;
+            $comment->story_id = $story->id;
+
+            $comment->save();
+
+            return response()->json(['message' => 'Comment added successfully']);
+        } catch (\Exception $e) {
+            logger()->error($e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 }
