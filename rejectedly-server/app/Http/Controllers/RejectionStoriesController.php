@@ -74,7 +74,6 @@ class RejectionStoriesController extends Controller
 
        $notImprovedStoriesWithUser = $notImprovedStories->map(function ($story) {
           return [
-            // 'user_id' => $story->user_id,
             'name' => $story->user->name,
             'email' => $story->user->email,
             'image_url' => $story->user->image_url,
