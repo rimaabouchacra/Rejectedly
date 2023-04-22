@@ -44,30 +44,13 @@ class RejectionStoriesController extends Controller
         return response()->json(['message' => 'Rejection story added successfully']);
     }
 
-    // public function GetImproved()
-    // {
-    //  $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->get();
-
-    // return response()->json(['improved_stories' => $improvedStories]);
-    // $ImprovedStoriesWithUser = $notImprovedStories->map(function ($story) {
-    //       return [
-    //         // 'user_id' => $story->user_id,
-    //         'name' => $story->user->name,
-    //         'email' => $story->user->email,
-    //         'image_url' => $story->user->image_url,
-    //         'story_type' => $story->story_type,
-    //         'story_text' => $story->story_text,
-    //     ];
-    // });
-    // }
-
-
     public function GetImproved()
-{
-     $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->with('user')->get();
+    {
+
+    $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->with('user')->get();
 
     $improvedStories = $improvedStories->map(function ($story) {
-        
+
         return [
             // 'user_id' => $story->user_id,
             'name' => $story->user->name,
@@ -75,12 +58,14 @@ class RejectionStoriesController extends Controller
             'image_url' => $story->user->image_url,
             'story_type' => $story->story_type,
             'story_text' => $story->story_text,
+            'story_text_improved' => $story->story_text_improved,
         ];
     });
 
     return response()->json(['improved_stories' => $improvedStories]);
+    }
 
-}
+
 
    public function GetNotImproved(Request $request)
    {
