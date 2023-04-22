@@ -16,10 +16,6 @@ const EditProfile = () => {
             <Profilee/>
             <div className="contact-inputs">
                 <div>
-                    <label className="profile-label" htmlFor="name">Full Name</label>
-                    <input type="text" />
-                </div>
-                <div>
                     <label  className="profile-label"  htmlFor="username">Username</label>
                     <input type="text" />
                 </div>
@@ -37,7 +33,7 @@ const EditProfile = () => {
                     <label  className="profile-label"  htmlFor="bio">Biography</label>
                     <textarea className="textarea" name="bio" id="bio" cols="30" rows="6"></textarea>
                 </div>
-                <div>
+                <div className="spacing">
                     <label  className="profile-label"  htmlFor="linkedin">Linkedin</label>
                     <input type="text" />
                 </div>
