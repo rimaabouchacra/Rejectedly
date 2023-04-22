@@ -42,6 +42,7 @@ class RejectionStoriesController extends Controller
 
         return response()->json(['message' => 'Rejection story added successfully']);
     }
+
     public function GetImproved()
     {
      $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->get();
@@ -49,16 +50,15 @@ class RejectionStoriesController extends Controller
     return response()->json(['improved_stories' => $improvedStories]);
     }
 
-    public function GetNotImproved(Request $request)
-    {
+    // public function GetNotImproved(Request $request)
+    // {
+    // $rejectionStories = RejectionStory::all();
+    // $notImprovedStories = $rejectionStories->filter(function($story) {
+    //     return empty($story->story_text_improved);
+    // });
 
-    $rejectionStories = RejectionStory::all();
-    $notImprovedStories = $rejectionStories->filter(function($story) {
-        return empty($story->story_text_improved);
-    });
-
-    return response()->json(['not_improved_stories' => $notImprovedStories], 200);
-    }
+    // return response()->json(['not_improved_stories' => $notImprovedStories], 200);
+    // }
 
 }
 
