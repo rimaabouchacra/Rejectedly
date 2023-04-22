@@ -17,5 +17,9 @@ class RejectionStory extends Model
         'story_text_improved',
         'user_id',
     ];
+    public function user()
+   {
+    return $this->belongsTo(User::class);
+   }
 }
 

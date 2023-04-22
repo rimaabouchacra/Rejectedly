@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RejectionStory;
 
+
 class RejectionStoriesController extends Controller
 {
 
@@ -59,6 +60,28 @@ class RejectionStoriesController extends Controller
 
     // return response()->json(['not_improved_stories' => $notImprovedStories], 200);
     // }
+   public function GetNotImproved(Request $request)
+{
+    $rejectionStories = RejectionStory::with('user')->get();
+    $notImprovedStories = $rejectionStories->filter(function($story) {
+        return empty($story->story_text_improved);
+    });
+
+    $notImprovedStoriesWithUser = $notImprovedStories->map(function ($story) {
+        return [
+            // 'user_id' => $story->user_id,
+            'name' => $story->user->name,
+            'email' => $story->user->email,
+            'image_url' => $story->user->image_url,
+            'story_type' => $story->story_type,
+            'story_text' => $story->story_text,
+        ];
+    });
+
+    return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
+}
+
+
 
 }
 
