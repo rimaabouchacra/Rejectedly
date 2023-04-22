@@ -15,7 +15,8 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/refresh', [AuthController::class, "refresh"]);
         Route::post('/rejection-stories', [RejectionStoriesController::class, "storeStory"]);
         Route::post('/rejection-stories/improved', [RejectionStoriesController::class, "storeStoryWithImprovement"]);
-        Route::get('/stories', [RejectionStoriesController::class, 'getAllStories']);
+        Route::get('/rejection-stories/improved', [RejectionStoriesController::class, 'GetImproved']);
+        Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
         Route::post('/stories/{story}/comments', [UserController::class, 'store']);
