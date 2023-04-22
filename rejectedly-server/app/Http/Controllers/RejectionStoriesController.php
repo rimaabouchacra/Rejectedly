@@ -42,9 +42,9 @@ class RejectionStoriesController extends Controller
 
         return response()->json(['message' => 'Rejection story added successfully']);
     }
-    public function getImprovedStories()
+    public function GetImproved()
     {
-    $improvedStories = RejectionStory::whereNotNull('story_text_improved')->get();
+     $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->get();
 
     return response()->json(['improved_stories' => $improvedStories]);
     }
