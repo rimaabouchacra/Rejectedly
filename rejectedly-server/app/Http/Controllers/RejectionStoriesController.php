@@ -44,31 +44,40 @@ class RejectionStoriesController extends Controller
         return response()->json(['message' => 'Rejection story added successfully']);
     }
 
+    // public function GetImproved()
+    // {
+    //  $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->get();
+
+    // return response()->json(['improved_stories' => $improvedStories]);
+    // $ImprovedStoriesWithUser = $notImprovedStories->map(function ($story) {
+    //       return [
+    //         // 'user_id' => $story->user_id,
+    //         'name' => $story->user->name,
+    //         'email' => $story->user->email,
+    //         'image_url' => $story->user->image_url,
+    //         'story_type' => $story->story_type,
+    //         'story_text' => $story->story_text,
+    //     ];
+    // });
+    // }
+
+
     public function GetImproved()
-    {
-     $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->get();
+{
+    $improvedStories = RejectionStory::whereNotNull('story_text_improved')->with('user:id,name,email,image_url')->get();
 
     return response()->json(['improved_stories' => $improvedStories]);
-    }
+}
 
-    // public function GetNotImproved(Request $request)
-    // {
-    // $rejectionStories = RejectionStory::all();
-    // $notImprovedStories = $rejectionStories->filter(function($story) {
-    //     return empty($story->story_text_improved);
-    // });
-
-    // return response()->json(['not_improved_stories' => $notImprovedStories], 200);
-    // }
    public function GetNotImproved(Request $request)
-{
-    $rejectionStories = RejectionStory::with('user')->get();
-    $notImprovedStories = $rejectionStories->filter(function($story) {
-        return empty($story->story_text_improved);
-    });
+   {
+       $rejectionStories = RejectionStory::with('user')->get();
+       $notImprovedStories = $rejectionStories->filter(function($story) {
+           return empty($story->story_text_improved);
+       });
 
-    $notImprovedStoriesWithUser = $notImprovedStories->map(function ($story) {
-        return [
+       $notImprovedStoriesWithUser = $notImprovedStories->map(function ($story) {
+          return [
             // 'user_id' => $story->user_id,
             'name' => $story->user->name,
             'email' => $story->user->email,
@@ -79,7 +88,7 @@ class RejectionStoriesController extends Controller
     });
 
     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
-}
+    }
 
 
 
