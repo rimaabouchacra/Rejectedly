@@ -10,18 +10,18 @@ class RejectionStoriesController extends Controller
 {
 
     public function storeStory(Request $request)
-{
-    $rejectionStory = new RejectionStory;
-    $rejectionStory->story_type = $request->story_type;
-    $rejectionStory->story_text = $request->story_text;
-    $rejectionStory->user_id = auth()->user()->id;
+    {
+        $rejectionStory = new RejectionStory;
+        $rejectionStory->story_type = $request->story_type;
+        $rejectionStory->story_text = $request->story_text;
+        $rejectionStory->user_id = auth()->user()->id;
 
-    if (!$rejectionStory->save()) {
-        return response()->json(['message' => 'Failed to save story'], 500);
+       if (!$rejectionStory->save()) {
+           return response()->json(['message' => 'Failed to save story'], 500);
+       }
+
+       return response()->json(['message' => 'Story created successfully', 'story' => $rejectionStory], 201);
     }
-
-    return response()->json(['message' => 'Story created successfully', 'story' => $rejectionStory], 201);
-}
 
 
     public function storeStoryWithImprovement(Request $request)
