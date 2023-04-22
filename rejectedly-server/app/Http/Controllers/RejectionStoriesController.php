@@ -64,9 +64,19 @@ class RejectionStoriesController extends Controller
 
     public function GetImproved()
 {
-    $improvedStories = RejectionStory::whereNotNull('story_text_improved')->with('user:id,name,email,image_url')->get();
+     $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->with('user')->get();
+
+    $improvedStories = $improvedStories->map(function ($story) {
+        $user = $story->user;
+        $story['user_image_url'] = $user->image_url;
+        $story['user_name'] = $user->name;
+        $story['user_email'] = $user->email;
+
+        return $story;
+    });
 
     return response()->json(['improved_stories' => $improvedStories]);
+
 }
 
    public function GetNotImproved(Request $request)
