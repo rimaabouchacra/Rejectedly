@@ -67,12 +67,20 @@ class RejectionStoriesController extends Controller
      $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->with('user')->get();
 
     $improvedStories = $improvedStories->map(function ($story) {
-        $user = $story->user;
-        $story['user_image_url'] = $user->image_url;
-        $story['user_name'] = $user->name;
-        $story['user_email'] = $user->email;
+        // $user = $story->user;
+        // $story['user_image_url'] = $user->image_url;
+        // $story['user_name'] = $user->name;
+        // $story['user_email'] = $user->email;
 
-        return $story;
+        // return $story;
+        return [
+            // 'user_id' => $story->user_id,
+            'name' => $story->user->name,
+            'email' => $story->user->email,
+            'image_url' => $story->user->image_url,
+            'story_type' => $story->story_type,
+            'story_text' => $story->story_text,
+        ];
     });
 
     return response()->json(['improved_stories' => $improvedStories]);
