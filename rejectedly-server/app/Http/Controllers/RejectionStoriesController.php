@@ -54,6 +54,20 @@ class RejectionStoriesController extends Controller
 
     //     return response()->json(['stories' => $stories], 200);
     // }
+    public function GetNotImproved(Request $request)
+    {
+    // Retrieve all rejection stories
+    $rejectionStories = RejectionStory::all();
+
+    // Filter only the stories that have not been improved
+    $notImprovedStories = $rejectionStories->filter(function($story) {
+        return empty($story->story_text_improved);
+    });
+
+    // Return the not improved stories
+    return response()->json(['not_improved_stories' => $notImprovedStories], 200);
+    }
+
 }
 
 
