@@ -29,6 +29,7 @@ import './index.css'
 import '../index.css'
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const NewStory = (props) => {
   const [story_type, setType] = useState("");
@@ -43,7 +44,8 @@ const NewStory = (props) => {
     setText(e.target.value);
   };
 
-
+  const navigate = useNavigate();
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('access_token');
@@ -62,6 +64,8 @@ const NewStory = (props) => {
       .then((response) => {
         console.log(response.data);
         console.log("Story added successfully!")
+        
+        navigate('/saved');
       })
       .catch((error) => {
         console.log(error.response.data);
@@ -86,6 +90,7 @@ return(
             <textarea name="textarea" id="story" cols="30" rows="10" value={story_text} onChange={handleTextChange}></textarea>
         </div>
         <button className='all-btn'>SAVE&ANALYZE</button>
+        {/* <button  onClick={handleSave} className='all-btn'>SAVE&ANALYZE</button> */}
     </form>
 )
 }

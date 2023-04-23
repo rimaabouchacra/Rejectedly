@@ -4,7 +4,7 @@ import Story from "../../components/rejectionstory";
 const Analysis = () => {
   return (
     <div>
-        <Sidebar activePage="saved"/>
+        <Sidebar activePage="analysis"/>
         <Story/>
     </div>
   )
