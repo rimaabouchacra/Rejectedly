@@ -1,7 +1,7 @@
  .user-info{
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    /* gap: 1rem; */
    
 } 
 .post-container {
@@ -29,13 +29,14 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 0.5rem;
+    /* gap: 0.5rem; */
     height: 25.063rem;
     background-color: white;
     margin: 1.5rem; 
+    
 }
 .name-email{
     display: flex;
     flex-direction: column;
-    /* gap: 0; */
+   
 }
