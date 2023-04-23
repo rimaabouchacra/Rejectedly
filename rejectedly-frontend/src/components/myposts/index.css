@@ -1,0 +1,40 @@
+ .user-info{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+   
+} 
+.post-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50rem;
+    background-color: white;
+    border-radius: 0.188rem;
+    margin: 3rem auto;
+    padding: 1.5rem;
+    margin-left: 22rem;
+    margin-top: 5rem;
+    box-shadow: 2px 2px 8px rgb(181, 179, 179);
+    max-height: 448px;
+    overflow-y: scroll;
+
+}
+.post{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+    height: 25.063rem;
+    background-color: white;
+    margin: 1.5rem; 
+}
+.name-email{
+    display: flex;
+    flex-direction: column;
+}
