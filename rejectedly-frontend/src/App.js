@@ -12,7 +12,7 @@ import PostImproved from './pages/marketplace_page';
 import PostYourStory from './pages/collaboration_page';
 import CreateGroup from './pages/group_page';
 import AdminDashboard from './pages/admin_page';
-
+import Posts from './pages/posts'
 function App() {
   return (
     <Router>
@@ -28,6 +28,7 @@ function App() {
           <Route path="/collaboration" element={<PostYourStory/>} />
           <Route path="/group" element={<CreateGroup/>} />
           <Route path="/admin" element={<AdminDashboard/>} />
+          <Route path="/posts" element={<Posts/>} />
       </Routes>  
     </Router> 
 
