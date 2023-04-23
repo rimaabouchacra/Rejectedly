@@ -85,7 +85,25 @@ class RejectionStoriesController extends Controller
     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
     }
 
+public function GetLatestNotImproved(Request $request)
+{
+    $rejectionStories = RejectionStory::with('user')->get();
+    $notImprovedStories = $rejectionStories->filter(function($story) {
+        return empty($story->story_text_improved);
+    })->sortByDesc('created_at');
 
+    $latestStory = $notImprovedStories->first();
+
+    $latestStoryWithUser = [
+        'name' => $latestStory->user->name,
+        'email' => $latestStory->user->email,
+        'image_url' => $latestStory->user->image_url,
+        'story_type' => $latestStory->story_type,
+        'story_text' => $latestStory->story_text,
+    ];
+
+    return response()->json(['latest_story' => $latestStoryWithUser], 200);
+}
 
 }
 
