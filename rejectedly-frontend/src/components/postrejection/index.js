@@ -45,7 +45,7 @@ const PostStory = () => {
         console.log(response.data);
         console.log("Story added successfully!")
         
-        navigate('/post');
+        navigate('/posts');
       })
       .catch((error) => {
         console.log(error.response.data);

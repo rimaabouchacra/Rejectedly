@@ -20,6 +20,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
+        Route::get('/user', [UserController::class, 'getUser']);
         Route::post('/stories/{story}/comments', [UserController::class, 'store']);
         Route::get('/stories/{story}/comments', [UserController::class, 'getComments']);
 

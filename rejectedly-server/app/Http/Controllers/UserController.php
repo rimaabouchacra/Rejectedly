@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+
+    public function getUser(Request $request)
+    {
+        
+        $user = Auth::user();
+        return response()->json($user);
+
+    }
     public function store(Request $request, RejectionStory $story)
     {
         try {
