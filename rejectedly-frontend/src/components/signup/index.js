@@ -116,9 +116,20 @@ const handleSubmit = async (e) => {
         try {
             const response = await axios.post('http://localhost:8000/api/v1/auth/signup', data);
             localStorage.setItem('token', response.data.authorisation.token);
+            localStorage.setItem("name", response.data.user.name);
+            localStorage.setItem("user_id", response.data.user.id);
+            localStorage.setItem("email", response.data.user.email);
             console.log("success")
+            if (response.data.user.is_admin == 1) {
+                window.location.href = "/admin";
+            } else {
+                window.location.href = "/analysis";
+            }
         } catch (error) {
             console.log(error);
+            if (error.response && error.response.status === 422) {
+                setEmailError("*Email already exists");
+            }
         }
         }
     };
