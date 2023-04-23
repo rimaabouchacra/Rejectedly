@@ -118,7 +118,7 @@ const Posts = () => {
       console.log(error);
     });
 
-    axios.get('http://localhost:8000/api/v1/auth/latest-rejection-story', {
+    axios.get('http://localhost:8000/api/v1/auth/latest-rejection-stories', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(response => {
@@ -145,13 +145,13 @@ const Posts = () => {
             </div>
           </div>
         )}
-        {rejection_stories && (
-          <div className='rejection-story' key={rejection_stories.id}>
-            <h3>hr</h3>
-            <h3>{rejection_stories.story_type}</h3>
-            <p>{rejection_stories.story_text}</p>
-          </div>
-        )}
+        {rejection_stories && rejection_stories.story_type && rejection_stories.story_text && (
+        <div className='rejection-story' key={rejection_stories.id}>
+        <h3>{rejection_stories.story_type}</h3>
+        <p>{rejection_stories.story_text}</p>
+        </div>
+)}
+
       </div>
     </div>
   );

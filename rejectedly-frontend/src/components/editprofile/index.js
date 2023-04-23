@@ -9,7 +9,7 @@ import Profilee from "../profileimage";
 const EditProfile = () => {
  
   return (
-    <div className="story edit-profile">
+    <form className="story edit-profile">
         
         <h1 className="myprofile">MY PROFILE</h1>
         <div className="profile-container">
@@ -43,7 +43,7 @@ const EditProfile = () => {
 
             </div>
         </div>
-    </div>
+    </form>
  
   );
 };

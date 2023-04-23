@@ -73,3 +73,8 @@
     text-decoration: none;
     font-weight: bold;
 }
+.error{
+    color: red;
+    margin: 0;
+    padding: 0.3rem;
+}
