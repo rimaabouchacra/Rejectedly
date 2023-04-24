@@ -1,0 +1,50 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10rem;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem;
+    padding: 2rem;
+    margin-top: 5rem;
+}
+
+.table td,
+.table th {
+    border: 1px solid var(--green);
+    padding: 8px;
+}
+
+.table th {
+    background-color: var(--green);
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color: #FFF;
+}
+
+.table tr:hover {
+    background-color: var(--light-green);
+}
+
+.table td {
+    width: 80px;
+}
+
+@media screen and (max-width: 767px) {
+    .table-container {
+        margin: 2.5rem auto;
+        max-width: 90%;
+    }
+
+    .table td {
+        width: 50px;
+    }
+}
