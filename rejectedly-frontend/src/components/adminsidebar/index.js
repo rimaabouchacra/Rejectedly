@@ -12,6 +12,7 @@ const AdminSidebar = () => {
         <li>DASHBOARD</li>
         <li className='users'><a href='admin'>GET USERS</a></li>
         <li className='li lii'><a href='/'>LOGOUT</a></li>
+       
       </ul>
     </div>
   );
