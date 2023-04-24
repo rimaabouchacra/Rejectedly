@@ -24,8 +24,8 @@ const [users, setUsers] = useState([]);
       });
   }, []);
 return(
-    <div className="story" >
-        <div className='new-story'>
+    <div className="story admin" >
+        <div className='new-story adminn'>
            <div className='table-container'>
                <table className='table'>
                   <thead>
@@ -46,7 +46,7 @@ return(
                    ))
                 ) : (
           <tr>
-            <h1 colSpan="3">You are not the admin.</h1>
+            <td colSpan="3">You are not the admin.</td>
           </tr>
         )}
       </tbody>

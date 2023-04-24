@@ -13,6 +13,7 @@
     margin: 2rem;
     padding: 2rem;
     margin-top: 5rem;
+    overflow-x: hidden;
 }
 
 .table td,
@@ -37,11 +38,20 @@
 .table td {
     width: 80px;
 }
-
+.admin{
+    overflow-x: hidden;
+}
+.adminn{
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem; 
+}
 @media screen and (max-width: 767px) {
     .table-container {
         margin: 2.5rem auto;
-        max-width: 90%;
+        /* max-width: 80%; */
     }
 
     .table td {
