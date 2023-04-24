@@ -4,7 +4,7 @@ import logo2 from '../../images/logo2.png'
 
 const AdminSidebar = () => {
   return (
-    <div className="sidebar">
+    <div className="admin-sidebar">
       <div className='logo'>
         <img src={logo2} alt="logo" />
       </div>

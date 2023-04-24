@@ -27,6 +27,9 @@
     background-color: var(--white);
 
 }
+.person:hover{
+transform: scale(1.06);
+}
 .title {
     font-size: 1.125rem;
     font-weight: bolder;

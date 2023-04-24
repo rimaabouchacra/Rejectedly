@@ -24,7 +24,7 @@
     margin-top: 5rem;
     box-shadow: 2px 2px 8px rgb(181, 179, 179);
 } */
-.sidebar {
+.admin-sidebar {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -43,31 +43,31 @@
     box-shadow: 2px 2px 8px rgb(181, 179, 179);
 }
 
-.sidebar ul {
+.admin-sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.sidebar li {
+.admin-sidebar li {
     padding: 1rem;
 }
 
-.sidebar li:last-child {
+.admin-sidebar li:last-child {
     border-bottom: none;
 }
 
-.sidebar a {
+.admin-sidebar a {
     color: #333;
     text-decoration: none;
 }
 
-.sidebar a:hover {
+.admin-sidebar a:hover {
     text-shadow: 1px 1px var(--green);
 }
 
-.li {
-    /* margin-top: 10rem; */
+.lii {
+    margin-top: 15rem;
 }
 
 .li a {

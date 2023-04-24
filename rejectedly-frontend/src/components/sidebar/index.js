@@ -14,6 +14,7 @@ const Sidebar = ({ activePage }) => {
         <li className={activePage === 'marketplace' ? 'active' : ''}><a href='marketplace'>MARKETPLACE</a></li>
         <li className={activePage === 'collaboration' ? 'active' : ''}><a href='collaboration'>COLLABORATION</a></li>
         <li className='li'><a href='/'>LOGOUT</a></li>
+       
       </ul>
     </div>
   );
