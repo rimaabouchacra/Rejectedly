@@ -24,7 +24,7 @@ const [users, setUsers] = useState([]);
       });
   }, []);
 return(
-    <div className="story admin" >
+    <div className="story1 admin" >
         <div className='new-story adminn'>
            <div className='table-container'>
                <table className='table'>
