@@ -9,24 +9,18 @@ const Sidebar = ({ activePage }) => {
   const handleLogout = () => {
   const token = localStorage.getItem('token');
   
-  
-  if (!token) {
-    console.error('No token found in localStorage');
-    return;
-  }
-
   axios.get('http://localhost:8000/api/v1/auth/logout', {
     headers: {
       Authorization: `Bearer ${token}`
     }
   })
   .then((response) => {
-    console.log('Logout response:', response);
+    
     localStorage.removeItem("token");
     localStorage.removeItem("name");
     localStorage.removeItem("user_id");
     localStorage.removeItem("email");
-    console.log('Token removed from localStorage');
+
     navigate('/');
   })
   .catch((error) => {

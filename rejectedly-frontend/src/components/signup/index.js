@@ -175,7 +175,7 @@ return (
             <div>
                 <button className='all-btn singup-btn'>SIGNUP</button>
             </div><br />
-            <div>
+            <div className='linkk'>
                 <label className='label' htmlFor="name">Already have an account?<a className='login-text' href='login'>Login</a></label>
             </div>
         </form>

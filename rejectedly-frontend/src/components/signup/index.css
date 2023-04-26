@@ -64,7 +64,12 @@
 .pass {
     margin-bottom: 0.4rem;
 }
-
+.linkk{
+    margin-right: 1.8rem;
+}
+.login-text{
+    margin-left: 0.5rem;
+}
 .label a{
     color: var(--green);
     text-decoration: none;
@@ -77,4 +82,8 @@
     color: red;
     margin: 0;
     padding: 0.3rem;
+}
+
+.forget:hover{
+    color: var(--green);
 }

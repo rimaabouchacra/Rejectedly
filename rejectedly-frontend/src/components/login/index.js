@@ -121,8 +121,8 @@ const Loginn = ()=>{
                 <button className='all-btn loginn-btn '>Login</button>
             </div><br />
             {loginError && <p className="error">{loginError}</p>}
-            <div>
-                <label className='labell' htmlFor="name"><a href="reset">Forget password?</a></label><br /><br />
+            <div className='linkk'>
+                <label className='labell' htmlFor="name"><a className='forget' href="reset">Forget password?</a></label><br /><br />
                 <label className='label' htmlFor="name">Don't have an account?<a className='login-text' href='signup'>Signup</a></label>
             </div>
         </form>
