@@ -16,8 +16,9 @@
     box-shadow: 2px 2px 8px rgb(181, 179, 179);
     max-height: 448px;
     overflow-y: scroll;
-
+    overflow-x: hidden;
 }
+
 
 .header{
     display: flex;
