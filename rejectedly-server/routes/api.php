@@ -13,6 +13,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/login', [AuthController::class, "login"]);
         Route::post('/signup', [AuthController::class, "register"]);
         Route::post('/refresh', [AuthController::class, "refresh"]);
+        Route::get('/logout', [AuthController::class, "logout"]);
         Route::post('/profile',  [UserController::class, 'profile']);
         Route::post('/rejection-stories', [RejectionStoriesController::class, "storeStory"]);
         Route::post('/rejection-stories/improved', [RejectionStoriesController::class, "storeStoryWithImprovement"]);
