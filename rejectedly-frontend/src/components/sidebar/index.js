@@ -8,9 +8,9 @@ const Sidebar = ({ activePage }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
   const token = localStorage.getItem('token');
-  const name = localStorage.getItem('name');
-  const user_id = localStorage.getItem('user_id');
-  const email = localStorage.getItem('email');
+  // const name = localStorage.getItem('name');
+  // const user_id = localStorage.getItem('user_id');
+  // const email = localStorage.getItem('email');
   
   if (!token) {
     console.error('No token found in localStorage');
