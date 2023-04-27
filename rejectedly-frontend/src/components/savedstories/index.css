@@ -4,7 +4,7 @@
       margin: 2rem;
       grid-gap: 10px;
       overflow-y: scroll;
-      max-height: 300px;
+      max-height: 500px;
   }
 
   .grid-item {
@@ -12,7 +12,7 @@
       color: white;
       padding: 1rem;
       padding-top: 0.2rem;
-      width: 200px;
+      width: 200rem;
       height: 100px;
       gap: 20px;
       overflow-y: scroll;
@@ -43,7 +43,7 @@
       }
     }
   
-    .grid-item {
+    /* .grid-item {
       background-color: var(--green);
       color: white;
       padding: 1rem;
@@ -52,7 +52,7 @@
       height: 100px;
       gap: 20px;
       overflow-y: scroll;
-    }
+    } */
   
     @media (min-width: 768px) {
       .grid-item {

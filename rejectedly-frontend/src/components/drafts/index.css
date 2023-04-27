@@ -1,0 +1,38 @@
+.draft{
+    /* margin-left: 3rem; */
+    width: 100%;
+}
+.thestory{
+   
+   margin: 1rem;
+   padding: 1.5rem;
+   width: 44rem;
+   height: auto;
+   background-color: var(--green);
+   color: white;
+   overflow-x: hidden;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+}
+.post-container{
+  
+    overflow-x: hidden;
+    z-index: 1;
+}
+
+.analysiss {
+    text-align: center;
+    border: none;
+    background: none;
+    margin-left: 1.3rem;
+}
+
+.popup-analysis {
+    z-index: 2;
+}
+
+.each-one{
+  margin-top: 2.5rem;
+}

@@ -65,15 +65,36 @@ class RejectionStoriesController extends Controller
     }
 
 
-   public function GetNotImproved(Request $request)
-   {
-       $rejectionStories = RejectionStory::with('user')->get();
-       $notImprovedStories = $rejectionStories->filter(function($story) {
-           return empty($story->story_text_improved);
-       });
+//    public function GetNotImproved(Request $request)
+//    {
+//        $rejectionStories = RejectionStory::with('user')->get();
+//        $notImprovedStories = $rejectionStories->filter(function($story) {
+//            return empty($story->story_text_improved);
+//        });
 
-       $notImprovedStoriesWithUser = $notImprovedStories->map(function ($story) {
-          return [
+//        $notImprovedStoriesWithUser = $notImprovedStories->map(function ($story) {
+//           return [
+//             'name' => $story->user->name,
+//             'email' => $story->user->email,
+//             'image_url' => $story->user->image_url,
+//             'story_type' => $story->story_type,
+//             'story_text' => $story->story_text,
+//         ];
+//     });
+
+//     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
+//     }
+public function GetNotImproved(Request $request)
+{
+    $rejectionStories = RejectionStory::with('user')->get();
+    $notImprovedStories = $rejectionStories->filter(function($story) {
+        return empty($story->story_text_improved);
+    });
+
+    $notImprovedStoriesWithUser = [];
+
+    $notImprovedStories->map(function ($story) use (&$notImprovedStoriesWithUser) {
+        $notImprovedStoriesWithUser[] = [
             'name' => $story->user->name,
             'email' => $story->user->email,
             'image_url' => $story->user->image_url,
@@ -83,7 +104,8 @@ class RejectionStoriesController extends Controller
     });
 
     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
-    }
+}
+
 
 public function GetLatestNotImproved(Request $request)
 {
