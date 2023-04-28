@@ -69,11 +69,10 @@ import './index.css';
 import '../index.css';
 
 
-const Analysis = () => {
+const Analysis = ({analysisType, analysisText }) => {
   const [showAnalysis, setShowAnalysis] = useState(true);
   const overlayRef = useRef(null);
-  const [analysisType, setAnalysisType] = useState('');
-  const [analysisText, setAnalysisText] = useState('');
+ 
 
   function handleOverlayClick2(e) {
     if (e.target === overlayRef.current) {
