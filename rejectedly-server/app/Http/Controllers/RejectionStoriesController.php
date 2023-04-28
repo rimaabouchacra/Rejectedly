@@ -168,11 +168,11 @@ public function ChatgptResponse(Request $request)
 
         $headers = array(
             'Content-Type: application/json',
-            'Authorization: Bearer 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',
+            'Authorization: Bearer ' . env('openai_API'),
         );
 
         $data = array(
-            'prompt' => $story . ' interpret this rejected story based on,' . $request->input('story_type') . ' extract the weekness points, tell the user how to improve his rejection and turn it into an opportunity',
+            'prompt' => $story . ' respond in 10 lines. Interpret this rejected,' . $request->input('story_type') . 'extract the weekness points in it, and tell how to improve it',
             'temperature' => 0.4,
             'max_tokens' => 1000,
             'n' => 1,
