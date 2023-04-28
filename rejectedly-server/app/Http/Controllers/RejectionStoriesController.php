@@ -84,6 +84,33 @@ class RejectionStoriesController extends Controller
 
 //     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
 //     }
+public function GetNotImprovedUser(Request $request)
+{
+    $userId = $request->user()->id;
+
+    $rejectionStories = RejectionStory::where('user_id', $userId)
+                                      ->with('user')
+                                      ->get();
+
+    $notImprovedStories = $rejectionStories->filter(function($story) {
+        return empty($story->story_text_improved);
+    });
+
+    $notImprovedStoriesWithUser = [];
+
+    $notImprovedStories->map(function ($story) use (&$notImprovedStoriesWithUser) {
+        $notImprovedStoriesWithUser[] = [
+            'name' => $story->user->name,
+            'email' => $story->user->email,
+            'image_url' => $story->user->image_url,
+            'story_type' => $story->story_type,
+            'story_text' => $story->story_text,
+        ];
+    });
+
+    return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
+}
+
 public function GetNotImproved(Request $request)
 {
     $rejectionStories = RejectionStory::with('user')->get();
@@ -127,6 +154,45 @@ public function GetLatestNotImproved(Request $request)
     return response()->json(['latest_story' => $latestStoryWithUser], 200);
 }
 
+
+public function ChatgptResponse(Request $request)
+    {
+
+         $data = json_decode($request->getContent(), true);
+    if ($data === null || !isset($data['story'])) {
+        return response()->json(['error' => 'Invalid request body'], 400);
+    }
+        $story = $data['story'];
+
+        $url = 'https://api.openai.com/v1/engines/text-davinci-002/completions';
+
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: Bearer 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',
+        );
+
+        $data = array(
+            'prompt' => $story . ' interpret this rejected story based on,' . $request->input('story_type') . ' extract the weekness points, tell the user how to improve his rejection and turn it into an opportunity',
+            'temperature' => 0.4,
+            'max_tokens' => 1000,
+            'n' => 1,
+
+        );
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+
+        curl_close($ch);
+
+        return $response;
+    }
 }
 
 

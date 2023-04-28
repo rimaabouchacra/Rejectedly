@@ -19,13 +19,14 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/rejection-stories/improved', [RejectionStoriesController::class, "storeStoryWithImprovement"]);
         Route::get('/rejection-stories/improved', [RejectionStoriesController::class, 'GetImproved']);
         Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);
+        Route::get('/rejection-stories-user', [RejectionStoriesController::class, 'GetNotImprovedUser']);
         Route::get('/latest-rejection-stories', [RejectionStoriesController::class, 'GetLatestNotImproved']);
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
         Route::get('/user', [UserController::class, 'getUser']);
         Route::post('/stories/{story}/comments', [UserController::class, 'store']);
         Route::get('/stories/{story}/comments', [UserController::class, 'getComments']);
-
+        Route::post('/interpret', [RejectionStoriesController::class, "getResponse"]);
 
     });
 

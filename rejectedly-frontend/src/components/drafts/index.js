@@ -53,7 +53,7 @@ const Drafts = () => {
 
   useEffect(() => {
     
-    axios.get('http://localhost:8000/api/v1/auth/rejection-stories', {
+    axios.get('http://localhost:8000/api/v1/auth/rejection-stories-user', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(response => {
