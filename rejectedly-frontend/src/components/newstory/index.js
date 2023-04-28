@@ -35,7 +35,7 @@ import { useNavigate } from "react-router-dom";
 const NewStory = (props) => {
   const [story_type, setType] = useState("");
   const [story_text, setText] = useState("");
-  const [response, setResponse] = useState(null);
+  
 
 
   const handleTypeChange = (e) => {
@@ -61,7 +61,7 @@ const NewStory = (props) => {
     .then((response) => {
       console.log(response.data);
       console.log('Story analyzed successfully!');
-       setResponse(response.data);
+      
     })
     .catch((error) => {
       console.log(error.response.data);
@@ -117,7 +117,7 @@ return(
         </div>
         <button className='all-btn' onClick={handleChatgptResponse}>SAVE&ANALYZE</button>
         {/* <button  onClick={handleSave} className='all-btn'>SAVE&ANALYZE</button> */}
-        <Analysis story_type={story_type} response={response} />
+        
 
     </form>
     
