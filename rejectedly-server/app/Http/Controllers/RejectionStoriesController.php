@@ -172,7 +172,7 @@ public function ChatgptResponse(Request $request)
         );
 
         $data = array(
-            'prompt' => $story . ' respond in 10 lines. Interpret this rejected,' . $request->input('story_type') . 'extract the weekness points in it, and tell how to improve it',
+            'prompt' => $story . 'respond in 10 lines. Interpret this rejected,' . $request->input('story_type') . 'extract the weekness points in it, and tell how to improve it',
             'temperature' => 0.4,
             'max_tokens' => 1000,
             'n' => 1,

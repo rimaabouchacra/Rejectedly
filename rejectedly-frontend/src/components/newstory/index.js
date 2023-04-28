@@ -29,12 +29,14 @@ import './index.css'
 import '../index.css'
 import axios from "axios";
 import React, { useState } from "react";
+import Analysis from '../analysis';
 import { useNavigate } from "react-router-dom";
 
-const NewStory = (props) => {
+const NewStory = ({setAnalysisType, setAnalysisText }) => {
   const [story_type, setType] = useState("");
   const [story_text, setText] = useState("");
   
+
 
   const handleTypeChange = (e) => {
     setType(e.target.value);
@@ -44,6 +46,30 @@ const NewStory = (props) => {
     setText(e.target.value);
   };
 
+  const handleChatgptResponse=()=>{
+  const data = {
+    story_type: story_type,
+    story: story_text
+  };
+
+  axios.post('http://localhost:8000/api/v1/auth/chatgpt-interpret', data, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((response) => {
+      console.log(response.data);
+      console.log('Story analyzed successfully!');
+       setAnalysisType(response.data.analysis_type);
+        setAnalysisText(response.data.analysis_text);
+    })
+    .catch((error) => {
+      console.log(error.response.data);
+      console.log('Error analyzing story');
+      // TODO: handle error response data
+    });
+  }
   const navigate = useNavigate();
  
   const handleSubmit = (e) => {
@@ -74,6 +100,7 @@ const NewStory = (props) => {
   };
   
 return(
+  <>
     <form className='new-story' onSubmit={handleSubmit}>
         <h1>NEW STORY</h1>
         <div className='label-input'>
@@ -89,9 +116,11 @@ return(
             <label  htmlFor="story">Tell us what happened</label>
             <textarea name="textarea" id="story" cols="30" rows="10" value={story_text} onChange={handleTextChange}></textarea>
         </div>
-        <button className='all-btn'>SAVE&ANALYZE</button>
+        <button className='all-btn' onClick={handleChatgptResponse}>SAVE&ANALYZE</button>
         {/* <button  onClick={handleSave} className='all-btn'>SAVE&ANALYZE</button> */}
     </form>
+    
+    </>
 )
 }
 export default NewStory

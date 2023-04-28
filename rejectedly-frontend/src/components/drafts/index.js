@@ -9,7 +9,7 @@ import '../newstory/index.css'
 import Analysis from '../analysis';
 
 const Drafts = () => {
-    const [showStory, setShowStory] = useState(false);
+  const [showStory, setShowStory] = useState(false);
   const overlayRef = useRef(null);
 
   function handleButtonClick() {
@@ -106,3 +106,10 @@ const Drafts = () => {
 
 
 export default Drafts;
+
+
+
+
+
+
+
