@@ -32,10 +32,10 @@ import React, { useState } from "react";
 import Analysis from '../analysis';
 import { useNavigate } from "react-router-dom";
 
-const NewStory = ({setAnalysisType, setAnalysisText }) => {
+const NewStory = (props) => {
   const [story_type, setType] = useState("");
   const [story_text, setText] = useState("");
-  
+  const [response, setResponse] = useState(null);
 
 
   const handleTypeChange = (e) => {
@@ -61,8 +61,7 @@ const NewStory = ({setAnalysisType, setAnalysisText }) => {
     .then((response) => {
       console.log(response.data);
       console.log('Story analyzed successfully!');
-       setAnalysisType(response.data.analysis_type);
-        setAnalysisText(response.data.analysis_text);
+       setResponse(response.data);
     })
     .catch((error) => {
       console.log(error.response.data);
@@ -107,9 +106,9 @@ return(
             <label htmlFor="type">Story type</label>
             <select className='input type' name="type" id="story_type" value={story_type} onChange={handleTypeChange}>
                <option value="Select">Select Rejection type</option>
-               <option value="JobApplication">Job Application</option>
+               <option value="Job Application">Job Application</option>
                <option value="Proposal">Proposal</option>
-               <option value="ProjectIdea">Project Idea</option>
+               <option value="Project Idea">Project Idea</option>
             </select><br/>
         </div>
         <div className='label-input'>
@@ -118,6 +117,8 @@ return(
         </div>
         <button className='all-btn' onClick={handleChatgptResponse}>SAVE&ANALYZE</button>
         {/* <button  onClick={handleSave} className='all-btn'>SAVE&ANALYZE</button> */}
+        <Analysis story_type={story_type} response={response} />
+
     </form>
     
     </>
