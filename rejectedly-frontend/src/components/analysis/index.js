@@ -94,7 +94,7 @@ const Analysis = ({analysisType, analysisText }) => {
       {showAnalysis && (
         <div className="analysis" ref={overlayRef}>
           <h1>ANALYSIS</h1>
-          <h3 className='analysis-type'>
+          <h3 className='analysis-typ'>
             {analysisType}
           </h3>
           <div>
