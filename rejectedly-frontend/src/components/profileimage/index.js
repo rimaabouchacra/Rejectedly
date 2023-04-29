@@ -71,14 +71,6 @@ export default Profilee;
 //   const [image_url, setImage] = useState(defaultImage);
 //   const [isHovering, setIsHovering] = useState(false);
 
-//   const handleImageChange = (e) => {
-
-//       // Send image data to backend API
-
-
-
-//         >
-//           <div className="profile-img">
 //             <img src={image_url} alt="" className="profile-image" />
 //             <img src={Profile} alt="" />
 //           </div>
