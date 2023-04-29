@@ -17,9 +17,7 @@
 //         </div>
 //        <div className='new-story'>
         
-//        </div>
-//     </div>
-// )
+
 
 
 import './index.css';
