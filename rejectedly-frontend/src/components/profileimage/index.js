@@ -68,6 +68,5 @@ export default Profilee;
 
 
 // const Profilee = ({ defaultImage }) => {
-//   const [image_url, setImage] = useState(defaultImage);
-//   const [isHovering, setIsHovering] = useState(false);
+
 
