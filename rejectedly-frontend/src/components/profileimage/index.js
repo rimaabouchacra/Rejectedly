@@ -77,11 +77,8 @@ export default Profilee;
 //       const formData = new FormData();
 //       formData.append("profile_image", selectedImage);
 //       fetch("http://localhost:8000/api/v1/auth/profile", {
-//         method: "POST",
 
-//         .catch((error) => console.error(error));
 
-//   };
 
 
 //   return (
