@@ -29,11 +29,6 @@
 // import '../newstory/index.css'
 // import '../improvedstory/index.css'
 
-// import React, { useState, useEffect } from "react";
-// import axios from 'axios';
-
-// const Posts = () => {
-
 
 import './index.css';
 import '../index.css';
