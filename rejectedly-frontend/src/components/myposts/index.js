@@ -47,10 +47,7 @@
 //       })
 //       .catch(error => {
 //         console.log(error);
-//       });
 
-//     axios.get('http://localhost:8000/api/v1/auth/latest-rejection-stories',
-//     {
 
 
 import './index.css';
