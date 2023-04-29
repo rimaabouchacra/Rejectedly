@@ -36,8 +36,6 @@
 //   const [users, setUsers] = useState([]);
 //   const [rejection_stories, setRejection_stories] = useState([]);
 
-//   useEffect(() => {
-//     axios.get('http://localhost:8000/api/v1/auth/user',
 
 
 
