@@ -53,9 +53,6 @@
 //     {
 //       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
 //     })
-//       .then(response => {
-//         setRejection_stories(response.data);
-
 
 import './index.css';
 import '../index.css';
