@@ -11,11 +11,6 @@
 
 // return(
 //     <div className="story">
-//         <div className='header collaborate'>
-
-        
-
-
 
 import './index.css';
 import '../index.css';
