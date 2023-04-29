@@ -64,9 +64,6 @@ export default Profilee;
 // import "./index.css";
 // import "../index.css";
 // import "../rejectionstory/index.css";
-// import Profile from "../../images/profile.png";
 
-
-// const Profilee = ({ defaultImage }) => {
 
 
