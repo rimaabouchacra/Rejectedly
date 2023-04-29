@@ -79,10 +79,6 @@ export default Profilee;
 //       fetch("http://localhost:8000/api/v1/auth/profile", {
 
 
-
-
-//   return (
-//     <div>
 //       <div className="container">
 //         <div
 //           className="edit-profile-image"
