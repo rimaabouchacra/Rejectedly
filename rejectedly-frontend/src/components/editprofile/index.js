@@ -62,7 +62,7 @@ const EditProfile = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [phone_number, setPhone] = useState("");
-  const [bio, setBio] = useState("");
+  const [biography, setBio] = useState("");
   const [linkedin_url, setLinkedin] = useState("");
 
   const handleSubmit = async (e) => {
@@ -72,8 +72,9 @@ const EditProfile = () => {
       username,
       email,
       phone_number,
-      bio,
+      biography,
       linkedin_url,
+      profile_image: localStorage.getItem("profileImage"),
     };
 
     try {
@@ -106,7 +107,7 @@ if (!token) {
     <form className="story edit-profile" onSubmit={handleSubmit}>
       <h1 className="myprofile">MY PROFILE</h1>
       <div className="profile-container">
-        <Profilee />
+        <Profilee/>
         <div className="contact-inputs">
           <div>
             <label className="profile-label" htmlFor="username">
@@ -138,7 +139,7 @@ if (!token) {
               id="bio"
               cols="30"
               rows="6"
-              value={bio}
+              value={biography}
               onChange={(e) => setBio(e.target.value)}
             ></textarea>
           </div>
