@@ -95,9 +95,4 @@ export default Profilee;
 //             </div>
 //           )}
 //         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Profilee;
+//
