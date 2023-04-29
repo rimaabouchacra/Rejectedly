@@ -76,8 +76,3 @@ export default Profilee;
 
 //                 id="profile-image-upload"
 //                 onChange={handleImageChange}
-//               />
-//             </div>
-//           )}
-//         </div>
-//
