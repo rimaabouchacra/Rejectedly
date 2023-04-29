@@ -73,7 +73,7 @@ export default Profilee;
 
 //   const handleImageChange = (e) => {
 //     const selectedImage = e.target.files[0];
-//     const reader = new FileReader();
+// 
 //     reader.readAsDataURL(selectedImage);
 //     reader.onloadend = () => {
 //       const base64String = reader.result;
