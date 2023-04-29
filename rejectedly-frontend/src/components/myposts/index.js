@@ -1,8 +1,5 @@
 // import '../index.css'
 // import '../rejectionstory/index.css'
-// import '../newstory/index.css'
-// import '../improvedstory/index.css'
-
 
 import './index.css';
 import '../index.css';
