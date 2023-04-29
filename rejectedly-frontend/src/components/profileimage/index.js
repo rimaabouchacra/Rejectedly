@@ -73,6 +73,3 @@ export default Profilee;
 
 //             <img src={image_url} alt="" className="profile-image" />
 //             <img src={Profile} alt="" />
-
-//                 id="profile-image-upload"
-//                 onChange={handleImageChange}
