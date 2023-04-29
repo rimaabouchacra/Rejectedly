@@ -138,7 +138,7 @@ const Posts = () => {
       <div className='post'>
         {user && (
           <div className='user-info'>
-            {/* <img src={user.image_url} alt='user' /> */}
+            <img src={user.image_url} alt='user' />
             <div className='name-email'>
               <h2>{user.name}</h2>
               <p>{user.email}</p>
