@@ -44,9 +44,7 @@
     
 //       .then(response => {
 //         setUsers(response.data);
-//       })
-//       .catch(error => {
-//         console.log(error);
+
 
 
 
