@@ -71,5 +71,3 @@ export default Profilee;
 //   const [image_url, setImage] = useState(defaultImage);
 //   const [isHovering, setIsHovering] = useState(false);
 
-//             <img src={image_url} alt="" className="profile-image" />
-//             <img src={Profile} alt="" />
