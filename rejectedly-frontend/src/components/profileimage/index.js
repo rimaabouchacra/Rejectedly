@@ -77,7 +77,7 @@ export default Profilee;
 //     reader.onloadend = () => {
 //       c
 
-//       setImage(base64String);
+
 
 //       // Send image data to backend API
 //       const formData = new FormData();
