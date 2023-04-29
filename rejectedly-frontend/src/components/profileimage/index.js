@@ -73,12 +73,7 @@ export default Profilee;
 
 //             <img src={image_url} alt="" className="profile-image" />
 //             <img src={Profile} alt="" />
-//           </div>
-//           {isHovering && (
 
-//               </label>
-//               <input
-//                 type="file"
 //                 id="profile-image-upload"
 //                 onChange={handleImageChange}
 //               />
