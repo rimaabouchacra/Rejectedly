@@ -89,6 +89,7 @@ const Drafts = () => {
         <div className='overlay' ref={overlayReff}>
           <div className='popup-analysis'>
             <Analysis />
+
           </div>
         </div>
         )} 
@@ -106,8 +107,6 @@ const Drafts = () => {
 
 
 export default Drafts;
-
-
 
 
 
