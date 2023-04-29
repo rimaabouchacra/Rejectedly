@@ -17,7 +17,7 @@ const Sidebar = ({ activePage }) => {
   .then((response) => {
     
     // localStorage.removeItem("token");
-    // localStorage.removeItem("name");
+   
     
   
     localStorage.clear();
