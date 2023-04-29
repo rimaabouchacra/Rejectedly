@@ -12,8 +12,6 @@
 // return(
 //     <div className="story">
 //         <div className='header collaborate'>
-//             <h1>COLLABORATIONS</h1>
-//             <button className='all-btn'>CREATE GROUP</button>
 
         
 
