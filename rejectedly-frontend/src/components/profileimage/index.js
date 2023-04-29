@@ -83,9 +83,6 @@ export default Profilee;
 
 //   };
 
-//   const handleMouseLeave = () => {
-//     setIsHovering(false);
-//   };
 
 //   return (
 //     <div>
