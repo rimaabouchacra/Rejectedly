@@ -76,7 +76,7 @@ export default Profilee;
 // 
 //     reader.readAsDataURL(selectedImage);
 //     reader.onloadend = () => {
-//       const base64String = reader.result;
+//       c
 //       localStorage.setItem("profileImage", base64String);
 //       setImage(base64String);
 
