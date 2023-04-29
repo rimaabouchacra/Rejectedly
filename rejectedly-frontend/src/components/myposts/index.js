@@ -73,10 +73,6 @@
 //             <img src={users.image_url} alt='user' />
 //             <div className='name-email'>
 //                 <h2>{users.name}</h2>
-//                 <p>{users.email}</p>
-//             </div>
-            
-
 
 import './index.css';
 import '../index.css';
