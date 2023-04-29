@@ -63,8 +63,7 @@
 
 //   return (
 //     <div className="post-container">
-//       <div className='header collaborate'>
-//         <h1>COLLABORATIONS</h1>
+
 
 
 
