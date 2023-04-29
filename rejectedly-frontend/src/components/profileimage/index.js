@@ -72,12 +72,6 @@ export default Profilee;
 //   const [isHovering, setIsHovering] = useState(false);
 
 //   const handleImageChange = (e) => {
-//     const selectedImage = e.target.files[0];
-;
-//     reader.onloadend = () => {
-//       c
-
-
 
 //       // Send image data to backend API
 //       const formData = new FormData();
