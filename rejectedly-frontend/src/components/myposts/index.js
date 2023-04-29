@@ -71,8 +71,6 @@
 //         {users &&
 //           <div className='user-info'>
 //             <img src={users.image_url} alt='user' />
-//             <div className='name-email'>
-//                 <h2>{users.name}</h2>
 
 import './index.css';
 import '../index.css';
