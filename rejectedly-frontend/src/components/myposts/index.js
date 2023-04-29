@@ -41,9 +41,6 @@
 //     {
 //       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
 //     })
-    
-//       .then(response => {
-//         setUsers(response.data);
 
 
 
