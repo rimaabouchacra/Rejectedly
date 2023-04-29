@@ -67,6 +67,7 @@ const EditProfile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
 
     const profileData = {
       username,
@@ -74,9 +75,9 @@ const EditProfile = () => {
       phone_number,
       biography,
       linkedin_url,
-      profile_image: localStorage.getItem("profileImage"),
+      image_url: localStorage.getItem("profileImage"),
     };
-
+    console.log(profileData);
     try {
       const token = localStorage.getItem("token");
 
@@ -94,7 +95,8 @@ if (!token) {
       });
 
       const data = await response.json();
-      console.log("Profile data saved:", data);
+      console.log("Profile data saved:", profileData);
+      
 
       // Save data to local storage
       localStorage.setItem("profile", JSON.stringify(profileData));

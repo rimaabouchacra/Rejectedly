@@ -67,7 +67,7 @@ import "../rejectionstory/index.css";
 import Profile from "../../images/profile.png";
 
 const Profilee = ({ defaultImage }) => {
-  const [image, setImage] = useState(defaultImage);
+  const [image_url, setImage] = useState(defaultImage);
   const [isHovering, setIsHovering] = useState(false);
 
   const handleImageChange = (e) => {
@@ -98,7 +98,7 @@ const Profilee = ({ defaultImage }) => {
           onMouseLeave={handleMouseLeave}
         >
           <div className="profile-img">
-            <img src={image} alt="" className="profile-image" />
+            <img src={image_url} alt="" className="profile-image" />
             <img src={Profile} alt="" />
           </div>
           {isHovering && (
