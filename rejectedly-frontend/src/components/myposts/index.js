@@ -43,17 +43,17 @@ const Posts = () => {
       <div className='post'>
         {user && (
           <div className='user-info'>
-            <img src={user.image_url} alt='user' />
+            <img className='post-img' src={user.image_url} alt='user' />
             <div className='name-email'>
-              <h2>{user.name}</h2>
-              <p>{user.email}</p>
+              <p className='post-name'>{user.name}</p>
+              <p className='post-email'>{user.email}</p>
             </div>
           </div>
         )}
         {rejection_stories && rejection_stories.story_type && rejection_stories.story_text && (
         <div className='rejection-story' key={rejection_stories.id}>
         <h3>{rejection_stories.story_type}</h3>
-        <p>{rejection_stories.story_text}</p>
+        <p className='post-text'>{rejection_stories.story_text}</p>
         </div>
 )}
 
