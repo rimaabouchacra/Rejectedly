@@ -61,9 +61,7 @@ const Profilee = ({ defaultImage }) => {
 export default Profilee;
 // import React, { useState } from "react";
 // import { FaCamera } from "react-icons/fa";
-// import "./index.css";
-// import "../index.css";
-// import "../rejectionstory/index.css";
+
 
 
 
