@@ -85,9 +85,7 @@ export default Profilee;
 //             <img src={Profile} alt="" />
 //           </div>
 //           {isHovering && (
-//             <div className="edit-profile-image-overlay">
-//               <label htmlFor="profile-image-upload">
-//                 <FaCamera />
+
 //               </label>
 //               <input
 //                 type="file"
