@@ -110,4 +110,3 @@ const Analysis = (props) => {
 export default Analysis;
 //importantttt
 
-
