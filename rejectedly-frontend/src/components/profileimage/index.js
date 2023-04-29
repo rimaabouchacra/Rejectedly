@@ -78,10 +78,7 @@ export default Profilee;
 //       formData.append("profile_image", selectedImage);
 //       fetch("http://localhost:8000/api/v1/auth/profile", {
 //         method: "POST",
-//         body: formData,
-//       })
-//         .then((response) => response.json())
-//         .then((data) => console.log(data))
+
 //         .catch((error) => console.error(error));
 //     };
 //   };
