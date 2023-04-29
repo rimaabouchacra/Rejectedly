@@ -76,9 +76,7 @@
 //                 <p>{users.email}</p>
 //             </div>
             
-//           </div>
-//         }
-//   {rejection_stories&&
+
 
 import './index.css';
 import '../index.css';
