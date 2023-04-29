@@ -69,7 +69,7 @@
 //       </div>
 //       <div className='post'>
 //         {users &&
-//           <div className='user-info'>
+
 
 import './index.css';
 import '../index.css';
