@@ -38,9 +38,7 @@
 
 //   useEffect(() => {
 //     axios.get('http://localhost:8000/api/v1/auth/user',
-//     {
-//       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-//     })
+
 
 
 
