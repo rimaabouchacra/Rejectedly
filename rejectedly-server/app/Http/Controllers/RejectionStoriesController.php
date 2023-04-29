@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RejectionStory;
-
+use App\Models\AnalyzedStory;
 
 class RejectionStoriesController extends Controller
 {
@@ -84,6 +84,8 @@ class RejectionStoriesController extends Controller
 
 //     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
 //     }
+
+
 public function GetNotImprovedUser(Request $request)
 {
     $userId = $request->user()->id;
@@ -193,6 +195,12 @@ public function ChatgptResponse(Request $request)
 
         return $response;
     }
+
+
+
+
+
+
 }
 
 
