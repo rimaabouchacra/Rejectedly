@@ -3,12 +3,6 @@
 // import '../newstory/index.css'
 // import '../improvedstory/index.css'
 
-// import React, { useState } from "react";
-
-
-
-// const Posts = () => {
-
 
 import './index.css';
 import '../index.css';
