@@ -33,12 +33,6 @@
 // import axios from 'axios';
 
 // const Posts = () => {
-//   const [users, setUsers] = useState([]);
-//   const [rejection_stories, setRejection_stories] = useState([]);
-
-
-
-
 
 
 import './index.css';
