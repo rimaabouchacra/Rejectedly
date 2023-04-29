@@ -9,8 +9,6 @@
 
 // const Posts = () => {
 
-// return(
-//     <div className="story">
 
 import './index.css';
 import '../index.css';
