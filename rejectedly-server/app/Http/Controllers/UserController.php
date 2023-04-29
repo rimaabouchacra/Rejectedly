@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\RejectionStory;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class UserController extends Controller
         return response()->json($user);
 
     }
-    public function store(Request $request, RejectionStory $story)
+    public function store(Request $request, Post $story)
     {
         try {
             $validatedData = $request->validate([
@@ -47,7 +48,7 @@ class UserController extends Controller
         }
     }
 
-    public function getComments(RejectionStory $story)
+    public function getComments(Post $story)
     {
        $comments = Comment::where('story_id', $story->id)->with('user')->get(['comment_text', 'user_id']);
 
