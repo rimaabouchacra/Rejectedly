@@ -58,10 +58,6 @@
 //       })
 //       .catch(error => {
 //         console.log(error);
-//       });
-//   }, []);
-
-
 
 import './index.css';
 import '../index.css';
