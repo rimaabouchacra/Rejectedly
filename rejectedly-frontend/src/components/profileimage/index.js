@@ -77,7 +77,7 @@ export default Profilee;
 //     reader.readAsDataURL(selectedImage);
 //     reader.onloadend = () => {
 //       c
-//       localStorage.setItem("profileImage", base64String);
+
 //       setImage(base64String);
 
 //       // Send image data to backend API
