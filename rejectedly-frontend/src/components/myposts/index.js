@@ -82,9 +82,7 @@
 //   <div className='rejection-story' key={rejection_stories.id}>
 //     <h3>hr</h3>
 //     <h3>{rejection_stories.story_type}</h3>
-//     <p>{rejection_stories.story_text}</p>
-//   </div>
-//   }
+
 
 
 import './index.css';
