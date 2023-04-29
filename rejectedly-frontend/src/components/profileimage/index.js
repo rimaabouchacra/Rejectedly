@@ -80,11 +80,7 @@ export default Profilee;
 //         method: "POST",
 
 //         .catch((error) => console.error(error));
-//     };
-//   };
 
-//   const handleMouseEnter = () => {
-//     setIsHovering(true);
 //   };
 
 //   const handleMouseLeave = () => {
