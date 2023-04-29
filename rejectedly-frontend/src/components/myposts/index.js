@@ -79,10 +79,6 @@
 //           </div>
 //         }
 //   {rejection_stories&&
-//   <div className='rejection-story' key={rejection_stories.id}>
-
-
-
 
 import './index.css';
 import '../index.css';
