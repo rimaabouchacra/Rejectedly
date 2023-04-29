@@ -79,11 +79,6 @@ export default Profilee;
 //       fetch("http://localhost:8000/api/v1/auth/profile", {
 
 
-//       <div className="container">
-//         <div
-//           className="edit-profile-image"
-//           onMouseEnter={handleMouseEnter}
-//           onMouseLeave={handleMouseLeave}
 //         >
 //           <div className="profile-img">
 //             <img src={image_url} alt="" className="profile-image" />
