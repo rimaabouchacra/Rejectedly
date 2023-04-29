@@ -55,9 +55,7 @@
 //     })
 //       .then(response => {
 //         setRejection_stories(response.data);
-//       })
-//       .catch(error => {
-//         console.log(error);
+
 
 import './index.css';
 import '../index.css';
