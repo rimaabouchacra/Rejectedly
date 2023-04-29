@@ -16,11 +16,11 @@ const Sidebar = ({ activePage }) => {
   })
   .then((response) => {
     
-    localStorage.removeItem("token");
-    localStorage.removeItem("name");
-    localStorage.removeItem("user_id");
-    localStorage.removeItem("email");
-
+    // localStorage.removeItem("token");
+    // localStorage.removeItem("name");
+    // localStorage.removeItem("user_id");
+    // localStorage.removeItem("email");
+    localStorage.clear();
     navigate('/');
   })
   .catch((error) => {
