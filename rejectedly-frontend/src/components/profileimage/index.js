@@ -74,9 +74,7 @@ export default Profilee;
 //   const handleImageChange = (e) => {
 
 //       // Send image data to backend API
-//       const formData = new FormData();
-//       formData.append("profile_image", selectedImage);
-//       fetch("http://localhost:8000/api/v1/auth/profile", {
+
 
 
 //         >
