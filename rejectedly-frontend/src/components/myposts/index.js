@@ -51,8 +51,7 @@
 
 //     axios.get('http://localhost:8000/api/v1/auth/latest-rejection-stories',
 //     {
-//       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-//     })
+
 
 import './index.css';
 import '../index.css';
