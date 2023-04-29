@@ -70,7 +70,6 @@
 //       <div className='post'>
 //         {users &&
 //           <div className='user-info'>
-//             <img src={users.image_url} alt='user' />
 
 import './index.css';
 import '../index.css';
