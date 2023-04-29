@@ -60,6 +60,8 @@
 
 // export default Analysis;
 
+
+//importanttt
 import React, { useState, useRef, useEffect } from 'react';
 import './index.css';
 import '../index.css';
@@ -106,4 +108,6 @@ const Analysis = (props) => {
 };
 
 export default Analysis;
+//importantttt
+
 
