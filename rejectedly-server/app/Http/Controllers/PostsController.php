@@ -45,6 +45,7 @@ class PostsController extends Controller
 
     $posts->map(function ($post) use (&$postStoriesWithUser) {
         $postStoriesWithUser[] = [
+           'id' => $post->id,
            'name' => $post->user->name,
            'email' => $post->user->email,
            'image_url' => $post->user->image_url,
