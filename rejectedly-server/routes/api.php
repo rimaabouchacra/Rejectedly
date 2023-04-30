@@ -17,6 +17,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::get('/logout', [AuthController::class, "logout"]);
         Route::post('/profile',  [UserController::class, 'profile']);
         Route::post('/rejection-stories', [RejectionStoriesController::class, "storeStory"]);
+        Route::post('/posts', [PostsController::class, "storePost"]);
         Route::post('/rejection-stories/improved', [RejectionStoriesController::class, "storeStoryWithImprovement"]);
         Route::get('/rejection-stories/improved', [RejectionStoriesController::class, 'GetImproved']);
         Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);

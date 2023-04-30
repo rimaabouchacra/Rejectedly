@@ -25,4 +25,19 @@ public function GetLatestNotImproved(Request $request)
 
     return response()->json(['latest_story' => $latestStoryWithUser], 200);
 }
+
+
+public function storePost(Request $request)
+    {
+        $post = new Post;
+        $post->story_type = $request->story_type;
+        $post->story_text = $request->story_text;
+        $post->user_id = auth()->user()->id;
+
+       if (!$post->save()) {
+           return response()->json(['message' => 'Failed to save story'], 500);
+       }
+
+       return response()->json(['message' => 'Post created successfully', 'post' => $post], 201);
+    }
 }
