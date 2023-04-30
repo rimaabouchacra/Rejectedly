@@ -1,3 +1,4 @@
+import './index.css'
 import '../newstory/index.css'
 import '../newgroup/index.css'
 import arrow from '../../images/arrow.png'

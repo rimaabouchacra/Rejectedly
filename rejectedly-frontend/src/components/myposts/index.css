@@ -68,3 +68,8 @@ margin-left: 1.5rem;
 .post-contain{
     border-bottom: 2px solid var(--offwhite);
 }
+.comments{
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
