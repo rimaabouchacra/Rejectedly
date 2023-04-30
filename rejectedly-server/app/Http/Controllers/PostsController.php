@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-public function GetLatestNotImproved(Request $request)
-{
+    public function GetLatestNotImproved(Request $request)
+    {
     // $posts = Post::with('user')->get();
     // $notImprovedStories = $posts->filter(function($story) {
     //     return empty($story->story_text_improved);
@@ -26,50 +26,32 @@ public function GetLatestNotImproved(Request $request)
     // return response()->json(['latest_story' => $latestStoryWithUser], 200);
 
 
-    // $userId = $request->user()->id;
 
-    // $posts = Post::where('user_id', $userId)
-    //                                   ->with('user')
-    //                                   ->get();
+    $userId = $request->user()->id;
 
-    // $poststories = $posts->filter(function($story) {
-    //     return empty($story->story_text_improved);
-    // });
+    $posts = Post::where('user_id', $userId)
+                 ->with('user')
+                 ->get();
 
-    // $poststoriesWithUser = [];
+    $postStories = $posts->filter(function($post) {
+       return empty($post->story_text_improved);
+    });
 
-    // $poststories->map(function ($story) use (&$poststoriesWithUser) {
-    //     $poststoriesWithUser[] = [
-    //         'name' => $story->user->name,
-    //         'email' => $story->user->email,
-    //         'image_url' => $story->user->image_url,
-    //         'story_type' => $story->story_type,
-    //         'story_text' => $story->story_text,
-    //     ];
-    // });
+    $postStoriesWithUser = [];
 
-    // return response()->json(['postStories' => $poststoriesWithUser], 200);
-    $posts = Post::with('user')->get();
+    $postStories->map(function ($post) use (&$postStoriesWithUser) {
+        $postStoriesWithUser[] = [
+           'name' => $post->user->name,
+           'email' => $post->user->email,
+           'image_url' => $post->user->image_url,
+           'story_type' => $post->story_type,
+           'story_text' => $post->story_text,
+        ];
+    });
 
-    $notImprovedStories = $posts->filter(function($story) {
-    return empty($story->story_text_improved);
-});
+    return response()->json(['postStories' => $postStoriesWithUser], 200);
 
-$notImprovedStoriesWithUser = [];
-
-$notImprovedStories->map(function ($story) use (&$notImprovedStoriesWithUser) {
-    $notImprovedStoriesWithUser[] = [
-        'name' => $story->user->name,
-        'email' => $story->user->email,
-        'image_url' => $story->user->image_url,
-        'story_type' => $story->story_type,
-        'story_text' => $story->story_text,
-    ];
-});
-
-return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
-
-}
+    }
 
 
 public function storePost(Request $request)
