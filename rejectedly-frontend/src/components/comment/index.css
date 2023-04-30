@@ -6,7 +6,8 @@
     border: 2px solid var(--offwhite);
     gap: 0.2rem;
     padding: 0.2rem;
-    width: 13rem;
+    padding-left: 0.6rem;
+    width: 12.6rem;
 }
 .cmnt-img:hover{
  cursor: pointer;

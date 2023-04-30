@@ -3,6 +3,7 @@
     height: 6rem;
     margin-top: 0.1rem;
     border-radius: 50%;
+    /* border: 5px solid var(--green); */
  }
  .user-info{
     display: flex;
@@ -61,7 +62,7 @@ margin-left: 1.5rem;
     margin-top: -0.1rem;
 }
 .post-text{
-    width: 717.22px;
+    width: 44.826rem;
     height: auto;
     
 }
@@ -69,7 +70,8 @@ margin-left: 1.5rem;
     border-bottom: 2px solid var(--offwhite);
 }
 .comments{
+    width: 43.75rem;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
 }
