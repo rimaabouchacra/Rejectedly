@@ -104,7 +104,7 @@ const Posts = () => {
   return (
     <div className="post-container">
       <div className='header collaborate'>
-        <h1>COLLABORATIONS</h1>
+        <h1>MY POSTS</h1>
         <button className='all-btn'>CREATE GROUP</button>
       </div>
       {postStories.map((postStory) => (
