@@ -3,7 +3,6 @@ import './index.css'
 import '../rejectionstory/index.css'
 import groupImg from '../../images/group.png'
 import search from '../../images/search.png'
-import arrow from '../../images/arrow.png'
 import '../newstory/index.css'
 import '../improvedstory/index.css'
 

@@ -73,6 +73,7 @@ import '../rejectionstory/index.css';
 import '../newstory/index.css';
 import '../improvedstory/index.css';
 import Comments from '../../components/comment';
+import ViewComments from '../viewcomment'
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -122,7 +123,10 @@ const Posts = () => {
           <div className='post-contain'>
             <h3>{postStory.story_type}</h3>
             <p className='post-text'>{postStory.story_text}</p>
-             <Comments />
+            <div className='comments'>
+              <Comments />
+              <ViewComments/>
+            </div>
           </div>
           
         </div>

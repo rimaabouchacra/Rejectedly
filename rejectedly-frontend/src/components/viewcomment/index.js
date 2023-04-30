@@ -1,21 +1,18 @@
-import './index.css'
 import '../newstory/index.css'
-import comment from '../../images/comment.png'
-import send from '../../images/send.png'
+import '../newgroup/index.css'
+import arrow from '../../images/arrow.png'
 
 
-const Comments = ()=>{
+const ViewComments = ()=>{
 
 return (
-  <div className='cmnt-container'>
-    <img src={comment} alt="cmnt" />
-    <input className="cmnt" placeholder="Write a comment..."></input>
-    <img className='cmnt-img' src={send} alt="send" />   
+  <div className="view">
+        <img src={arrow} alt="" />
+        <p>View comments</p>
   </div>
-
 
 );
 
 
 }
-export default Comments
+export default ViewComments
