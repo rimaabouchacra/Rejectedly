@@ -7,7 +7,7 @@ import '../myposts/index.css'
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-const Posts = () => {
+const AllPosts = () => {
   const [user, setUser] = useState(null);
   const [postStories, setPostStories] = useState([]);
 
@@ -60,4 +60,4 @@ const Posts = () => {
   );
 }
 
-export default Posts;
+export default AllPosts;
