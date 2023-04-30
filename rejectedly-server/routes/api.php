@@ -30,7 +30,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
         Route::get('/user', [UserController::class, 'getUser']);
         Route::post('/comments', [PostsController::class, 'StoreComment']);
-        Route::get('/stories/{story}/comments', [PostController::class, 'GetComments']);
+        Route::get('/comments/{story}', [PostsController::class, 'GetComments']);
         Route::post('/chatgpt-interpret', [RejectionStoriesController::class, "ChatgptResponse"]);
 
     });

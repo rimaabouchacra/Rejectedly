@@ -98,7 +98,7 @@ class PostsController extends Controller
     //         return response()->json(['error' => $e->getMessage()], 500);
     //     }
     // }
-    public function storeComment(Request $request)
+    public function StoreComment(Request $request)
 {
     try {
         $validatedData = $request->validate([
