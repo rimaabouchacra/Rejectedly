@@ -72,7 +72,10 @@ import '../index.css';
 import '../rejectionstory/index.css';
 import '../newstory/index.css';
 import '../improvedstory/index.css';
-import Comments from '../../components/comment';
+// import Comments from '../../components/comment';
+import '../comment/index.css'
+import comment from '../../images/comment.png';
+import send from '../../images/send.png';
 import ViewComments from '../viewcomment'
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
@@ -80,7 +83,7 @@ import axios from 'axios';
 const Posts = () => {
   const [user, setUser] = useState(null);
   const [postStories, setPostStories] = useState([]);
-
+  const [commentText, setCommentText] = useState('');
   useEffect(() => {
     axios.get('http://localhost:8000/api/v1/auth/user', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -103,23 +106,7 @@ const Posts = () => {
     });
   }, []);
 
-
   
-  const handleCommentSubmit = (postId, comment) => {
-    
-    axios.post('http://localhost:8000/api/v1/auth/post-comment', {
-      post_id: postId,
-      comment: comment
-    }, {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-    })
-    .then(response => {
-      console.log("comment success");
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  };
   return (
     <div className="post-container">
       <div className='header collaborate'>
@@ -141,7 +128,13 @@ const Posts = () => {
             <h3>{postStory.story_type}</h3>
             <p className='post-text'>{postStory.story_text}</p>
             <div className='comments'>
-              <Comments postId={postStory.id} onCommentSubmit={handleCommentSubmit} />
+              {/* <Comments onClick={(comment_text) => handleCommentSubmit(postStory.id, comment_text)} /> */}
+              <div className='cmnt-container'>
+                  <img src={comment} alt="cmnt" />
+                  <input className="cmnt" placeholder="Write a comment..."  />
+                  <img className='cmnt-img' src={send} alt="send" />
+              </div>
+
               <ViewComments/>
             </div>
           </div>
