@@ -72,6 +72,7 @@ import '../index.css';
 import '../rejectionstory/index.css';
 import '../newstory/index.css';
 import '../improvedstory/index.css';
+import Comments from '../../components/comment';
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -104,11 +105,12 @@ const Posts = () => {
   return (
     <div className="post-container">
       <div className='header collaborate'>
+        <Comments />
         <h1>MY POSTS</h1>
         <button className='all-btn'>CREATE GROUP</button>
       </div>
-      {postStories.map((postStory) => (
-        <div className='post' key={postStory.id}>
+      {postStories.map((postStory,index) => (
+        <div className='post' key={index}>
           {user && (
             <div className='user-info'>
               <img className='post-img' src={user.image_url} alt='user' />
@@ -121,7 +123,9 @@ const Posts = () => {
           <div className='post-contain'>
             <h3>{postStory.story_type}</h3>
             <p className='post-text'>{postStory.story_text}</p>
+            
           </div>
+          
         </div>
       ))}
     </div>

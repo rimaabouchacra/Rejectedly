@@ -1,17 +1,19 @@
 import './index.css'
 import '../newstory/index.css'
-import comment from '../../i.mages/comment.png'
+import comment from '../../images/comment.png'
 import send from '../../images/send.png'
 
 
-const Comment = ()=>{
+const Comments = ()=>{
 
-<div className='search'>
+return (
+  <div>
     <img className="search-img" src={comment} alt="cmnt" />
     <input className="input type search-text" placeholder="Write a comment..."></input>
-    <img className="search-img" src={send} alt="send" />
-</div>
+    <img className="search-img" src={send} alt="send" />   
+  </div>
+);
 
 
 }
-export default Comment
+export default Comments

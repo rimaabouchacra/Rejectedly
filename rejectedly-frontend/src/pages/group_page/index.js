@@ -6,6 +6,7 @@ const CreateGroup=()=>{
         <div>
             <Sidebar activePage="collaboration"/>
             <Group/>
+            
         </div>
     )
 }
