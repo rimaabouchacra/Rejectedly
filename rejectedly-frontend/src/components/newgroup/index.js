@@ -35,10 +35,7 @@ const Group = () => {
             <button className='all-btn'>SAVE</button>
         </div>
           
-        <div className="view">
-            <img src={arrow} alt="" />
-            <p>View comment</p>
-        </div>
+        
     </div>
     </div>
   );
