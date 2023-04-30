@@ -115,7 +115,7 @@ const Posts = () => {
               </div>
             </div>
           )}
-          <div>
+          <div className='post-contain'>
             <h3>{postStory.story_type}</h3>
             <p className='post-text'>{postStory.story_text}</p>
           </div>
