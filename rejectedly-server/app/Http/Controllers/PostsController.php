@@ -8,7 +8,7 @@ class PostsController extends Controller
 {
     public function GetLatestNotImproved(Request $request)
     {
-    
+
     $userId = $request->user()->id;
 
     $posts = Post::where('user_id', $userId)
@@ -36,7 +36,7 @@ class PostsController extends Controller
     }
 
 
-public function storePost(Request $request)
+    public function storePost(Request $request)
     {
         $post = new Post;
         $post->story_type = $request->story_type;
