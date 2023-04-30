@@ -101,6 +101,7 @@ const Posts = () => {
     })
     .then(response => {
       setPostStories(response.data.postStories);
+      
     })
     .catch(error => {
       console.log(error);
@@ -149,7 +150,6 @@ const Posts = () => {
               <div className='cmnt-container'>
                   <img src={comment} alt="cmnt" />
                   <input className="cmnt" placeholder="Write a comment..." value={comment_text} onChange={(e) => setCommentText(e.target.value)} />
-
                   <img className='cmnt-img' src={send} alt="send" onClick={() => handleSubmit(postStory.id)} />
 
               </div>
