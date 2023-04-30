@@ -64,6 +64,9 @@
 
 
 // export default Posts;
+
+
+
 import './index.css';
 import '../index.css';
 import '../rejectionstory/index.css';
@@ -126,3 +129,5 @@ const Posts = () => {
 }
 
 export default Posts;
+
+

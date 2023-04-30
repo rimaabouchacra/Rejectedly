@@ -35,6 +35,24 @@ class PostsController extends Controller
 
     }
 
+    public function getAllPosts(Request $request)
+    {
+    $posts = Post::with('user')->get();
+
+    $postStoriesWithUser = [];
+
+    $posts->map(function ($post) use (&$postStoriesWithUser) {
+        $postStoriesWithUser[] = [
+           'name' => $post->user->name,
+           'email' => $post->user->email,
+           'image_url' => $post->user->image_url,
+           'story_type' => $post->story_type,
+           'story_text' => $post->story_text,
+        ];
+    });
+
+    return response()->json(['postStories' => $postStoriesWithUser], 200);
+    }
 
     public function storePost(Request $request)
     {
