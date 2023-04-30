@@ -90,7 +90,7 @@ const Posts = () => {
       console.log(error);
     });
 
-    axios.get('http://localhost:8000/api/v1/auth/latest-rejection-stories', {
+    axios.get('http://localhost:8000/api/v1/auth/My-posts', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
     .then(response => {

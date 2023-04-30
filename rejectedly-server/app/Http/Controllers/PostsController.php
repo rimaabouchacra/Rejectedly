@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-    public function GetLatestNotImproved(Request $request)
+    public function GetMyPosts(Request $request)
     {
 
     $userId = $request->user()->id;
@@ -35,7 +35,7 @@ class PostsController extends Controller
 
     }
 
-    public function getAllPosts(Request $request)
+    public function GetAllPosts(Request $request)
     {
     $posts = Post::with('user')->get();
 
