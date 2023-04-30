@@ -7,11 +7,13 @@ import send from '../../images/send.png'
 const Comments = ()=>{
 
 return (
-  <div>
-    <img className="search-img" src={comment} alt="cmnt" />
-    <input className="input type search-text" placeholder="Write a comment..."></input>
-    <img className="search-img" src={send} alt="send" />   
+  <div className='cmnt-container'>
+    <img src={comment} alt="cmnt" />
+    <input className="cmnt" placeholder="Write a comment..."></input>
+    <img className='cmnt-img' src={send} alt="send" />   
   </div>
+
+
 );
 
 

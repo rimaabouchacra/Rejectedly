@@ -64,9 +64,9 @@ return(
             <label className='label3 type' htmlFor="type">Rejection type</label>
             <select className='input type' name="types" id="type" value={story_type} onChange={handleTypeChange}>
                 <option value="Select">---Select Rejection type</option>
-                <option value="JobApplication">Job Application</option>
+                <option value="Job Application">Job Application</option>
                 <option value="Proposal">Proposal</option>
-                <option value="ProjectIdea">Project Idea</option>
+                <option value="Project Idea">Project Idea</option>
             </select><br/>
         </div>
  
