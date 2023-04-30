@@ -132,7 +132,7 @@ const Posts = () => {
               <div className='cmnt-container'>
                   <img src={comment} alt="cmnt" />
                   <input className="cmnt" placeholder="Write a comment..."  />
-                  {/* <img className='cmnt-img' src={send} alt="send" /> */}
+                  <img className='cmnt-img' src={send} alt="send" />
               </div>
 
               <ViewComments/>
