@@ -22,4 +22,6 @@
     align-items: center;
     font-size: 15px;
     font-weight: bold;
+    padding: 0.2rem;
+    margin-bottom: 1rem;
 }
