@@ -65,3 +65,6 @@ margin-left: 1.5rem;
     height: auto;
     
 }
+.post-contain{
+    border-bottom: 2px solid var(--offwhite);
+}
