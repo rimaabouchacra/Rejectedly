@@ -83,7 +83,8 @@ import axios from 'axios';
 const Posts = () => {
   const [user, setUser] = useState(null);
   const [postStories, setPostStories] = useState([]);
-  const [commentText, setCommentText] = useState('');
+  const [comment_text, setCommentText] = useState('');
+
   useEffect(() => {
     axios.get('http://localhost:8000/api/v1/auth/user', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -106,7 +107,23 @@ const Posts = () => {
     });
   }, []);
 
-  
+ const handleSubmit = (storyId) => {
+  axios.post('http://localhost:8000/api/v1/auth/comments', {
+    story_id: storyId,
+    comment_text: comment_text
+  }, {
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+  })
+  .then(response => {
+    console.log(response.data);
+    setCommentText('');
+  })
+  .catch(error => {
+    console.log(error);
+  });
+}
+
+
   return (
     <div className="post-container">
       <div className='header collaborate'>
@@ -131,8 +148,10 @@ const Posts = () => {
               {/* <Comments onClick={(comment_text) => handleCommentSubmit(postStory.id, comment_text)} /> */}
               <div className='cmnt-container'>
                   <img src={comment} alt="cmnt" />
-                  <input className="cmnt" placeholder="Write a comment..."  />
-                  <img className='cmnt-img' src={send} alt="send" />
+                  <input className="cmnt" placeholder="Write a comment..." value={comment_text} onChange={(e) => setCommentText(e.target.value)} />
+
+                  <img className='cmnt-img' src={send} alt="send" onClick={() => handleSubmit(postStory.id)} />
+
               </div>
 
               <ViewComments/>
@@ -146,5 +165,6 @@ const Posts = () => {
 }
 
 export default Posts;
+
 
 
