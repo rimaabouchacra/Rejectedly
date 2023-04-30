@@ -135,7 +135,7 @@ const Posts = () => {
                   <img className='cmnt-img' src={send} alt="send" />
               </div>
 
-              {/* <ViewComments/> */}
+              <ViewComments/>
             </div>
           </div>
           
