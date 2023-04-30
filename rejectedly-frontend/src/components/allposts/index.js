@@ -1,4 +1,3 @@
-import './index.css';
 import '../index.css';
 import '../rejectionstory/index.css';
 import '../newstory/index.css';

@@ -13,6 +13,7 @@ import PostYourStory from './pages/collaboration_page';
 import CreateGroup from './pages/group_page';
 import AdminDashboard from './pages/admin_page';
 import Posts from './pages/posts'
+import AllPosts from './pages/all_posts';
 function App() {
   return (
     <Router>
@@ -29,6 +30,7 @@ function App() {
           <Route path="/group" element={<CreateGroup/>} />
           <Route path="/admin" element={<AdminDashboard/>} />
           <Route path="/posts" element={<Posts/>} />
+          <Route path="/allposts" element={<AllPosts/>} />
       </Routes>  
     </Router> 
 
