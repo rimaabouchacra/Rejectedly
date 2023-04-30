@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
+
 use App\Models\RejectionStory;
 use App\Models\Post;
 use App\Models\User;
@@ -21,49 +21,7 @@ class UserController extends Controller
         return response()->json($user);
 
     }
-    public function store(Request $request, Post $story)
-    {
-        try {
-            $validatedData = $request->validate([
-                'comment_text' => 'required|string|max:255',
-            ]);
 
-            if (!$story) {
-                throw new \Exception('Story not found');
-            }
-
-            logger()->debug('Story ID: ' . $story->id);
-
-            $comment = new Comment();
-            $comment->comment_text = $validatedData['comment_text'];
-            $comment->user_id = auth()->user()->id;
-            $comment->story_id = $story->id;
-
-            $comment->save();
-
-            return response()->json(['message' => 'Comment added successfully']);
-        } catch (\Exception $e) {
-            logger()->error($e->getMessage());
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
-    }
-
-    public function getComments(Post $story)
-    {
-       $comments = Comment::where('story_id', $story->id)->with('user')->get(['comment_text', 'user_id']);
-
-       $commentsWithUser = $comments->map(function ($comment) {
-          $userName = $comment->user->name;
-          return [
-              'comment_text' => $comment->comment_text,
-              'user_name' => $userName,
-          ];
-       });
-
-       return response()->json([
-            'comments' => $commentsWithUser,
-        ]);
-    }
 
 public function profile(Request $request)
 {

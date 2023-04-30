@@ -29,8 +29,8 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
         Route::get('/user', [UserController::class, 'getUser']);
-        Route::post('/stories/{story}/comments', [UserController::class, 'store']);
-        Route::get('/stories/{story}/comments', [UserController::class, 'getComments']);
+        Route::post('/comments/{post}', [PostsController::class, 'StoreComment']);
+        Route::get('/stories/{story}/comments', [PostController::class, 'GetComments']);
         Route::post('/chatgpt-interpret', [RejectionStoriesController::class, "ChatgptResponse"]);
 
     });

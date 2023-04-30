@@ -103,6 +103,23 @@ const Posts = () => {
     });
   }, []);
 
+
+  
+  const handleCommentSubmit = (postId, comment) => {
+    
+    axios.post('http://localhost:8000/api/v1/auth/post-comment', {
+      post_id: postId,
+      comment: comment
+    }, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    })
+    .then(response => {
+      console.log("comment success");
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  };
   return (
     <div className="post-container">
       <div className='header collaborate'>
@@ -124,7 +141,7 @@ const Posts = () => {
             <h3>{postStory.story_type}</h3>
             <p className='post-text'>{postStory.story_text}</p>
             <div className='comments'>
-              <Comments />
+              <Comments postId={postStory.id} onCommentSubmit={handleCommentSubmit} />
               <ViewComments/>
             </div>
           </div>
