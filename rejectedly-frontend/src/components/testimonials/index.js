@@ -1,7 +1,7 @@
 import './index.css'
 import React from 'react';
-import person1 from '../../images/person1.png'
-import person2 from '../../images/person2.png'
+import john from '../../images/john.png'
+import adriana from '../../images/adriana.png'
 import person3 from '../../images/person3.png'
 
 const Testimonials = () => {
@@ -11,12 +11,12 @@ return(
         <h1 className='testimonials-title'>User Testimonials</h1>
         <div className='persons-container'>
             <div className='person'>
-                <img className='person-img' src={person1} alt="p1" />
+                <img className='person-img' src={john} alt="p1" />
                 <p className='title'>John Anderson</p>
                 <p>“Thanks to Rejectedly, I was able to turn my rejection into a learning opportunity and improve my approach for future submissions.”</p>
             </div>
             <div className='person'>
-                <img className='person-img' src={person2} alt="p3" />
+                <img className='person-img' src={adriana} alt="p3" />
                 <p className='title'>Adriana Wilson</p>
                 <p>“The Rejection Circles feature was a game-changer for me. Collaborating with other rejected applicants helped me gain improve my chances of success.”</p>
             </div>

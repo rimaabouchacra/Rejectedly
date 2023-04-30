@@ -136,25 +136,25 @@ public function GetNotImproved(Request $request)
 }
 
 
-public function GetLatestNotImproved(Request $request)
-{
-    $rejectionStories = RejectionStory::with('user')->get();
-    $notImprovedStories = $rejectionStories->filter(function($story) {
-        return empty($story->story_text_improved);
-    })->sortByDesc('created_at');
+// public function GetLatestNotImproved(Request $request)
+// {
+//     $rejectionStories = RejectionStory::with('user')->get();
+//     $notImprovedStories = $rejectionStories->filter(function($story) {
+//         return empty($story->story_text_improved);
+//     })->sortByDesc('created_at');
 
-    $latestStory = $notImprovedStories->first();
+//     $latestStory = $notImprovedStories->first();
 
-    $latestStoryWithUser = [
-        'name' => $latestStory->user->name,
-        'email' => $latestStory->user->email,
-        'image_url' => $latestStory->user->image_url,
-        'story_type' => $latestStory->story_type,
-        'story_text' => $latestStory->story_text,
-    ];
+//     $latestStoryWithUser = [
+//         'name' => $latestStory->user->name,
+//         'email' => $latestStory->user->email,
+//         'image_url' => $latestStory->user->image_url,
+//         'story_type' => $latestStory->story_type,
+//         'story_text' => $latestStory->story_text,
+//     ];
 
-    return response()->json(['latest_story' => $latestStoryWithUser], 200);
-}
+//     return response()->json(['latest_story' => $latestStoryWithUser], 200);
+// }
 
 
 public function ChatgptResponse(Request $request)

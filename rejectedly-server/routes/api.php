@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RejectionStoriesController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostsController;
 
 
 Route::group(['prefix' => 'v1'], function(){
@@ -20,7 +21,8 @@ Route::group(['prefix' => 'v1'], function(){
         Route::get('/rejection-stories/improved', [RejectionStoriesController::class, 'GetImproved']);
         Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);
         Route::get('/rejection-stories-user', [RejectionStoriesController::class, 'GetNotImprovedUser']);
-        Route::get('/latest-rejection-stories', [RejectionStoriesController::class, 'GetLatestNotImproved']);
+        // Route::get('/latest-rejection-stories', [RejectionStoriesController::class, 'GetLatestNotImproved']);
+        Route::get('/latest-rejection-stories', [PostsController::class, 'GetLatestNotImproved']);
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
         Route::get('/user', [UserController::class, 'getUser']);

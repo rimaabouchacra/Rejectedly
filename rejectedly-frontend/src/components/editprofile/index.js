@@ -50,6 +50,8 @@
 
 // export default EditProfile;
 
+
+
 import React, { useState } from "react";
 import { FaCamera } from "react-icons/fa";
 import "./index.css";
@@ -64,7 +66,8 @@ const EditProfile = () => {
   const [phone_number, setPhone] = useState("");
   const [biography, setBio] = useState("");
   const [linkedin_url, setLinkedin] = useState("");
-
+  // const [image_url, setImage] = useState("");
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     
