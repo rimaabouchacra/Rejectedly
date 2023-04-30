@@ -35,7 +35,7 @@ const PostStory = () => {
     formData.append('story_text', story_text);
     
   
-    axios.post("http://localhost:8000/api/v1/auth/rejection-stories", formData, {
+    axios.post("http://localhost:8000/api/v1/auth/posts", formData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "multipart/form-data",
