@@ -131,7 +131,7 @@ const Posts = () => {
               {/* <Comments onClick={(comment_text) => handleCommentSubmit(postStory.id, comment_text)} /> */}
               <div className='cmnt-container'>
                   <img src={comment} alt="cmnt" />
-                  <input className="cmnt" placeholder="Write a comment..."  />
+                  {/* <input className="cmnt" placeholder="Write a comment..."  /> */}
                   <img className='cmnt-img' src={send} alt="send" />
               </div>
 
