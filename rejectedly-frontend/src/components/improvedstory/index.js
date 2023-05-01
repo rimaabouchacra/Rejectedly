@@ -26,7 +26,7 @@ const PostImprovedStory = () => {
   const handleTextChangee = (e) => {
     setTextImproved(e.target.value);
   }
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
  
   const handleSubmit = (e) => {
     e.preventDefault();
