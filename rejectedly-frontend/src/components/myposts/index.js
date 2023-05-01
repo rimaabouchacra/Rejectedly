@@ -87,7 +87,7 @@ const Posts = () => {
   const [postStories, setPostStories] = useState([]);
   const [comment_text, setCommentText] = useState('');
   const [showPopup, setShowPopup] = useState(false);
-   const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/v1/auth/user', {
