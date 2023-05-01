@@ -24,8 +24,7 @@ const PostEmpty = () => {
       <div className='new-story text'>
         <h2 className='textt'>NO POSTS YET</h2>
         <p className='textt'>Rejectedly gives you the opportunity to post your rejection story to send and receive constructive feedback from the community, so that you identify the points that need improvements.</p>
-        {/* <button onClick={handleButtonClick} className='all-btn'>NEW STORY</button> */}
-        <img className='plus' src={plus} alt="plus" />
+        <img onClick={handleButtonClick} className='plus' src={plus} alt="plus" />
       </div>
     </div>
   );
