@@ -1,4 +1,6 @@
 .footer{
+    display: flex;
+    justify-content: space-between;
    background-color: var(--dark) ;
    height: fit-content;
    max-width: 100%;

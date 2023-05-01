@@ -3,7 +3,7 @@ import React from 'react';
 import fcb from '../../images/fcb.png'
 import insta from '../../images/insta.png'
 import linkedin from '../../images/linkedin.png'
-
+import logo1 from '../../images/logo1.png'
 const Footer = () => {
 const token = localStorage.getItem('token');
 return(
@@ -32,13 +32,15 @@ return(
         </div>
         
     </div>
-    
-    <h2 className='footer-title'>Follow us</h2>
+    <div className='footer-section1'>
+        <img src={logo1} alt="logo" />
     <div className='social-media'>
         <img src={fcb} alt="fcb" />
         <img src={insta} alt="insta" />
         <img src={linkedin} alt="linkedin" />
     </div>
+    </div>
+    
 </div>  
 
 )
