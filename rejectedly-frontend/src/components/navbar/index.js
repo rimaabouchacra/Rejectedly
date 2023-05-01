@@ -11,7 +11,7 @@ return(
     <div className='links'>
         <a href="/">Home</a>
         <a href="saved">Analysis</a>
-        <a href="collaboration">Collaboration</a>
+        <a href="allposts">Collaboration</a>
         <a href="marketplace">Marketplace</a>
     </div>
     <div className='links-register'>

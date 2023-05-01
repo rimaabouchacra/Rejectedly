@@ -10,7 +10,7 @@ const PostEmpty = () => {
   const navigate = useNavigate();
   
   const handleButtonClick = () => {
-    window.location.href = '/collaboration';
+    navigate('/collaboration')
   };
 
 
