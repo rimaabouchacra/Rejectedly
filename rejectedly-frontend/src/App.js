@@ -16,14 +16,11 @@ import AdminDashboard from './pages/admin_page';
 import Posts from './pages/posts'
 import AllPosts from './pages/all_posts';
 import ErrorPage from './pages/error_page';
-import MarketplacePosts from './components/marketplaceposts';
+import MarketplacePosts from './pages/marketplace_posts';
 function App() {
   
   const is_admin = JSON.parse(localStorage.getItem('is_admin'));
 
-  // if (is_admin === 0) {
-  //   return <R to='/error' />;
-  // }
   return (
     <Router>
       <Routes>

@@ -1,11 +1,10 @@
 import MarketplacePosts from '../../components/marketplaceposts'
-import Sidebar from "../../components/sidebar"
-
+import Sidebar from '../../components/sidebar'
 
 const PostMarketplace=()=>{
     return(
         <div>
-            <Sidebar activePage="marketplace"/>
+            <Sidebar/>
             <MarketplacePosts/>
         </div>
     )
