@@ -183,6 +183,13 @@ const Posts = () => {
           
         </div>
       ))}
+      {showPopup && (
+        <ViewComments
+          isOpen={showPopup}
+          onRequestClose={() => setShowPopup(false)}
+          comments={comments}
+        />
+      )}
     </div>
   );
 }
