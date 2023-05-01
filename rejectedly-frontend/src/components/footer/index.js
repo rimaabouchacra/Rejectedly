@@ -38,9 +38,9 @@ return(
         </div>
         
     <div className='social-media'>
-        <img src={fcb} alt="fcb" />
-        <img src={insta} alt="insta" />
-        <img src={linkedin} alt="linkedin" />
+        <img className='social-icon' src={fcb} alt="fcb" />
+        <img className='social-icon'  src={insta} alt="insta" />
+        <img className='social-icon'  src={linkedin} alt="linkedin" />
     </div>
     </div>
     
