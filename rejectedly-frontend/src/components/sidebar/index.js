@@ -23,10 +23,13 @@ const Sidebar = ({ activePage }) => {
     console.error('Logout error:', error);
   });
 };
+  const handleGoHome = ()=>{
+    navigate('/')
+  }
   return (
     <div className="sidebar">
       <div className='logo'>
-        <img src={logo2} alt="logo" />
+        <img onClick={handleGoHome} src={logo2} alt="logo" />
       </div>
       <ul>
         <li className={activePage === 'saved' ? 'active' : ''}><a href='saved'>MY STORIES</a></li>

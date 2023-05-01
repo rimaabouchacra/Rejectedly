@@ -64,7 +64,7 @@ import error from '../../images/error.png'
 const Error = () => {
   const navigate = useNavigate();
   const handleGoHome=()=>{
-    navigate('/')
+    navigate('/login')
   }
 
   return (
@@ -72,7 +72,7 @@ const Error = () => {
         <div className="error-page">
            <img src={error} alt="404" />
            <h3 className="oops">OOPS! Page Not Found</h3>
-           <button onClick={handleGoHome} className="all-btn">BACK TO HOME</button>
+           <button onClick={handleGoHome} className="all-btn">GO BACK</button>
         </div>
     </div>
     

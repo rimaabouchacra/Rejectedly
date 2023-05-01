@@ -2,7 +2,7 @@
     align-self: center;
     margin-top: -4rem;
     margin-bottom: 2rem;
-    
+    cursor: pointer;
 }
 .active {
     font-weight: bold;
