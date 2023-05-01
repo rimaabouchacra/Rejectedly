@@ -5,24 +5,34 @@ import insta from '../../images/insta.png'
 import linkedin from '../../images/linkedin.png'
 
 const Footer = () => {
+const token = localStorage.getItem('token');
 return(
 <div className='footer'>
-    <h2 className='footer-title'>Website Links</h2>
-    <div className='footer-links'>
-        <div className='link-division'>
-             <a href="/">Home</a>
-             <a href="analysis">Analysis</a>
+    <div className='footer-section1'>
+        <div className='r-title'>
+            <h3 className='footer-title'>REJECTEDLY</h3>
         </div>
-         <div className='link-division'>
-            <a href="collaboration">Collaboration</a>
-            <a href="marketplace">Marketplace</a>
-        </div>
-        <div className='link-division'>
+        <div className='footer-links'>
+            <a href="/">Home</a>
+            {token ? (
+          <>
+            <a href='saved'>Analysis</a>
+            <a href='allposts'>Collaboration</a>
+            <a href='marketplaceposts'>Marketplace</a>
+          </>
+        ) : (
+          <>
+          <a href='/error'>Analysis</a>
+          <a href='/error'>Collaboration</a>
+          <a href='/error'>Marketplace</a>
+          </>
+        )}
             <a href="signup">Signup</a>
             <a href="login">Login</a>
-        </div> 
-
+        </div>
+        
     </div>
+    
     <h2 className='footer-title'>Follow us</h2>
     <div className='social-media'>
         <img src={fcb} alt="fcb" />
