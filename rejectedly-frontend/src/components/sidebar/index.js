@@ -29,7 +29,7 @@ const Sidebar = ({ activePage }) => {
         <img src={logo2} alt="logo" />
       </div>
       <ul>
-        <li className={activePage === 'analysis' ? 'active' : ''}><a href='analysis'>MY STORIES</a></li>
+        <li className={activePage === 'saved' ? 'active' : ''}><a href='saved'>MY STORIES</a></li>
         <li className={activePage === 'profile' ? 'active' : ''}><a href='profile'>EDIT PROFILE</a></li>
         <li className={activePage === 'marketplace' ? 'active' : ''}><a href='marketplace'>MARKETPLACE</a></li>
         <li className={activePage === 'collaboration' ? 'active' : ''}><a href='collaboration'>COLLABORATION</a></li>
