@@ -14,6 +14,7 @@ import CreateGroup from './pages/group_page';
 import AdminDashboard from './pages/admin_page';
 import Posts from './pages/posts'
 import AllPosts from './pages/all_posts';
+import ErrorPage from './pages/error_page';
 function App() {
   return (
     <Router>
@@ -31,11 +32,13 @@ function App() {
           <Route path="/admin" element={<AdminDashboard/>} />
           <Route path="/posts" element={<Posts/>} />
           <Route path="/allposts" element={<AllPosts/>} />
+          <Route path="/error" element={<ErrorPage/>} />
       </Routes>  
     </Router> 
 
   );
 }
+
 
 export default App;
 
