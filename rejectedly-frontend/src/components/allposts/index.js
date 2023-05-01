@@ -6,6 +6,7 @@ import '../myposts/index.css'
 import comment from '../../images/comment.png';
 import send from '../../images/send.png';
 import arrow from '../../images/arrow.png'
+import ViewComments from '../viewcomment'
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -13,6 +14,8 @@ const AllPosts = () => {
   const [user, setUser] = useState(null);
   const [postStories, setPostStories] = useState([]);
   const [comment_text, setCommentText] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/v1/auth/user', {
@@ -52,6 +55,19 @@ const AllPosts = () => {
   });
 }
 
+  const handleViewComments = (storyId) => {
+  axios.get(`http://localhost:8000/api/v1/auth/comments/${storyId}`, {
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+  })
+  .then(response => {
+    setComments(response.data.comments);
+    setShowPopup(true);
+    console.log(comments);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+}
   return (
     <div className="post-container">
       <div className='header collaborate'>
@@ -78,15 +94,23 @@ const AllPosts = () => {
                   <input className="cmnt" placeholder="Write a comment..." value={comment_text} onChange={(e) => setCommentText(e.target.value)} />
                   <img className='cmnt-img' src={send} alt="send" onClick={() => handleSubmit(postStory.id)} />
               </div>
-              <div className="view">
+             <div className="view" onClick={() => handleViewComments(postStory.id)}>
                     <img src={arrow} alt="" />
                     <p>View comments</p>
+                    
               </div>
             </div>
             
           </div>
         </div>
       ))}
+      {showPopup && (
+        <ViewComments
+          isOpen={showPopup}
+          onRequestClose={() => setShowPopup(false)}
+          comments={comments}
+        />
+      )}
     </div>
   );
 }

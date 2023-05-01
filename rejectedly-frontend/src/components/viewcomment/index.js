@@ -17,12 +17,17 @@ return (
     >
       <h2 className='view-title'>All Comments</h2>
       <div>
-        {comments.map((comment, index) => (
-          <div className='commented' key={index}>
+        {comments.length > 0 ? (
+          comments.map((comment, index) => (
+        <div className='commented' key={index}>
             <p className='view-name'>{comment.user_name}</p>
             <p>{comment.comment_text}</p>
-          </div>
-        ))}
+        </div>
+        ))
+        ) : (
+        <p className='no-comment'>No comments yet.</p>
+       )}
+
       </div>
       <button className='all-btn close' onClick={onRequestClose}>Close</button>
     </Modal>
