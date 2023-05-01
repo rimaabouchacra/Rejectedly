@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className='navbar'>
       <div>
-        <img src={logo} alt='logo' />
+        <img className='nav-logo' src={logo} alt='logo' />
       </div>
       <div className='links'>
         <a href='/'>Home</a>
@@ -16,7 +16,7 @@ const Navbar = () => {
           <>
             <a href='saved'>Analysis</a>
             <a href='allposts'>Collaboration</a>
-            <a href='marketplace'>Marketplace</a>
+            <a href='marketplaceposts'>Marketplace</a>
           </>
         ) : (
           <>

@@ -65,7 +65,7 @@ const MarketplacePosts = () => {
             </div>
           )}
           <div className='post-containn'>
-            <h3>{postStory.story_type}</h3>
+            <h3>{postStory.story_type}</h3><br />
             <div className='before-after'>
                 <div className='m-post'>
                 <div className='m-contain'>

@@ -9,7 +9,7 @@
 
 .navbar {
     max-width: 100%;
-    padding: 0.3rem;
+    padding: 0.7rem;
     padding-left: 1rem;
     font-size: 0.875rem;
     margin-bottom: 0;
@@ -24,6 +24,7 @@
     display: flex;
     gap: 2rem;
     margin-right: 25%;
+    font-size: 0.975rem;
 }
 
 .navbar a {
