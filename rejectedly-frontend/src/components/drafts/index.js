@@ -7,6 +7,7 @@ import '../rejectionstory/index.css'
 import '../analysis/index.css'
 import '../newstory/index.css'
 import Analysis from '../analysis';
+import Story from '../rejectionstory';
 
 const Drafts = () => {
   const [showStory, setShowStory] = useState(false);
@@ -64,6 +65,10 @@ const Drafts = () => {
     });
   }, []);
 
+
+   if (rejection_stories.length === 0) {
+    return <Story />;
+  }
   return (
     <div className="post-container">
       <div className='header draft'>
@@ -79,24 +84,30 @@ const Drafts = () => {
       </div>
       <div>
         <div className='each-one'>
-            {rejection_stories && rejection_stories.map(story => (
+          {rejection_stories.length > 0 ? (
+      <div className='each-one'>
+        {rejection_stories.map(story => (
           <div key={story.id}>
             <div className='thestory'>
-                <h3>{story.story_type}</h3>
-                <p>{story.story_text}</p> 
-                <button onClick={handleButtonClick2} className='analysiss'><h3>SHOW ANALYSIS</h3></button>
-            {showAnalysis && (
-        <div className='overlay' ref={overlayReff}>
-          <div className='popup-analysis'>
-            <Analysis />
-
-          </div>
-        </div>
-        )} 
+              <h3>{story.story_type}</h3>
+              <p>{story.story_text}</p> 
+              <button onClick={handleButtonClick2} className='analysiss'><h3>SHOW ANALYSIS</h3></button>
+              {showAnalysis && (
+                <div className='overlay' ref={overlayReff}>
+                  <div className='popup-analysis'>
+                    <Analysis />
+                  </div>
+                </div>
+              )} 
             </div>
-            
           </div>
         ))}
+      </div>
+    ) : (
+      <div>
+        {/* <Story/> */}
+      </div>
+    )}
         </div>
         
 
