@@ -70,9 +70,7 @@ const Error = () => {
   return (
     <div className="error-bg">
         <div className="error-page">
-           <img className="error-img" src={laptop} alt="" />
-           <p className="error-title">404</p>
-           {/* <img src={error} alt="404" /> */}
+           <img src={error} alt="404" />
            <h3 className="oops">OOPS! Page Not Found</h3>
            <button onClick={handleGoHome} className="all-btn">BACK TO HOME</button>
         </div>
