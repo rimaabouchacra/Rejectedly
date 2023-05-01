@@ -12,9 +12,7 @@ import { useNavigate } from "react-router-dom";
 const MarketplacePosts = () => {
   const [user, setUser] = useState(null);
   const [postStories, setPostStories] = useState([]);
-  const [comment_text, setCommentText] = useState('');
-  const [showPopup, setShowPopup] = useState(false);
-  const [comments, setComments] = useState([]);
+  
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/v1/auth/user', {
@@ -42,17 +40,17 @@ const MarketplacePosts = () => {
   const navigate = useNavigate();
   const handleNewPost = () => {
     
-    navigate('/collaboration')
+    navigate('/marketplace')
   };
 
-  if (postStories.length === 0) {
-    return <PostEmpty/>;
-  }
-  else{
+//   if (postStories.length === 0) {
+//     return <PostEmpty/>;
+//   }
+  
     return (
     <div className="post-container">
       <div className='header collaborate'>
-        <h1>COLLABORATIONS</h1>
+        <h1>MARKETPLACE</h1>
         <button onClick={handleNewPost} className='all-btn'>New Post</button>
       </div>
       {postStories.map((postStory) => (
@@ -69,6 +67,7 @@ const MarketplacePosts = () => {
           <div className='post-contain'>
             <h3>{postStory.story_type}</h3>
             <p className='post-text'>{postStory.story_text}</p>
+            <p className='post-text'>{postStory.story_text_improved}</p>
             
             
           </div>
@@ -79,6 +78,6 @@ const MarketplacePosts = () => {
   );
   }
   
-}
+
 
 export default MarketplacePosts;

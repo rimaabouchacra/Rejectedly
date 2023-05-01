@@ -16,6 +16,7 @@ import AdminDashboard from './pages/admin_page';
 import Posts from './pages/posts'
 import AllPosts from './pages/all_posts';
 import ErrorPage from './pages/error_page';
+import MarketplacePosts from './components/marketplaceposts';
 function App() {
   
   const is_admin = JSON.parse(localStorage.getItem('is_admin'));
@@ -38,7 +39,8 @@ function App() {
           <Route path="/group" element={<CreateGroup/>} />
           <Route path="/posts" element={<Posts/>} />
           <Route path="/allposts" element={<AllPosts/>} />
-           <Route path="/admin" element={is_admin === 0 ? <Navigate to="/error" /> : <AdminDashboard />} />
+          <Route path="/marketplaceposts" element={<MarketplacePosts/>} />
+          <Route path="/admin" element={is_admin === 0 ? <Navigate to="/error" /> : <AdminDashboard />} />
           <Route path="/error" element={<ErrorPage/>} />
       </Routes>  
     </Router> 

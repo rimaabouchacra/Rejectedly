@@ -167,22 +167,23 @@ class PostsController extends Controller
 
     public function GetImproved()
     {
+     $posts = Post::where('story_text_improved', '!=', '')->with('user')->get();
 
-       $improvedStories = Post::where('story_text_improved', '!=', '')->with('user')->get();
-       $improvedStories = $improvedStories->map(function ($story) {
+    $postStoriesWithUser = [];
 
-        return [
-            'id' => $story->id,
-            'name' => $story->user->name,
-            'email' => $story->user->email,
-            'image_url' => $story->user->image_url,
-            'story_type' => $story->story_type,
-            'story_text' => $story->story_text,
-            'story_text_improved' => $story->story_text_improved,
+    $posts->map(function ($post) use (&$postStoriesWithUser) {
+        $postStoriesWithUser[] = [
+           'id' => $post->id,
+           'name' => $post->user->name,
+           'email' => $post->user->email,
+           'image_url' => $post->user->image_url,
+           'story_type' => $post->story_type,
+           'story_text' => $post->story_text,
+           'story_text_improved' => $post->story_text_improved,
         ];
     });
 
-    return response()->json(['improved_stories' => $improvedStories]);
+    return response()->json(['postStories' => $postStoriesWithUser], 200);
     }
 
 }
