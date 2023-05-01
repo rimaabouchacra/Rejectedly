@@ -10,6 +10,7 @@ import ViewComments from '../viewcomment'
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PostEmpty from '../postrejectionempty';
+import { useNavigate } from "react-router-dom";
 
 const AllPosts = () => {
   const [user, setUser] = useState(null);
@@ -70,14 +71,21 @@ const AllPosts = () => {
   });
 }
 
+  const navigate = useNavigate();
+  const handleNewPost = () => {
+    
+    navigate('/collaboration')
+  };
+
   if (postStories.length === 0) {
     return <PostEmpty/>;
   }
-  return (
+  else{
+    return (
     <div className="post-container">
       <div className='header collaborate'>
         <h1>COLLABORATIONS</h1>
-        <button className='all-btn'>CREATE GROUP</button>
+        <button onClick={handleNewPost} className='all-btn'>New Post</button>
       </div>
       {postStories.map((postStory) => (
         <div className='post' key={postStory.id}>
@@ -118,6 +126,8 @@ const AllPosts = () => {
       )}
     </div>
   );
+  }
+  
 }
 
 export default AllPosts;

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const PostStory = () => {
   const handleClick = () => {
-    window.location.href = '/group';
+    navigate('/group');
   };
   
   const [story_type, setType] = useState("");
@@ -45,7 +45,7 @@ const PostStory = () => {
         console.log(response.data);
         console.log("Story added successfully!")
         
-        navigate('/posts');
+        navigate('/allposts');
       })
       .catch((error) => {
         console.log(error.response.data);

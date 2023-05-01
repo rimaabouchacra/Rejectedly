@@ -146,6 +146,7 @@ const Posts = () => {
   if (postStories.length === 0) {
     return <PostEmpty/>;
   }
+  
   return (
     <div className="post-container">
       <div className='header collaborate'>
