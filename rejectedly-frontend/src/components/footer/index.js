@@ -32,8 +32,11 @@ return(
         </div>
         
     </div>
-    <div className='footer-section1'>
-        <img src={logo1} alt="logo" />
+    <div className='footer-section2'>
+        <div>
+           <img src={logo1} alt="logo" />
+        </div>
+        
     <div className='social-media'>
         <img src={fcb} alt="fcb" />
         <img src={insta} alt="insta" />
