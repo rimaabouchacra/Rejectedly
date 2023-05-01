@@ -7,7 +7,7 @@ import Sidebar from "../../components/sidebar"
 const PostAllStories=()=>{
     return(
         <div>
-            <Sidebar/>
+            <Sidebar activePage="collaboration"/>
             <AllPosts/>
         </div>
     )

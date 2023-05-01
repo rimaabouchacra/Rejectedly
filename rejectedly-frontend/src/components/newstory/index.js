@@ -153,7 +153,7 @@ const NewStory = (props) => {
   const [story_text, setText] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [generatedText, setGeneratedText] = useState("");
- 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
 
   const handleTypeChange = (e) => {
@@ -163,7 +163,7 @@ const NewStory = (props) => {
   const handleTextChange = (e) => {
     setText(e.target.value);
   };
-
+  
  const handleChatgptResponse=()=>{
   const data = {
     story_type: story_type,
@@ -182,11 +182,12 @@ const NewStory = (props) => {
       setSelectedType(story_type);
       console.log('Story analyzed successfully!');
       
-      navigate('/saved', { 
-  state: { 
-    selectedType: story_type, 
-    generatedText: generatedText 
-  } 
+      navigate('/saved'
+      , { 
+      state: { 
+        selectedType: story_type, 
+        generatedText: generatedText 
+      } 
 });
 
     })
