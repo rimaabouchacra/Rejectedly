@@ -144,4 +144,24 @@ class PostsController extends Controller
             'comments' => $commentsWithUser,
         ]);
     }
+     public function storeStoryWithImprovement(Request $request)
+    {
+        $validatedData = $request->validate([
+            'story_type' => 'required',
+            'story_text' => 'required',
+            'story_text_improved' => 'required',
+
+        ]);
+        $user_id = $request->user()->id;
+
+        $rejectionStory = new Post();
+        $rejectionStory->story_type = $validatedData['story_type'];
+        $rejectionStory->story_text = $validatedData['story_text'];
+        $rejectionStory->story_text_improved = $validatedData['story_text_improved'];
+        $rejectionStory->user_id = auth()->id();
+        $rejectionStory->save();
+
+        return response()->json(['message' => 'Rejection story added successfully']);
+    }
+
 }

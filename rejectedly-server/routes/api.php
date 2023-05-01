@@ -20,12 +20,10 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/posts', [PostsController::class, "storePost"]);
         Route::get('/All-posts', [PostsController::class, "GetAllPosts"]);
         Route::get('/My-posts', [PostsController::class, 'GetMyPosts']);
-        Route::post('/rejection-stories/improved', [RejectionStoriesController::class, "storeStoryWithImprovement"]);
+        Route::post('/rejection-stories/improved', [PostsController::class, "storeStoryWithImprovement"]);
         Route::get('/rejection-stories/improved', [RejectionStoriesController::class, 'GetImproved']);
         Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);
         Route::get('/rejection-stories-user', [RejectionStoriesController::class, 'GetNotImprovedUser']);
-        // Route::get('/latest-rejection-stories', [RejectionStoriesController::class, 'GetLatestNotImproved']);
-
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
         Route::get('/user', [UserController::class, 'getUser']);

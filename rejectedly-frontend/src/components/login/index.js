@@ -94,7 +94,7 @@ const Loginn = ()=>{
                 window.location.href = "/admin";
                 
             } else {
-                window.location.href = "/analysis";
+                window.location.href = "/saved";
             }
         } catch (error) {
              form.reset();
