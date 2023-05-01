@@ -46,7 +46,7 @@ return(
                    ))
                 ) : (
           <tr>
-            <td colSpan="3">You are not the admin.</td>
+            <td colSpan="3">No users yet</td>
           </tr>
         )}
       </tbody>
