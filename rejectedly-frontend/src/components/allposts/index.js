@@ -9,6 +9,7 @@ import arrow from '../../images/arrow.png'
 import ViewComments from '../viewcomment'
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
+import PostEmpty from '../postrejectionempty';
 
 const AllPosts = () => {
   const [user, setUser] = useState(null);
@@ -68,6 +69,10 @@ const AllPosts = () => {
     console.log(error);
   });
 }
+
+  if (postStories.length === 0) {
+    return <PostEmpty/>;
+  }
   return (
     <div className="post-container">
       <div className='header collaborate'>

@@ -33,6 +33,7 @@ const Sidebar = ({ activePage }) => {
         <li className={activePage === 'profile' ? 'active' : ''}><a href='profile'>EDIT PROFILE</a></li>
         <li className={activePage === 'marketplace' ? 'active' : ''}><a href='marketplace'>MARKETPLACE</a></li>
         <li className={activePage === 'collaboration' ? 'active' : ''}><a href='collaboration'>COLLABORATION</a></li>
+        <li className={activePage === 'posts' ? 'active' : ''}><a href='posts'>MY POSTS</a></li>
         <li className='li'><a onClick={handleLogout}>LOGOUT</a></li>
        
       </ul>

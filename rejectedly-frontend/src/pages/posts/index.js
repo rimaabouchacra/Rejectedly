@@ -3,8 +3,7 @@ import Posts from "../../components/myposts"
 const AllPosts=()=>{
     return(
         <div>
-            
-            <Sidebar activePage="collaboration"/>
+            <Sidebar activePage="posts"/>
             <Posts/>
         </div>
     )
