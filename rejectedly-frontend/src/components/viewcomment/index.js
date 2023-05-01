@@ -1,6 +1,7 @@
 import '../newstory/index.css'
 import '../newgroup/index.css'
 import './index.css'
+import '../index.css'
 import React from 'react';
 import Modal from 'react-modal';
 
@@ -15,15 +16,15 @@ return (
       contentLabel="View Comments"
     >
       <h2 className='view-title'>All Comments</h2>
-      <ul>
+      <div>
         {comments.map((comment, index) => (
-          <div key={index}>
+          <div className='commented' key={index}>
             <p className='view-name'>{comment.user_name}</p>
             <p>{comment.comment_text}</p>
           </div>
         ))}
-      </ul>
-      <button onClick={onRequestClose}>Close</button>
+      </div>
+      <button className='all-btn close' onClick={onRequestClose}>Close</button>
     </Modal>
   </div>
      

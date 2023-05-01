@@ -26,9 +26,20 @@
     overflow-y: auto;
     max-height: 25rem;
 }
-.view-title{
-    text-align: center;
+.commented{
+    border: 2px solid var(--offwhite);
+    border-radius: 3px;
+    margin: 1rem;
+    padding: 0.5rem;
 }
 .view-name{
     font-weight: bold;
+}
+.view-title{
+    margin: 1rem;
+    padding: 0.5rem;
+}
+.close{
+    width: 7rem;
+    align-self: center;
 }
