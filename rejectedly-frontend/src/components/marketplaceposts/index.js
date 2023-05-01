@@ -1,9 +1,9 @@
+import './index.css';
 import '../index.css';
 import '../rejectionstory/index.css';
 import '../newstory/index.css';
 import '../improvedstory/index.css';
 import '../myposts/index.css'
-import ViewComments from '../viewcomment'
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PostEmpty from '../postrejectionempty';
@@ -43,9 +43,9 @@ const MarketplacePosts = () => {
     navigate('/marketplace')
   };
 
-//   if (postStories.length === 0) {
-//     return <PostEmpty/>;
-//   }
+  if (postStories.length === 0) {
+    return <PostEmpty/>;
+  }
   
     return (
     <div className="post-container">
@@ -54,7 +54,7 @@ const MarketplacePosts = () => {
         <button onClick={handleNewPost} className='all-btn'>New Post</button>
       </div>
       {postStories.map((postStory) => (
-        <div className='post' key={postStory.id}>
+        <div className='post m' key={postStory.id}>
           {user && (
             <div className='user-info'>
               <img className='post-img' src={postStory.image_url} alt='user' />
@@ -64,10 +64,22 @@ const MarketplacePosts = () => {
               </div>
             </div>
           )}
-          <div className='post-contain'>
+          <div className='post-containn'>
             <h3>{postStory.story_type}</h3>
-            <p className='post-text'>{postStory.story_text}</p>
-            <p className='post-text'>{postStory.story_text_improved}</p>
+            <div className='before-after'>
+                <div className='m-post'>
+                <div className='m-contain'>
+                    <h3 className='m-title'>Before Improvement</h3>
+                </div>
+               <p className='post-text'>{postStory.story_text}</p>
+            </div>
+            <div className='m-post'>
+                <div className='m-contain'>
+                    <h3 className='m-title'>After Improvement</h3>
+                </div>
+                <p className='post-text'>{postStory.story_text_improved}</p>
+            </div>
+            </div>
             
             
           </div>
