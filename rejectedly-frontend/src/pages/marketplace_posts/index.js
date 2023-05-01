@@ -4,7 +4,7 @@ import Sidebar from '../../components/sidebar'
 const PostMarketplace=()=>{
     return(
         <div>
-            <Sidebar/>
+            <Sidebar activePage="marketplace"/>
             <MarketplacePosts/>
         </div>
     )
