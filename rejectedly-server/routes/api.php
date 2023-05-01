@@ -21,7 +21,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::get('/All-posts', [PostsController::class, "GetAllPosts"]);
         Route::get('/My-posts', [PostsController::class, 'GetMyPosts']);
         Route::post('/rejection-stories/improved', [PostsController::class, "storeStoryWithImprovement"]);
-        Route::get('/rejection-stories/improved', [RejectionStoriesController::class, 'GetImproved']);
+        Route::get('/rejection-stories/improved', [PostsController::class, 'GetImproved']);
         Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);
         Route::get('/rejection-stories-user', [RejectionStoriesController::class, 'GetNotImprovedUser']);
         Route::post('/createGroup', [GroupController::class, 'createGroup']);

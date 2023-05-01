@@ -164,4 +164,25 @@ class PostsController extends Controller
         return response()->json(['message' => 'Rejection story added successfully']);
     }
 
+
+    public function GetImproved()
+    {
+
+       $improvedStories = Post::where('story_text_improved', '!=', '')->with('user')->get();
+       $improvedStories = $improvedStories->map(function ($story) {
+
+        return [
+            'id' => $story->id,
+            'name' => $story->user->name,
+            'email' => $story->user->email,
+            'image_url' => $story->user->image_url,
+            'story_type' => $story->story_type,
+            'story_text' => $story->story_text,
+            'story_text_improved' => $story->story_text_improved,
+        ];
+    });
+
+    return response()->json(['improved_stories' => $improvedStories]);
+    }
+
 }

@@ -24,46 +24,6 @@ class RejectionStoriesController extends Controller
     }
 
 
-    // public function storeStoryWithImprovement(Request $request)
-    // {
-    //     $validatedData = $request->validate([
-    //         'story_type' => 'required',
-    //         'story_text' => 'required',
-    //         'story_text_improved' => 'required',
-
-    //     ]);
-    //     $user_id = $request->user()->id;
-
-    //     $rejectionStory = new RejectionStory();
-    //     $rejectionStory->story_type = $validatedData['story_type'];
-    //     $rejectionStory->story_text = $validatedData['story_text'];
-    //     $rejectionStory->story_text_improved = $validatedData['story_text_improved'];
-    //     $rejectionStory->user_id = auth()->id();
-    //     $rejectionStory->save();
-
-    //     return response()->json(['message' => 'Rejection story added successfully']);
-    // }
-
-    public function GetImproved()
-    {
-
-       $improvedStories = RejectionStory::where('story_text_improved', '!=', '')->with('user')->get();
-       $improvedStories = $improvedStories->map(function ($story) {
-
-        return [
-            // 'user_id' => $story->user_id,
-            'name' => $story->user->name,
-            'email' => $story->user->email,
-            'image_url' => $story->user->image_url,
-            'story_type' => $story->story_type,
-            'story_text' => $story->story_text,
-            'story_text_improved' => $story->story_text_improved,
-        ];
-    });
-
-    return response()->json(['improved_stories' => $improvedStories]);
-    }
-
 
 //    public function GetNotImproved(Request $request)
 //    {
