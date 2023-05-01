@@ -30,7 +30,7 @@ const PostImprovedStory = () => {
  
   const handleSubmit = (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('access_token');
+    const token = localStorage.getItem('token');
   
     const formData = new FormData();
     formData.append('story_type', story_type);
@@ -40,7 +40,7 @@ const PostImprovedStory = () => {
   
     axios.post("http://localhost:8000/api/v1/auth/rejection-stories/improved", formData, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
       })
@@ -48,7 +48,7 @@ const PostImprovedStory = () => {
         console.log(response.data);
         console.log("Story added successfully!")
         
-        // navigate('/allposts');
+        navigate('/marketplaceposts');
       })
       .catch((error) => {
         console.log(error.response.data);

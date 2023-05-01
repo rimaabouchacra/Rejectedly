@@ -71,13 +71,13 @@ const MarketplacePosts = () => {
                 <div className='m-contain'>
                     <h3 className='m-title'>Before Improvement</h3>
                 </div>
-               <p className='post-text'>{postStory.story_text}</p>
+               <p className='post-textt'>{postStory.story_text}</p>
             </div>
             <div className='m-post'>
                 <div className='m-contain'>
                     <h3 className='m-title'>After Improvement</h3>
                 </div>
-                <p className='post-text'>{postStory.story_text_improved}</p>
+                <p className='post-textt'>{postStory.story_text_improved}</p>
             </div>
             </div>
             
