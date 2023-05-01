@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Navigate} from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Homepage from './pages/home_page';
@@ -16,6 +17,12 @@ import Posts from './pages/posts'
 import AllPosts from './pages/all_posts';
 import ErrorPage from './pages/error_page';
 function App() {
+  
+  const is_admin = JSON.parse(localStorage.getItem('is_admin'));
+
+  // if (is_admin === 0) {
+  //   return <R to='/error' />;
+  // }
   return (
     <Router>
       <Routes>
@@ -29,9 +36,9 @@ function App() {
           <Route path="/marketplace" element={<PostImproved/>} />
           <Route path="/collaboration" element={<PostYourStory/>} />
           <Route path="/group" element={<CreateGroup/>} />
-          <Route path="/admin" element={<AdminDashboard/>} />
           <Route path="/posts" element={<Posts/>} />
           <Route path="/allposts" element={<AllPosts/>} />
+           <Route path="/admin" element={is_admin === 0 ? <Navigate to="/error" /> : <AdminDashboard />} />
           <Route path="/error" element={<ErrorPage/>} />
       </Routes>  
     </Router> 

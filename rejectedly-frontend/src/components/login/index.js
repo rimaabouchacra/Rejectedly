@@ -67,6 +67,7 @@ const Loginn = ()=>{
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [is_admin, setAdmin] = useState('');
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [loginError, setLoginError] = useState("");
@@ -86,9 +87,12 @@ const Loginn = ()=>{
            localStorage.setItem('token', response.data.authorisation.token);
            localStorage.setItem("user_id", response.data.user.id);
            localStorage.setItem("email", response.data.user.email);
+           localStorage.setItem('is_admin',response.data.user.is_admin)
            console.log("Logged in successfully");
+    
            if (response.data.user.is_admin == 1) {
                 window.location.href = "/admin";
+                
             } else {
                 window.location.href = "/analysis";
             }
