@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     width: 600px;
-    height: 448px;
+    height: 434px;
     background-color: white;
     box-shadow: 2px 2px 8px rgb(181, 179, 179);
     box-shadow: 2 ;
@@ -13,7 +13,7 @@
     margin-top: 5rem;
     padding: 1.5rem;
     overflow-y: hidden;
-  
+    border: 3px solid var(--green);
 }
 
 .oops{
