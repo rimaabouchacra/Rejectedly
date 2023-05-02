@@ -109,33 +109,92 @@
 
 //importantttt
 
+// import React, { useState, useRef, useEffect } from 'react';
+// import axios from 'axios';
+// import './index.css';
+// import '../index.css';
+
+// const Analysis = (props) => {
+//   const [showAnalysis, setShowAnalysis] = useState(true);
+//   const [storyTextImproved, setStoryTextImproved] = useState("");
+//   const overlayRef = useRef(null);
+
+//   useEffect(() => {
+//     axios.get(`http://localhost:8000/api/v1/auth/rejection-stories/${props.storyId}`, {
+//       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+//     })
+//     .then(response => {
+//       setStoryTextImproved(response.data.story.story_text_improved);
+//     })
+//     .catch(error => {
+//       console.log(error);
+//     });
+//   }, [props.storyId]);
+
+//   function handleOverlayClick2(e) {
+//     if (e.target === overlayRef.current) {
+//       setShowAnalysis(false);
+//     }
+//   }
+
+//   useEffect(() => {
+//     document.addEventListener('mousedown', handleOverlayClick2);
+//     return () => {
+//       document.removeEventListener('mousedown', handleOverlayClick2);
+//     };
+//   }, []);
+
+//   return (
+//     <div>
+//       {showAnalysis && (
+//         <div className="analysis" ref={overlayRef}>
+//           <h1>ANALYSIS</h1>
+//           <h3 className='analysis-type'>
+//             Analysis type: {props.selectedType}
+//           </h3>
+//           <div>
+//             <p>
+//               {storyTextImproved}
+//             </p>
+//           </div>
+//           <button className="all-btn" onClick={() => setShowAnalysis(false)}>
+//             CLOSE
+//           </button>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Analysis;
+
 import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
 import './index.css';
-import '../index.css';
+import axios from 'axios';
 
-const Analysis = (props) => {
+const Analysis = ({ storyId }) => {
   const [showAnalysis, setShowAnalysis] = useState(true);
-  const [storyTextImproved, setStoryTextImproved] = useState("");
   const overlayRef = useRef(null);
-
-  useEffect(() => {
-    axios.get(`http://localhost:8000/api/v1/auth/rejection-stories/${props.storyId}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-    })
-    .then(response => {
-      setStoryTextImproved(response.data.story.story_text_improved);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  }, [props.storyId]);
+  const [storyDetails, setStoryDetails] = useState(null);
 
   function handleOverlayClick2(e) {
     if (e.target === overlayRef.current) {
       setShowAnalysis(false);
     }
   }
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/v1/auth/rejection-stories/${storyId}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      })
+      .then((response) => {
+        setStoryDetails(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [storyId]);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleOverlayClick2);
@@ -146,16 +205,12 @@ const Analysis = (props) => {
 
   return (
     <div>
-      {showAnalysis && (
+      {storyDetails && (
         <div className="analysis" ref={overlayRef}>
           <h1>ANALYSIS</h1>
-          <h3 className='analysis-type'>
-            Analysis type: {props.selectedType}
-          </h3>
+          <h3 className="analysis-type">{storyDetails.story_type}</h3>
           <div>
-            <p>
-              {storyTextImproved}
-            </p>
+            <p>{storyDetails.story_text_improved}</p>
           </div>
           <button className="all-btn" onClick={() => setShowAnalysis(false)}>
             CLOSE
@@ -167,4 +222,3 @@ const Analysis = (props) => {
 };
 
 export default Analysis;
-

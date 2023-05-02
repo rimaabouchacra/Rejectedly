@@ -12,6 +12,7 @@ import Story from '../rejectionstory';
 const Drafts = () => {
   const [showStory, setShowStory] = useState(false);
   const overlayRef = useRef(null);
+  
 
   function handleButtonClick() {
     setShowStory(true);
@@ -35,9 +36,7 @@ const Drafts = () => {
   const overlayReff = useRef(null);
   
 
-  function handleButtonClick2() {
-    setShowAnalysis(true);
-  }
+
 
   function handleOverlayClick2(e) {
     if (e.target === overlayReff.current) {
@@ -66,8 +65,12 @@ const Drafts = () => {
     });
   }, []);
 
-
-   if (rejection_stories.length === 0) {
+  function handleButtonClick2() {
+    setShowAnalysis(true);
+  }
+  
+  
+  if (rejection_stories.length === 0) {
     return <Story />;
   }
   return (
@@ -85,7 +88,7 @@ const Drafts = () => {
       </div>
       <div>
         <div className='each-one'>
-          {rejection_stories.length > 0 ? (
+       
       <div className='each-one'>
         {rejection_stories.map(story => (
           <div key={story.id}>
@@ -104,11 +107,7 @@ const Drafts = () => {
           </div>
         ))}
       </div>
-    ) : (
-      <div>
-        {/* <Story/> */}
-      </div>
-    )}
+  
         </div>
         
 

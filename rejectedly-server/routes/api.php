@@ -24,7 +24,8 @@ Route::group(['prefix' => 'v1'], function(){
         Route::post('/rejection-stories/improved', [PostsController::class, "storeStoryWithImprovement"]);
         Route::get('/rejection-stories/improved', [PostsController::class, 'GetImproved']);
         Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);
-        Route::get('/rejection-stories-user', [RejectionStoriesController::class, 'GetNotImprovedUser']);
+        Route::get('/rejection-stories-user', [RejectionStoriesController::class, 'GetAllStories']);
+        Route::get('/rejection-stories-user/{id}', [RejectionStoriesController::class, 'GetAllStorieId']);
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
         Route::get('/user', [UserController::class, 'getUser']);
@@ -36,7 +37,7 @@ Route::group(['prefix' => 'v1'], function(){
 
     });
 
-   
+
 
     Route::group(['middleware' => ['auth:api', 'admin']], function() {
     Route::get('/users', [AuthController::class, "getUsers"]);

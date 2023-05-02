@@ -72,7 +72,7 @@ class RejectionStoriesController extends Controller
 
 //     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
 // }
-public function GetNotImprovedUser(Request $request)
+public function GetAllStories(Request $request)
 {
     $userId = $request->user()->id;
 
@@ -101,6 +101,23 @@ public function GetNotImprovedUser(Request $request)
     ]);
 }
 
+public function GetAllStorieId($id)
+{
+    $story = RejectionStory::with('user')->find($id);
+
+    if ($story && !empty($story->story_text_improved)) {
+        return response()->json([
+            'id' => $story->id,
+            'name' => $story->user->name,
+            'email' => $story->user->email,
+            'story_type' => $story->story_type,
+            'story_text' => $story->story_text,
+            'story_text_improved' => $story->story_text_improved,
+        ]);
+    } else {
+        return response()->json(['error' => 'Story not found.'], 404);
+    }
+}
 
 
 public function GetNotImproved(Request $request)

@@ -99,33 +99,33 @@ class PostsController extends Controller
     //     }
     // }
     public function StoreComment(Request $request)
-{
-    try {
-        $validatedData = $request->validate([
-            'story_id' => 'required|integer',
-            'comment_text' => 'required|string|max:255',
-        ]);
+    {
+      try {
+          $validatedData = $request->validate([
+              'story_id' => 'required|integer',
+              'comment_text' => 'required|string|max:255',
+          ]);
 
-        $post = Post::find($validatedData['story_id']);
-        if (!$post) {
-            throw new \Exception('Post not found');
-        }
+          $post = Post::find($validatedData['story_id']);
+          if (!$post) {
+             throw new \Exception('Post not found');
+          }
 
-        logger()->debug('Post ID: ' . $post->id);
+          logger()->debug('Post ID: ' . $post->id);
 
-        $comment = new Comment();
-        $comment->comment_text = $validatedData['comment_text'];
-        $comment->user_id = auth()->user()->id;
-        $comment->story_id = $post->id;
+          $comment = new Comment();
+          $comment->comment_text = $validatedData['comment_text'];
+          $comment->user_id = auth()->user()->id;
+          $comment->story_id = $post->id;
 
-        $comment->save();
+          $comment->save();
 
-        return response()->json(['message' => 'Comment added successfully']);
-    } catch (\Exception $e) {
-        logger()->error($e->getMessage());
-        return response()->json(['error' => $e->getMessage()], 500);
+          return response()->json(['message' => 'Comment added successfully']);
+        } catch (\Exception $e) {
+          logger()->error($e->getMessage());
+          return response()->json(['error' => $e->getMessage()], 500);
+       }
     }
-}
 
 
     public function GetComments(Post $story)
