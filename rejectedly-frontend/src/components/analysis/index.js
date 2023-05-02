@@ -62,15 +62,74 @@
 
 
 //importanttt
+// import React, { useState, useRef, useEffect } from 'react';
+// import './index.css';
+// import '../index.css';
+// import { useLocation } from 'react-router-dom';
+
+// const Analysis = (props) => {
+//   const location = useLocation();
+//   const [showAnalysis, setShowAnalysis] = useState(true);
+//   const overlayRef = useRef(null);
+
+//   function handleOverlayClick2(e) {
+//     if (e.target === overlayRef.current) {
+//       setShowAnalysis(false);
+//     }
+//   }
+
+//   useEffect(() => {
+//     document.addEventListener('mousedown', handleOverlayClick2);
+//     return () => {
+//       document.removeEventListener('mousedown', handleOverlayClick2);
+//     };
+//   }, []);
+
+//   return (
+//     <div>
+//       {showAnalysis && (
+//         <div className="analysis" ref={overlayRef}>
+//           <h1>ANALYSIS</h1>
+//           <h3 className='analysis-type'>
+//             Analysis type: {location.state.selectedType}
+//           </h3>
+//           <div>
+//             <p>
+//               {location.state.generatedText}
+//             </p>
+//           </div>
+//           <button className="all-btn" onClick={() => setShowAnalysis(false)}>
+//             CLOSE
+//           </button>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+//importantttt
+
 import React, { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 import './index.css';
 import '../index.css';
-import { useLocation } from 'react-router-dom';
 
 const Analysis = (props) => {
-  const location = useLocation();
   const [showAnalysis, setShowAnalysis] = useState(true);
+  const [storyTextImproved, setStoryTextImproved] = useState("");
   const overlayRef = useRef(null);
+
+  useEffect(() => {
+    axios.get(`http://localhost:8000/api/v1/auth/rejection-stories/${props.storyId}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    })
+    .then(response => {
+      setStoryTextImproved(response.data.story.story_text_improved);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }, [props.storyId]);
 
   function handleOverlayClick2(e) {
     if (e.target === overlayRef.current) {
@@ -91,11 +150,11 @@ const Analysis = (props) => {
         <div className="analysis" ref={overlayRef}>
           <h1>ANALYSIS</h1>
           <h3 className='analysis-type'>
-            Analysis type: {location.state.selectedType}
+            Analysis type: {props.selectedType}
           </h3>
           <div>
             <p>
-              {location.state.generatedText}
+              {storyTextImproved}
             </p>
           </div>
           <button className="all-btn" onClick={() => setShowAnalysis(false)}>
@@ -108,5 +167,4 @@ const Analysis = (props) => {
 };
 
 export default Analysis;
-//importantttt
 

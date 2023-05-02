@@ -33,6 +33,7 @@ const Drafts = () => {
 
   const [showAnalysis, setShowAnalysis] = useState(false);
   const overlayReff = useRef(null);
+  
 
   function handleButtonClick2() {
     setShowAnalysis(true);
@@ -95,7 +96,7 @@ const Drafts = () => {
               {showAnalysis && (
                 <div className='overlay' ref={overlayReff}>
                   <div className='popup-analysis'>
-                    <Analysis />
+                    <Analysis/>
                   </div>
                 </div>
               )} 
