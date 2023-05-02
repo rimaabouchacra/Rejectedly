@@ -46,32 +46,62 @@ class RejectionStoriesController extends Controller
 //     }
 
 
+// public function GetNotImprovedUser(Request $request)
+// {
+//     $userId = $request->user()->id;
+
+//     $rejectionStories = RejectionStory::where('user_id', $userId)
+//                                       ->with('user')
+//                                       ->get();
+
+//     $notImprovedStories = $rejectionStories->filter(function($story) {
+//         return empty($story->story_text_improved);
+//     });
+
+//     $notImprovedStoriesWithUser = [];
+
+//     $notImprovedStories->map(function ($story) use (&$notImprovedStoriesWithUser) {
+//         $notImprovedStoriesWithUser[] = [
+//             'name' => $story->user->name,
+//             'email' => $story->user->email,
+//             'image_url' => $story->user->image_url,
+//             'story_type' => $story->story_type,
+//             'story_text' => $story->story_text,
+//         ];
+//     });
+
+//     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
+// }
 public function GetNotImprovedUser(Request $request)
 {
     $userId = $request->user()->id;
 
     $rejectionStories = RejectionStory::where('user_id', $userId)
                                       ->with('user')
-                                      ->get();
+                                      ->get()
+                                      ->toArray();
 
-    $notImprovedStories = $rejectionStories->filter(function($story) {
-        return empty($story->story_text_improved);
-    });
+    $improvedStoriesWithUser = [];
 
-    $notImprovedStoriesWithUser = [];
+    array_map(function ($story) use (&$improvedStoriesWithUser) {
+        if (!empty($story['story_text_improved'])) {
+            $improvedStoriesWithUser[] = [
+                'id' => $story['id'],
+                'name' => $story['user']['name'],
+                'email' => $story['user']['email'],
+                'story_type' => $story['story_type'],
+                'story_text' => $story['story_text'],
+                'story_text_improved' => $story['story_text_improved'],
+            ];
+        }
+    }, $rejectionStories);
 
-    $notImprovedStories->map(function ($story) use (&$notImprovedStoriesWithUser) {
-        $notImprovedStoriesWithUser[] = [
-            'name' => $story->user->name,
-            'email' => $story->user->email,
-            'image_url' => $story->user->image_url,
-            'story_type' => $story->story_type,
-            'story_text' => $story->story_text,
-        ];
-    });
-
-    return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
+    return response()->json([
+        'not_improved_stories' => $improvedStoriesWithUser,
+    ]);
 }
+
+
 
 public function GetNotImproved(Request $request)
 {
