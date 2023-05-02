@@ -3,7 +3,7 @@
     width: 100%;
 }
 .thestory{
-   
+   border-radius: 0.188rem;
    margin: 1rem;
    padding: 1.5rem;
    width: 44rem;
@@ -35,4 +35,5 @@
 
 .each-one{
   margin-top: 2.5rem;
+ 
 }
