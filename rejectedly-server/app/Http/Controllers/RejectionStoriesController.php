@@ -96,65 +96,110 @@ public function GetNotImproved(Request $request)
 }
 
 
-// public function GetLatestNotImproved(Request $request)
-// {
-//     $rejectionStories = RejectionStory::with('user')->get();
-//     $notImprovedStories = $rejectionStories->filter(function($story) {
-//         return empty($story->story_text_improved);
-//     })->sortByDesc('created_at');
+public function GetLatestNotImproved(Request $request)
+{
+    $rejectionStories = RejectionStory::with('user')->get();
+    $notImprovedStories = $rejectionStories->filter(function($story) {
+        return empty($story->story_text_improved);
+    })->sortByDesc('created_at');
 
-//     $latestStory = $notImprovedStories->first();
+    $latestStory = $notImprovedStories->first();
 
-//     $latestStoryWithUser = [
-//         'name' => $latestStory->user->name,
-//         'email' => $latestStory->user->email,
-//         'image_url' => $latestStory->user->image_url,
-//         'story_type' => $latestStory->story_type,
-//         'story_text' => $latestStory->story_text,
-//     ];
+    $latestStoryWithUser = [
+        'name' => $latestStory->user->name,
+        'email' => $latestStory->user->email,
+        'image_url' => $latestStory->user->image_url,
+        'story_type' => $latestStory->story_type,
+        'story_text' => $latestStory->story_text,
+    ];
 
-//     return response()->json(['latest_story' => $latestStoryWithUser], 200);
-// }
+    return response()->json(['latest_story' => $latestStoryWithUser], 200);
+}
+
+
+// public function ChatgptResponse(Request $request)
+//     {
+
+//          $data = json_decode($request->getContent(), true);
+//     if ($data === null || !isset($data['story'])) {
+//         return response()->json(['error' => 'Invalid request body'], 400);
+//     }
+//         $story = $data['story'];
+
+//         $url = 'https://api.openai.com/v1/engines/text-davinci-002/completions';
+
+//         $headers = array(
+//             'Content-Type: application/json',
+//             'Authorization: Bearer ' . env('openai_API'),
+//         );
+
+//         $data = array(
+//             'prompt' => $story . 'respond in 10 lines. Interpret this rejected,' . $request->input('story_type') . 'extract the weekness points in it, and tell how to improve it',
+//             'temperature' => 0.4,
+//             'max_tokens' => 1000,
+//             'n' => 1,
+
+//         );
+
+//         $ch = curl_init();
+
+//         curl_setopt($ch, CURLOPT_URL, $url);
+//         curl_setopt($ch, CURLOPT_POST, 1);
+//         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+//         $response = curl_exec($ch);
+
+//         curl_close($ch);
+
+//         return $response;
+//     }
+
 
 
 public function ChatgptResponse(Request $request)
-    {
-
-         $data = json_decode($request->getContent(), true);
+{
+    $data = json_decode($request->getContent(), true);
     if ($data === null || !isset($data['story'])) {
         return response()->json(['error' => 'Invalid request body'], 400);
     }
-        $story = $data['story'];
 
-        $url = 'https://api.openai.com/v1/engines/text-davinci-002/completions';
+    $story = $data['story'];
+    $storyType = $request->input('story_type');
 
-        $headers = array(
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . env('openai_API'),
-        );
+    $url = 'https://api.openai.com/v1/engines/text-davinci-002/completions';
+    $headers = array(
+        'Content-Type: application/json',
+        'Authorization: Bearer ' . env('openai_API'),
+    );
+    $data = array(
+        'prompt' => $story . 'respond in 10 lines. Interpret this rejected,' . $storyType . 'extract the weakness points in it, and tell how to improve it',
+        'temperature' => 0.4,
+        'max_tokens' => 1000,
+        'n' => 1,
+    );
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $response = curl_exec($ch);
+    curl_close($ch);
 
-        $data = array(
-            'prompt' => $story . 'respond in 10 lines. Interpret this rejected,' . $request->input('story_type') . 'extract the weekness points in it, and tell how to improve it',
-            'temperature' => 0.4,
-            'max_tokens' => 1000,
-            'n' => 1,
+    $completion = json_decode($response, true);
+    $text = $completion['choices'][0]['text'];
+    // Insert the analyzed story into the database
+    $rejectionStory = new RejectionStory();
+    $rejectionStory->story_type = $storyType;
+    $rejectionStory->story_text = $story;
+    $rejectionStory->story_text_improved = $text;
+    $rejectionStory->user_id = auth()->user()->id; // assuming that the user is authenticated
+    $rejectionStory->save();
 
-        );
-
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-        $response = curl_exec($ch);
-
-        curl_close($ch);
-
-        return $response;
-    }
+    return $response;
+}
 
 
 

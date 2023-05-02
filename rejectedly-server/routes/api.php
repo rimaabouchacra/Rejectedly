@@ -7,6 +7,7 @@ use App\Http\Controllers\RejectionStoriesController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ForgotPasswordController;
 
 
 Route::group(['prefix' => 'v1'], function(){
@@ -31,9 +32,11 @@ Route::group(['prefix' => 'v1'], function(){
         Route::get('/comments/{story}', [PostsController::class, 'GetComments']);
         Route::post('/chatgpt-interpret', [RejectionStoriesController::class, "ChatgptResponse"]);
 
+
+
     });
 
-
+   
 
     Route::group(['middleware' => ['auth:api', 'admin']], function() {
     Route::get('/users', [AuthController::class, "getUsers"]);
