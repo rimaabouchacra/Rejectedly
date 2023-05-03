@@ -54,7 +54,7 @@ const handleSubmit = async (e) => {
             if (response.data.user.is_admin == 1) {
                 window.location.href = "/admin";
             } else {
-                window.location.href = "/analysis";
+                window.location.href = "/saved";
             }
         } catch (error) {
             console.log(error);
