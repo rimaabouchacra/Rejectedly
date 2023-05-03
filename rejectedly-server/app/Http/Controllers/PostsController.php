@@ -73,32 +73,6 @@ class PostsController extends Controller
     }
 
 
-    // public function StoreComment(Request $request, Post $post)
-    // {
-    //     try {
-    //         $validatedData = $request->validate([
-    //             'comment_text' => 'required|string|max:255',
-    //         ]);
-
-    //         if (!$post) {
-    //             throw new \Exception('Story not found');
-    //         }
-
-    //         logger()->debug('Story ID: ' . $post->id);
-
-    //         $comment = new Comment();
-    //         $comment->comment_text = $validatedData['comment_text'];
-    //         $comment->user_id = auth()->user()->id;
-    //         $comment->story_id = $post->id;
-
-    //         $comment->save();
-
-    //         return response()->json(['message' => 'Comment added successfully']);
-    //     } catch (\Exception $e) {
-    //         logger()->error($e->getMessage());
-    //         return response()->json(['error' => $e->getMessage()], 500);
-    //     }
-    // }
     public function StoreComment(Request $request)
     {
       try {
@@ -176,6 +150,7 @@ class PostsController extends Controller
         $postStoriesWithUser[] = [
            'id' => $post->id,
            'name' => $post->user->name,
+           'user_id' => $post->user->id,
            'email' => $post->user->email,
            'image_url' => $post->user->image_url,
            'story_type' => $post->story_type,
