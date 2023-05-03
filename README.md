@@ -45,12 +45,12 @@
 
 > Using the wireframes and mockups as a guide, we implemented Rejectedly website with the following features:
 
-### User Screens (Mobile)
-| Login screen  | Register screen | Landing screen | Loading screen |
+### User Screens (web)
+| Login screen  | Register screen | Landing screen | AddPost screen |
 | ---| ---| ---| ---|
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
-| Home screen  | Menu Screen | Order Screen | Checkout Screen |
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
+| ![Landing](./readme/demo/Login2.png) | ![fsdaf](./readme/demo/Signup2.png) | ![fsdaf](./readme/demo/landing.png) | ![fsdaf](./readme/demo/addpost.png) |
+| Posts screen  | Marketplace Screen | Analysis Screen | StoryBoard Screen |
+| ![Landing](./readme/demo/post.png) | ![fsdaf](./readme/demo/marketplace.png) | ![fsdaf](./readme/demo/analysis.png) | ![fsdaf](./readme/demo/storyboard.png) |
 
 ### Admin Screens (Web)
 | Login screen  | Register screen |  Landing screen |
