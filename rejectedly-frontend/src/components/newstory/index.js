@@ -137,119 +137,194 @@
 
 
 //important one 
+// import './index.css'
+// import '../index.css'
+// import axios from "axios";
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+
+// const NewStory = (props) => {
+//   const [story_type, setType] = useState("");
+//   const [story_text, setText] = useState("");
+//   const [selectedType, setSelectedType] = useState("");
+//   const [generatedText, setGeneratedText] = useState("");
+//   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+
+//   const handleTypeChange = (e) => {
+//     setType(e.target.value);
+//   };
+
+//   const handleTextChange = (e) => {
+//     setText(e.target.value);
+//   };
+  
+//  const handleChatgptResponse=()=>{
+//   const data = {
+//     story_type: story_type,
+//     story: story_text
+//   };
+
+//   axios.post('http://localhost:8000/api/v1/auth/chatgpt-interpret', data, {
+//     headers: {
+//       Authorization: `Bearer ${localStorage.getItem('token')}`,
+//       'Content-Type': 'application/json'
+//     }
+//   })
+//     .then((response) => {
+//       const generatedText = response.data.choices[0].text;
+//       setGeneratedText(generatedText);
+//       setSelectedType(story_type);
+//       console.log('Story analyzed successfully!');
+      
+//       navigate('/saved'
+//       , { 
+//       state: { 
+//         selectedType: story_type, 
+//         generatedText: generatedText 
+//       } 
+// });
+
+//     })
+//     .catch((error) => {
+//       console.log('Error analyzing story');
+//       // TODO: handle error response data
+//     });
+// };
+//   const navigate = useNavigate();
+ 
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const token = localStorage.getItem('access_token');
+  
+//     const formData = new FormData();
+//     formData.append('story_type', story_type);
+//     formData.append('story_text', story_text);
+    
+  
+//     axios.post("http://localhost:8000/api/v1/auth/rejection-stories", formData, {
+//         headers: {
+//           Authorization: `Bearer ${localStorage.getItem("token")}`,
+//           "Content-Type": "multipart/form-data",
+//         },
+//       })
+//       .then((response) => {
+//         console.log(response.data);
+//         console.log("Story added successfully!")
+        
+        
+//       })
+//       .catch((error) => {
+//         console.log(error.response.data);
+//         console.log("Error adding story")
+//       });
+//   };
+  
+// return(
+//   <>
+//     <form className='new-story' onSubmit={handleSubmit}>
+//         <h1>NEW STORY</h1>
+//         <div className='label-input'>
+//             <label htmlFor="type">Story type</label>
+//             <select className='input type' name="type" id="story_type" value={story_type} onChange={handleTypeChange}>
+//                <option value="Select">Select Rejection type</option>
+//                <option value="Job Application">Job Application</option>
+//                <option value="Proposal">Proposal</option>
+//                <option value="Project Idea">Project Idea</option>
+//             </select><br/>
+//         </div>
+//         <div className='label-input'>
+//             <label  htmlFor="story">Tell us what happened</label>
+//             <textarea name="textarea" id="story" cols="30" rows="10" value={story_text} onChange={handleTextChange}></textarea>
+//         </div>
+//         <button className='all-btn' onClick={handleChatgptResponse}>SAVE&ANALYZE</button>
+//         {/* <button  onClick={handleSave} className='all-btn'>SAVE&ANALYZE</button> */}
+        
+
+//     </form>
+    
+//     </>
+// )
+// }
+// export default NewStory
+//important
+
 import './index.css'
-import '../index.css'
 import axios from "axios";
-import React, { useState } from "react";
-import Analysis from '../analysis';
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const NewStory = (props) => {
-  const [story_type, setType] = useState("");
-  const [story_text, setText] = useState("");
-  const [selectedType, setSelectedType] = useState("");
+const NewStory = () => {
+  const [story_type, setStoryType] = useState("");
+  const [story, setStory] = useState("");
   const [generatedText, setGeneratedText] = useState("");
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
 
   const handleTypeChange = (e) => {
-    setType(e.target.value);
+    setStoryType(e.target.value);
   };
 
   const handleTextChange = (e) => {
-    setText(e.target.value);
+    setStory(e.target.value);
   };
   
- const handleChatgptResponse=()=>{
-  const data = {
-    story_type: story_type,
-    story: story_text
-  };
-
-  axios.post('http://localhost:8000/api/v1/auth/chatgpt-interpret', data, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem('token')}`,
-      'Content-Type': 'application/json'
-    }
-  })
-    .then((response) => {
-      const generatedText = response.data.choices[0].text;
-      setGeneratedText(generatedText);
-      setSelectedType(story_type);
-      console.log('Story analyzed successfully!');
-      
-      navigate('/saved'
-      , { 
-      state: { 
-        selectedType: story_type, 
-        generatedText: generatedText 
-      } 
-});
-
-    })
-    .catch((error) => {
-      console.log('Error analyzing story');
-      // TODO: handle error response data
-    });
-};
   const navigate = useNavigate();
  
   const handleSubmit = (e) => {
     e.preventDefault();
     const token = localStorage.getItem('access_token');
-  
-    const formData = new FormData();
-    formData.append('story_type', story_type);
-    formData.append('story_text', story_text);
+    const id = localStorage.getItem('user_id')
+    const data = {
+      story_type: story_type,
+      story: story
+    };
     
-  
-    axios.post("http://localhost:8000/api/v1/auth/rejection-stories", formData, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        console.log("Story added successfully!")
-        
-        
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-        console.log("Error adding story")
-      });
+    axios.post("http://localhost:8000/api/v1/auth/chatgpt-interpret", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
+    .then((response) => {
+      const generatedText = response.data.choices[0].text;
+      setGeneratedText(generatedText);
+      console.log('Story analyzed successfully!');
+    })
+    .catch((error) => {
+      console.log(error.response.data);
+      console.log("Error analyzing story");
+    });
   };
+
+  useEffect(() => {
+    if (generatedText !== "") {
+      navigate('/saved');
+    }
+  }, [generatedText, navigate]);
   
-return(
-  <>
-    <form className='new-story' onSubmit={handleSubmit}>
+  return (
+    <>
+      <div className='new-story'>
         <h1>NEW STORY</h1>
         <div className='label-input'>
-            <label htmlFor="type">Story type</label>
-            <select className='input type' name="type" id="story_type" value={story_type} onChange={handleTypeChange}>
-               <option value="Select">Select Rejection type</option>
-               <option value="Job Application">Job Application</option>
-               <option value="Proposal">Proposal</option>
-               <option value="Project Idea">Project Idea</option>
-            </select><br/>
+          <label htmlFor="type">Story type</label>
+          <select className='input type' name="type" id="story_type" value={story_type} onChange={handleTypeChange}>
+            <option value="Select">Select Rejection type</option>
+            <option value="Job Application">Job Application</option>
+            <option value="Proposal">Proposal</option>
+            <option value="Project Idea">Project Idea</option>
+          </select><br/>
         </div>
         <div className='label-input'>
-            <label  htmlFor="story">Tell us what happened</label>
-            <textarea name="textarea" id="story" cols="30" rows="10" value={story_text} onChange={handleTextChange}></textarea>
+          <label htmlFor="story">Tell us what happened</label>
+          <textarea name="textarea" id="story" cols="30" rows="10" value={story} onChange={handleTextChange}></textarea>
         </div>
-        <button className='all-btn' onClick={handleChatgptResponse}>SAVE&ANALYZE</button>
-        {/* <button  onClick={handleSave} className='all-btn'>SAVE&ANALYZE</button> */}
-        
-
-    </form>
-    
+        <button className='all-btn' onClick={handleSubmit}>SAVE&ANALYZE</button>
+      </div>
     </>
-)
-}
-export default NewStory
-//important
+  );
+};
 
+export default NewStory;
 
 
 

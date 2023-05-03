@@ -242,7 +242,7 @@ public function ChatgptResponse(Request $request)
     $rejectionStory->story_type = $storyType;
     $rejectionStory->story_text = $story;
     $rejectionStory->story_text_improved = $text;
-    $rejectionStory->user_id = auth()->user()->id; 
+    $rejectionStory->user_id = auth()->user()->id;
     $rejectionStory->save();
 
     return $response;
