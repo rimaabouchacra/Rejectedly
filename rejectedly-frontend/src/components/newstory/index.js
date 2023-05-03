@@ -257,7 +257,7 @@ import '../index.css'
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import SaveAnalysis from '../../pages/saveanalysis_page';
 const NewStory = (props) => {
   const [story_type, setType] = useState("");
   const [story_text, setText] = useState("");
@@ -296,7 +296,7 @@ const NewStory = (props) => {
             generatedText: generatedText 
           } 
         });
-        
+       
       })
       .catch((error) => {
         console.log('Error analyzing story');

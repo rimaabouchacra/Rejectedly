@@ -208,7 +208,7 @@ const Drafts = () => {
           {showStory && (
         <div className='overlay' ref={overlayRef}>
           <div className='popup'>
-            <NewStory />
+            <NewStory  onClose={() =>setShowStory(false)}  />
           </div>
         </div>
         )}
