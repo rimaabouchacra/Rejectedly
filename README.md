@@ -34,9 +34,9 @@
 | ![Landing](./readme/demo/Login.png) | ![fsdaf](./readme/demo/Signup.png) | ![fsdaf](./readme/demo/Homepage.png) |
 
 ### Mockups
-| Home screen  | Menu Screen | Order Screen |
+| Home screen  | Add Story | Edit Profile |
 | ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Landing](./readme/demo/Homepage2.png) | ![fsdaf](./readme/demo/AddStory.png) | ![fsdaf](./readme/demo/editprofile.png) |
 
 <br><br>
 
