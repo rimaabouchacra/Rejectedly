@@ -308,6 +308,7 @@ const NewStory = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleChatgptResponse();
+    navigate('/saved')
   };
 
   return (
