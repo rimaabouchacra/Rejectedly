@@ -6,24 +6,58 @@
     align-content: center;
     gap: 0.5rem;
     height: auto;
-    width: 400px;
+    width: 400px auto;
     background-color: white;
     margin: 1.5rem;
     opacity: 50%;
 }
+.modall::-webkit-scrollbar {
+    display: none;
+}
 .modall {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     outline: none;
     margin: 7rem;
+    margin-top: 5rem;
     margin-left: 30rem;
     background-color: white;
-    border-radius: 3%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0.188rem;
+    box-shadow: 0 0 10px rgba(95, 95, 95, 0.5);
     padding: 20px;
-    max-width: 25rem;
+    max-width: 30rem;
     width: 100%;
     overflow-y: auto;
-    max-height: 25rem;
+    max-height: 27rem;
+}
+
+.view-titlee{
+    text-align: center;
+}
+.bio{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 2px solid var(--green);
+    padding: 0.5rem;
+    border-radius: 0.188rem;
+    padding-top: 0;
+    gap: 0;
+}
+
+.linkk{
+margin-top: -0.8rem;
+}
+.info{
+    font-weight: bold;
+}
+.all-info{
+    padding: 0.5rem;
+}
+.contact-info{
+    display: flex;
+    gap: 0.7rem;
+}
+.linkedin:active{
+    color: var(--green);
 }

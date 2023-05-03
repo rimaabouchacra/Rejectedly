@@ -16,23 +16,27 @@ const ViewContact = ({ isOpen, onRequestClose, contactInfo }) => {
         onRequestClose={onRequestClose}
         contentLabel="View Contact"
       >
-        <h2 className='view-title'>Contact Information</h2>
-        <div className='contact-info'>
-          <p className='info-label'>Email:</p>
-          <p className='info-value'>{email}</p>
+        <h2 className='view-titlee'>Contact Information</h2>
+        <div className='bio'>
+          <h3 className='bio-title'>Biography:</h3>
+          <p className='bio-text'>{biography}</p>
         </div>
-        <div className='contact-info'>
-          <p className='info-label'>Phone number:</p>
-          <p className='info-value'>{phone_number}</p>
+        <div className='all-info'>
+            <div className='contact-info'>
+               <p className='info'>Email:</p>
+               <p>{email}</p>
+            </div>
+            <div className='contact-info linkk'>
+               <p className='info'>Phone number:</p>
+               <p>{phone_number}</p>
+            </div>
+            <div className='contact-info linkk'>
+               <p className='info'>LinkedIn URL:</p>
+               <p><a className='linkedin' href={linkedin_url}>{linkedin_url}</a></p>
+            </div>
         </div>
-        <div className='contact-info'>
-          <p className='info-label'>LinkedIn URL:</p>
-          <p className='info-value'>{linkedin_url}</p>
-        </div>
-        <div className='contact-info'>
-          <p className='info-label'>Biography:</p>
-          <p className='info-value'>{biography}</p>
-        </div>
+        
+        
         <button className='all-btn close' onClick={onRequestClose}>Close</button>
       </Modal>
     </div>
