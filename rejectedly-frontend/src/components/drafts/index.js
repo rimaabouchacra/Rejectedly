@@ -218,9 +218,9 @@ const Drafts = () => {
           {rejection_stories.map(story => (
             <div key={story.id}>
               <div className='thestory'>
-                <h3>{story.story_type}</h3>
+                <h2 className='thestory-type'>{story.story_type}</h2>
                 <p>{story.story_text}</p> 
-                <button onClick={() => handleAnalysisButtonClick(story.id)} className='analysiss'><h3>SHOW ANALYSIS</h3></button>
+                <button onClick={() => handleAnalysisButtonClick(story.id)} className='analysiss'><h3 className='show'>SHOW ANALYSIS</h3></button>
                 {showAnalysis && story.id === storyId && (
                   <div className='overlay' ref={overlayReff}>
                     <div className='popup-analysis'>

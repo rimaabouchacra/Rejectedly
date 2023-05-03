@@ -58,6 +58,13 @@ margin-top: -0.8rem;
     display: flex;
     gap: 0.7rem;
 }
-.linkedin:active{
+.linkedin:hover {
+    font-weight: bold;
+}
+.linkedin:visited {
+    color: rgb(11, 95, 212);
+}
+
+.linkedin:active {
     color: var(--green);
 }

@@ -1,5 +1,7 @@
 .draft{
-    /* margin-left: 3rem; */
+    max-width: 47rem;
+    margin-left: 1rem;
+    margin-bottom: -1.5rem;
     width: 100%;
 }
 .thestory{
@@ -16,6 +18,13 @@
    justify-content: center;
 
 }
+.thestory-type{
+    margin-bottom: -0.00125rem;
+}
+.show{
+    cursor: pointer;
+}
+
 .post-container{
   
     overflow-x: hidden;

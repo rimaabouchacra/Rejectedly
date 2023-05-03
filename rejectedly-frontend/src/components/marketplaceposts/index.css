@@ -35,3 +35,6 @@ border-bottom: 2px solid var(--green);
 .m{
     border-bottom: 2px solid var(--offwhite);
 }
+.post-container::-webkit-scrollbar {
+    display: none;
+}

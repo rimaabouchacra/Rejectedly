@@ -75,8 +75,8 @@ const AllPosts = () => {
 }
 
   const navigate = useNavigate();
+  
   const handleNewPost = () => {
-    
     navigate('/collaboration')
   };
   

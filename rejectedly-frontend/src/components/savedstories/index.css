@@ -6,7 +6,7 @@
       overflow-y: scroll;
       max-height: 500px;
   }
-
+  
   .grid-item {
       background-color: var(--green);
       color: white;
@@ -28,7 +28,7 @@
   .popup-analysis{
     z-index: 2;
   }
- 
+  
   
     @media (max-width: 768px) {
       .grid-container {
