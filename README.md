@@ -111,17 +111,20 @@ _Below is an example of how you can instruct your audience on installing and set
    cd Rejectedly-server
    php artisan migrate
    ```
-6. Start the server
-   For Laravel:
+6. Start the server for Laravel:
 
    ```sh
    cd Rejectedly-server
    php artisan serve
    
    ```  
-   For React:
+6. Start the server for React:
 
+   ```sh
    cd Rejectedly-frontend
    npm start
+   
+   ```    
+   
 
 Now, you should be able to run Rejectedly locally and explore its features.
