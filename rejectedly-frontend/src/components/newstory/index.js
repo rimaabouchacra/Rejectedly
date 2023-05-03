@@ -290,12 +290,12 @@ const NewStory = (props) => {
         setSelectedType(story_type);
         console.log('Story analyzed successfully!');
 
-        navigate('/saved', { 
-          state: { 
-            selectedType: story_type, 
-            generatedText: generatedText 
-          } 
-        });
+        // navigate('/saved', { 
+        //   state: { 
+        //     selectedType: story_type, 
+        //     generatedText: generatedText 
+        //   } 
+        // });
       })
       .catch((error) => {
         console.log('Error analyzing story');
