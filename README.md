@@ -1,9 +1,9 @@
-<img src="../readme/title1.svg" />
+<img src="./readme/title1.svg" />
 
 <br><br>
 
 <!-- project philosophy -->
-<img src="../readme/title2.svg"/>
+<img src="./readme/title2.svg"/>
 
 > A website designed to help job seekers, freelancers, and entrepreneurs turn their rejections into opportunities. By providing a space for users to share their rejected proposals, job applications, or project ideas. 
 >
@@ -24,7 +24,7 @@
 <br><br>
 
 <!-- Prototyping -->
-<img src="../readme/title3.svg"/>
+<img src="./readme/title3.svg"/>
 
 > We designed Coffee Express using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
@@ -41,7 +41,7 @@
 <br><br>
 
 <!-- Implementation -->
-<img src="../readme/title4.svg"/>
+<img src="./readme/title4.svg"/>
 
 > Using the wireframes and mockups as a guide, we implemented the Coffee Express app with the following features:
 
@@ -62,7 +62,7 @@
 <br><br>
 
 <!-- Tech stack -->
-<img src="../readme/title5.svg"/>
+<img src="./readme/title5.svg"/>
 
 ###  Coffee Express is built using the following technologies:
 
@@ -75,7 +75,7 @@
 <br><br>
 
 <!-- How to run -->
-<img src="../readme/title6.svg"/>
+<img src="./readme/title6.svg"/>
 
 > To set up Coffee Express locally, follow these steps:
 
