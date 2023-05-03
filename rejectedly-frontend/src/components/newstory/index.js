@@ -334,4 +334,4 @@ const NewStory = (props) => {
   );
 };
 
-// export default NewStory;
+export default NewStory;
