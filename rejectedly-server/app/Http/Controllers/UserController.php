@@ -45,39 +45,24 @@ return response()->json([
 
 }
 
-// public function profile(Request $request)
-// {
-//     $user_id = Auth::id();
-//     $user_updated = User::find($user_id);
-//     if (!$user_updated) {
-//         return response()->json(['message' => 'User not found'], 404);
-//     }
 
-//     $user_updated->username = $request->username;
-//     $user_updated->phone_number = $request->phone_number;
-//     $user_updated->biography = $request->biography;
-//     $user_updated->linkedin_url = $request->linkedin_url;
+public function getContacts(Request $request, $id)
+{
+    $user = User::find($id);
 
-//     if ($request->has('profile_image')) {
-//         // Decode the base64 string and save the image file to the server
-//         $base64_image = $request->input('profile_image');
-//         $image_data = base64_decode($base64_image);
-//         $image_name = time() . '_' . uniqid() . '.png'; // Generate a unique image name
-//         $path = public_path('/images/' . $image_name);
-//         file_put_contents($path, $image_data);
+    if (!$user) {
+        return response()->json(['error' => 'User not found'], 404);
+    }
 
-//         // Save the image URL to the database
-//         $user_updated->image_url = url('/images/' . $image_name);
-//     }
+    $contactInfo = [
+        'email' => $user->email,
+        'phone_number' => $user->phone_number,
+        'linkedin_url' => $user->linkedin_url,
+        'biography' => $user->biography,
+    ];
 
-//     $user_updated->save();
-//     return response()->json([
-//         "status" => "success",
-//         "updated_user" => $user_updated
-//     ], 200);
-// }
-
-
+    return response()->json($contactInfo);
+}
 
 
 
