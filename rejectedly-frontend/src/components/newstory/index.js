@@ -300,7 +300,7 @@ const NewStory = (props) => {
       })
       .catch((error) => {
         console.log('Error analyzing story');
-        // TODO: handle error response data
+        
       });
   };
 
