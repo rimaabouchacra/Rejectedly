@@ -43,12 +43,12 @@
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
 
-> Using the wireframes and mockups as a guide, we implemented the Coffee Express app with the following features:
+> Using the wireframes and mockups as a guide, we implemented Rejectedly website with the following features:
 
 ### User Screens (Mobile)
 | Login screen  | Register screen | Landing screen | Loading screen |
 | ---| ---| ---| ---|
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
+| ![Landing](./readme/demo/Homepage.png) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
 | Home screen  | Menu Screen | Order Screen | Checkout Screen |
 | ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
 
