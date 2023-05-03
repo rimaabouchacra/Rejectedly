@@ -48,14 +48,14 @@
 ### User Screens (web)
 | Login screen  | Register screen | Landing screen | AddPost screen |
 | ---| ---| ---| ---|
-| ![Landing](./readme/demo/login2.png) | ![fsdaf](./readme/demo/Signup2.png) | ![fsdaf](./readme/demo/landing.png) | ![fsdaf](./readme/demo/addpost.png) |
+| ![Landing](./readme/demo/login2.png) | ![Landing](./readme/demo/Signup2.png) | ![fsdaf](./readme/demo/landing.png) | ![fsdaf](./readme/demo/addpost.png) |
 | Posts screen  | Marketplace Screen | Analysis Screen | StoryBoard Screen |
 | ![Landing](./readme/demo/post.png) | ![fsdaf](./readme/demo/marketplace.png) | ![fsdaf](./readme/demo/analysis.png) | ![fsdaf](./readme/demo/storyboard.png) |
 
 ### Admin Screens (Web)
 | Login screen  | Register screen |  Landing screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/login2.png) | ![fsdaf](./readme/demo/Signup2.png) | ![fsdaf](./readme/demo/Admin.png) |
+| ![Landing](./readme/demo/login2.png) | ![Landing](./readme/demo/Signup2.png) | ![fsdaf](./readme/demo/Admin.png) |
 
 
 <br><br>
