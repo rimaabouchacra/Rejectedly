@@ -249,61 +249,70 @@
 // export default NewStory
 //important
 
+
+
+
 import './index.css'
+import '../index.css'
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const NewStory = () => {
-  const [story_type, setStoryType] = useState("");
-  const [story, setStory] = useState("");
+const NewStory = (props) => {
+  const [story_type, setType] = useState("");
+  const [story_text, setText] = useState("");
+  const [selectedType, setSelectedType] = useState("");
   const [generatedText, setGeneratedText] = useState("");
 
   const handleTypeChange = (e) => {
-    setStoryType(e.target.value);
+    setType(e.target.value);
   };
 
   const handleTextChange = (e) => {
-    setStory(e.target.value);
+    setText(e.target.value);
   };
   
-  const navigate = useNavigate();
- 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const token = localStorage.getItem('access_token');
-    const id = localStorage.getItem('user_id')
+  const handleChatgptResponse = () => {
     const data = {
       story_type: story_type,
-      story: story
+      story: story_text
     };
-    
-    axios.post("http://localhost:8000/api/v1/auth/chatgpt-interpret", data, {
+
+    axios.post('http://localhost:8000/api/v1/auth/chatgpt-interpret', data, {
       headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json'
+      }
     })
-    .then((response) => {
-      const generatedText = response.data.choices[0].text;
-      setGeneratedText(generatedText);
-      console.log('Story analyzed successfully!');
-    })
-    .catch((error) => {
-      console.log(error.response.data);
-      console.log("Error analyzing story");
-    });
+      .then((response) => {
+        const generatedText = response.data.choices[0].text;
+        setGeneratedText(generatedText);
+        setSelectedType(story_type);
+        console.log('Story analyzed successfully!');
+
+        navigate('/saved', { 
+          state: { 
+            selectedType: story_type, 
+            generatedText: generatedText 
+          } 
+        });
+      })
+      .catch((error) => {
+        console.log('Error analyzing story');
+        // TODO: handle error response data
+      });
   };
 
-  useEffect(() => {
-    if (generatedText !== "") {
-      navigate('/saved');
-    }
-  }, [generatedText, navigate]);
-  
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleChatgptResponse();
+  };
+
   return (
     <>
-      <div className='new-story'>
+      <form className='new-story' onSubmit={handleSubmit}>
         <h1>NEW STORY</h1>
         <div className='label-input'>
           <label htmlFor="type">Story type</label>
@@ -316,15 +325,12 @@ const NewStory = () => {
         </div>
         <div className='label-input'>
           <label htmlFor="story">Tell us what happened</label>
-          <textarea name="textarea" id="story" cols="30" rows="10" value={story} onChange={handleTextChange}></textarea>
+          <textarea name="textarea" id="story" cols="30" rows="10" value={story_text} onChange={handleTextChange}></textarea>
         </div>
-        <button className='all-btn' onClick={handleSubmit}>SAVE&ANALYZE</button>
-      </div>
+        <button className='all-btn' type="submit">SAVE&ANALYZE</button>
+      </form>
     </>
   );
 };
 
 export default NewStory;
-
-
-
