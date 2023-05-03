@@ -11,12 +11,14 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PostEmpty from '../postrejectionempty';
 import { useNavigate } from "react-router-dom";
+import ViewContacts from '../viewcontact';
 
 const AllPosts = () => {
   const [user, setUser] = useState(null);
   const [postStories, setPostStories] = useState([]);
   const [comment_text, setCommentText] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const [showPopup2, setShowPopup2] = useState(false);
   const [comments, setComments] = useState([]);
   const [contactInfo, setContactInfo] = useState(null);
 
@@ -85,6 +87,8 @@ const AllPosts = () => {
     })
     .then(response => {
       console.log(response.data);
+      setContactInfo(response.data.contactInfo);
+      setShowPopup2(true);
       // handle the contact info here
     })
     .catch(error => {
@@ -107,18 +111,14 @@ const AllPosts = () => {
           {user && (
             <div className='user-info'>
               <img className='post-img' src={postStory.image_url} onClick={() => handleImageClick (postStory.user_id)} alt='user' />
-              {showPopup && (
-  <div className='popup'>
-    <div className='popup-inner'>
-      <button onClick={() => showPopup(null)}>Close</button>
-      <p>{user.name}</p>
-      <p>{user.email}</p>
-      <p>{user.phone_number}</p>
-      <p>{user.linkedin_url}</p>
-      <p>{user.biography}</p>
-    </div>
-  </div>
-)}
+              {/* <img className='post-img' src={postStory.image_url}  alt='user' /> */}
+              {showPopup2 && (
+        <ViewContacts
+          isOpen={showPopup2}
+          onRequestClose={() => setShowPopup2(false)}
+          contactInfo={contactInfo}
+        />
+      )}
 
               <div className='name-email'>
                 <p className='post-name'>{postStory.name}</p>

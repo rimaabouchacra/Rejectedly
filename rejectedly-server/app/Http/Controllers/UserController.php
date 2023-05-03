@@ -60,9 +60,12 @@ public function getContacts(Request $request, $id)
         'linkedin_url' => $user->linkedin_url,
         'biography' => $user->biography,
     ];
-
-    return response()->json($contactInfo);
+     return response()->json([
+            'contactInfo' => $contactInfo,
+        ]);
+  
 }
+
 
 
 
