@@ -89,18 +89,39 @@ This is an example of how to list things you need to use the software and how to
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the project repository
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/Reema224/Rejectedly.git
    ```
-3. Install NPM packages
+3. For React Install NPM packages
    ```sh
+   cd Rejectedly-frontend
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+3. For Laravel
+   ```sh
+   cd Rejectedly-server
+   composer install
+   ```   
+4. Set up the database: The user needs to set up the database for the Laravel backend. The user can create a database on their local machine and update the .env file in the Laravel project with the database credentials. The .env file should be present in the Rejectedly-server directory.
 
-Now, you should be able to run Coffee Express locally and explore its features.
+
+5. Run the migrations
+   ```sh
+   cd Rejectedly-server
+   php artisan migrate
+   ```
+6. Start the server
+   For Laravel:
+
+   ```sh
+   cd Rejectedly-server
+   php artisan serve
+   
+   ```  
+   For React:
+
+   cd Rejectedly-frontend
+   npm start
+
+Now, you should be able to run Rejectedly locally and explore its features.
