@@ -18,6 +18,7 @@ const AllPosts = () => {
   const [comment_text, setCommentText] = useState('');
   const [showPopup, setShowPopup] = useState(false);
   const [comments, setComments] = useState([]);
+  const [contactInfo, setContactInfo] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/v1/auth/user', {
@@ -76,6 +77,20 @@ const AllPosts = () => {
     
     navigate('/collaboration')
   };
+  
+  
+  const handleImageClick = (id) => {
+    axios.get(`http://localhost:8000/api/v1/auth/contacts/${id}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    })
+    .then(response => {
+      console.log(response.data);
+      // handle the contact info here
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
 
   if (postStories.length === 0) {
     return <PostEmpty/>;
@@ -91,7 +106,20 @@ const AllPosts = () => {
         <div className='post' key={postStory.id}>
           {user && (
             <div className='user-info'>
-              <img className='post-img' src={postStory.image_url} alt='user' />
+              <img className='post-img' src={postStory.image_url} onClick={() => handleImageClick (postStory.user_id)} alt='user' />
+              {showPopup && (
+  <div className='popup'>
+    <div className='popup-inner'>
+      <button onClick={() => showPopup(null)}>Close</button>
+      <p>{user.name}</p>
+      <p>{user.email}</p>
+      <p>{user.phone_number}</p>
+      <p>{user.linkedin_url}</p>
+      <p>{user.biography}</p>
+    </div>
+  </div>
+)}
+
               <div className='name-email'>
                 <p className='post-name'>{postStory.name}</p>
                 <p className='post-email'>{postStory.email}</p>
