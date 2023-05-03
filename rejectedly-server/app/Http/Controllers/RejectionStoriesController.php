@@ -221,7 +221,7 @@ public function ChatgptResponse(Request $request)
         'Authorization: Bearer ' . env('openai_API'),
     );
     $data = array(
-        'prompt' => $story . 'respond in 10 lines. Interpret this rejected,' . $storyType . 'extract the weakness points in it, and tell how to improve it',
+        'prompt' => $story . 'respond in 10 lines. Interpret this rejected,' . $storyType . 'extract the weakness points in it, and tell how to improve it. if the story given to you is not clear, respond with not clear',
         'temperature' => 0.4,
         'max_tokens' => 1000,
         'n' => 1,

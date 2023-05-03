@@ -181,13 +181,13 @@ const NewStory = (props) => {
         setGeneratedText(generatedText);
         setSelectedType(story_type);
         console.log('Story analyzed successfully!');
-        
-        navigate('/saved', { 
-          state: { 
-            selectedType: story_type, 
-            generatedText: generatedText 
-          } 
-        });
+        window.location.reload();
+        // navigate('/saved', { 
+        //   state: { 
+        //     selectedType: story_type, 
+        //     generatedText: generatedText 
+        //   } 
+        // });
        
       })
       .catch((error) => {
@@ -201,7 +201,7 @@ const NewStory = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleChatgptResponse();
-    navigate('/saved')
+    
   };
 
   return (
