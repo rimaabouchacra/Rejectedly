@@ -60,7 +60,10 @@
 }
 
 .sidebar a:hover {
-    text-shadow: 1px 1px var(--green);
+    background-color: var(--green);
+    color: white;
+    padding: 0.3rem;
+    border-radius: 0.188rem ;
 }
 .li{
     margin-top: 7rem;

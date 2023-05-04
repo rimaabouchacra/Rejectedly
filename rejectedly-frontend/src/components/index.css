@@ -10,3 +10,8 @@
     border: 1px solid var(--green);
     cursor: pointer;
 }
+.all-btn:hover{
+    background-color: var(--light-green);
+    color: black;
+    border: none;
+}
