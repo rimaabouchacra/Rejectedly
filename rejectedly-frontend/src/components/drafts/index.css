@@ -95,12 +95,12 @@
 
 .popup-delete-buttons button:first-child {
     background-color: #dc3545;
-    color: #fff;
+    color: white;
 }
 
 .popup-delete-buttons button:last-child {
     background-color: #6c757d;
-    color: #fff;
+    color: white;
 }
 
 .popup-delete-buttons button:hover {
