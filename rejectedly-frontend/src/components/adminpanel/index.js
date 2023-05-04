@@ -26,6 +26,7 @@ const [users, setUsers] = useState([]);
 return(
     <div className="story1 admin" >
         <div className='new-story adminn'>
+          <h1>Admin Dashboard</h1>
            <div className='table-container'>
                <table className='table'>
                   <thead>
