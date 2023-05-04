@@ -136,6 +136,7 @@ import '../analysis/index.css'
 import '../newstory/index.css'
 import Analysis from '../analysis';
 import Story from '../rejectionstory';
+import remove from '../../images/remove.png'
 
 const Drafts = () => {
   const [showStory, setShowStory] = useState(false);
@@ -265,7 +266,7 @@ function handleDeleteButtonClick(storyId) {
                   setStoryToDelete(story.id);
                   setShowDeletePopup(true);
                 }} className='delete-button'>
-                  DELETE
+                  <img src={remove} alt="" />
                 </button>
                 {showAnalysis && story.id === storyId && (
                   <div className='overlay' ref={overlayReff}>
