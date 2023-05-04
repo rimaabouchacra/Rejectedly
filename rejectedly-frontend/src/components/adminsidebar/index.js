@@ -29,11 +29,13 @@ const AdminSidebar = () => {
     console.error('Logout error:', error);
   });
 };
-
+  const handleAdminClick = () =>{
+    navigate('/');
+  }
   return (
     <div className="admin-sidebar">
       <div className='logo'>
-        <img src={logo2} alt="logo" />
+        <img onClick={handleAdminClick} src={logo2} alt="logo" />
       </div>
       <ul>
         <li className='users'><a href='admin'>ALL USERS</a></li>

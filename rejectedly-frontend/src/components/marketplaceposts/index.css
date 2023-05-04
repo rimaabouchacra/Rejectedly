@@ -28,6 +28,10 @@ border-bottom: 2px solid var(--green);
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    margin-top: -0.5rem;
+}
+.before-after-title{
+    margin-left: 3px;
 }
 .post-containn {
     padding-bottom: 2rem;
