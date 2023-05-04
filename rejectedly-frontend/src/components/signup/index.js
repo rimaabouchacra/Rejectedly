@@ -13,6 +13,7 @@ const [password, setPassword] = useState('');
 const [nameError, setNameError] = useState("");
 const [emailError, setEmailError] = useState("");
 const [passwordError, setPasswordError] = useState("");
+const [is_admin, setAdmin] = useState('');
 
 const navigate = useNavigate();
 
@@ -50,6 +51,7 @@ const handleSubmit = async (e) => {
             localStorage.setItem("name", response.data.user.name);
             localStorage.setItem("user_id", response.data.user.id);
             localStorage.setItem("email", response.data.user.email);
+            localStorage.setItem('is_admin',response.data.user.is_admin)
             console.log("success")
             if (response.data.user.is_admin == 1) {
                 window.location.href = "/admin";

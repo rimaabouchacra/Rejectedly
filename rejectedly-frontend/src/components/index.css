@@ -13,5 +13,5 @@
 .all-btn:hover{
     background-color: var(--light-green);
     color: black;
-    border: none;
+    border: 1px solid var(--light-green);
 }

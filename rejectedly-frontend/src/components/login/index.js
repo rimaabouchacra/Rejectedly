@@ -93,7 +93,8 @@ const Loginn = ()=>{
            if (response.data.user.is_admin == 1) {
                 window.location.href = "/admin";
                 
-            } else {
+            } 
+            else {
                 window.location.href = "/saved";
             }
         } catch (error) {
