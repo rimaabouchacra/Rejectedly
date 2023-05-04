@@ -140,6 +140,9 @@ import Story from '../rejectionstory';
 const Drafts = () => {
   const [showStory, setShowStory] = useState(false);
   const overlayRef = useRef(null);
+    const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [storyToDelete, setStoryToDelete] = useState(null);
+  const deletePopupRef = useRef(null);
 
   function handleButtonClick() {
     setShowStory(true);
@@ -193,9 +196,46 @@ const Drafts = () => {
     setShowAnalysis(true);
     setStoryId(storyId);
   }
-
+  
   const [storyId, setStoryId] = useState(null);
+   
+//  function handleDeleteButtonClick(storyId) {
+//     const confirmDelete = window.confirm("Are you sure you want to delete this story?");
+//     if (confirmDelete) {
+//       axios.delete(`http://localhost:8000/api/v1/auth/delete-story/${storyId}`, {
+//         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+//       })
+//       .then(response => {
+//         setRejectionStories(prevStories => prevStories.filter(story => story.id !== storyId));
+//       })
+//       .catch(error => {
+//         console.log(error);
+//       });
+//     }
+//   }
+function handleDeleteButtonClick(storyId) {
+    setStoryToDelete(storyId);
+    setShowDeletePopup(true);
+  }
 
+  function handleDeleteConfirm() {
+    axios.delete(`http://localhost:8000/api/v1/auth/delete-story/${storyToDelete}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    })
+    .then(response => {
+      setShowDeletePopup(false);
+      setRejectionStories(rejection_stories.filter(story => story.id !== storyToDelete));
+      setStoryToDelete(null);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+  function handleDeleteCancel() {
+    setShowDeletePopup(false);
+    setStoryToDelete(null);
+  }
   if (rejection_stories.length === 0) {
     return <Story />;
   }
@@ -221,18 +261,39 @@ const Drafts = () => {
                 <h2 className='thestory-type'>{story.story_type}</h2>
                 <p>{story.story_text}</p> 
                 <button onClick={() => handleAnalysisButtonClick(story.id)} className='analysiss'><h3 className='show'>SHOW ANALYSIS</h3></button>
+                 <button onClick={() => {
+                  setStoryToDelete(story.id);
+                  setShowDeletePopup(true);
+                }} className='delete-button'>
+                  DELETE
+                </button>
                 {showAnalysis && story.id === storyId && (
                   <div className='overlay' ref={overlayReff}>
                     <div className='popup-analysis'>
                       <Analysis storyId={storyId}/>
+                      
                     </div>
+                    
                   </div>
+                  
                 )} 
               </div>
             </div>
           ))}
         </div>
+        {showDeletePopup && (
+      <div className='overlay-delete' ref={deletePopupRef}>
+        <div className='popup-delete'>
+          <h3>Are you sure you want to delete this story?</h3>
+          <div className='popup-delete-buttons'>
+            <button onClick={handleDeleteConfirm}>OK</button>
+            <button onClick={handleDeleteCancel}>Cancel</button>
+          </div>
+        </div>
       </div>
+    )}
+      </div>
+      
     </div>
   );
 }

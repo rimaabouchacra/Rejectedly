@@ -26,6 +26,7 @@ Route::group(['prefix' => 'v1'], function(){
         Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);
         Route::get('/rejection-stories-user', [RejectionStoriesController::class, 'GetAllStories']);
         Route::get('/rejection-stories-user/{id}', [RejectionStoriesController::class, 'GetAllStorieId']);
+        Route::delete('delete-story/{id}', [RejectionStoriesController::class, 'DeleteStory']);
         Route::post('/createGroup', [GroupController::class, 'createGroup']);
         Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
         Route::get('/user', [UserController::class, 'getUser']);

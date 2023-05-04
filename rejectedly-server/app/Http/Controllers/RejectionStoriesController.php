@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RejectionStory;
 use App\Models\AnalyzedStory;
+use Illuminate\Support\Facades\Auth;
 
 class RejectionStoriesController extends Controller
 {
@@ -25,53 +26,7 @@ class RejectionStoriesController extends Controller
 
 
 
-//    public function GetNotImproved(Request $request)
-//    {
-//        $rejectionStories = RejectionStory::with('user')->get();
-//        $notImprovedStories = $rejectionStories->filter(function($story) {
-//            return empty($story->story_text_improved);
-//        });
 
-//        $notImprovedStoriesWithUser = $notImprovedStories->map(function ($story) {
-//           return [
-//             'name' => $story->user->name,
-//             'email' => $story->user->email,
-//             'image_url' => $story->user->image_url,
-//             'story_type' => $story->story_type,
-//             'story_text' => $story->story_text,
-//         ];
-//     });
-
-//     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
-//     }
-
-
-// public function GetNotImprovedUser(Request $request)
-// {
-//     $userId = $request->user()->id;
-
-//     $rejectionStories = RejectionStory::where('user_id', $userId)
-//                                       ->with('user')
-//                                       ->get();
-
-//     $notImprovedStories = $rejectionStories->filter(function($story) {
-//         return empty($story->story_text_improved);
-//     });
-
-//     $notImprovedStoriesWithUser = [];
-
-//     $notImprovedStories->map(function ($story) use (&$notImprovedStoriesWithUser) {
-//         $notImprovedStoriesWithUser[] = [
-//             'name' => $story->user->name,
-//             'email' => $story->user->email,
-//             'image_url' => $story->user->image_url,
-//             'story_type' => $story->story_type,
-//             'story_text' => $story->story_text,
-//         ];
-//     });
-
-//     return response()->json(['not_improved_stories' => $notImprovedStoriesWithUser], 200);
-// }
 public function GetAllStories(Request $request)
 {
     $userId = $request->user()->id;
@@ -249,7 +204,31 @@ public function ChatgptResponse(Request $request)
 }
 
 
+    public function DeleteStory(Request $request, $id)
+    {
+        $story = RejectionStory::find($id);
 
+        if (!$story) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'story not found',
+            ], 404);
+        }
+
+        if ($story->user_id != Auth::id()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unauthorized',
+            ], 401);
+        }
+
+        $story->delete();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'story deleted successfully',
+        ]);
+    }
 
 
 
