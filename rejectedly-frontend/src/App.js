@@ -38,7 +38,6 @@ function App() {
           <Route path="/allposts" element={<AllPosts/>} />
           <Route path="/marketplaceposts" element={<MarketplacePosts/>} />
           <Route path="/admin" element={is_admin ? <AdminDashboard /> : <Navigate to="/error" />} />
-
           <Route path="/error" element={<ErrorPage/>} />
       </Routes>  
     </Router> 
