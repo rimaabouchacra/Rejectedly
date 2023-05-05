@@ -14,16 +14,15 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
 
-    public function getUser(Request $request)
-    {
+public function GetUser(Request $request)
+{
+    $user = Auth::user();
+    return response()->json($user);
 
-        $user = Auth::user();
-        return response()->json($user);
-
-    }
+}
 
 
-public function profile(Request $request)
+public function Profile(Request $request)
 {
 
 $user_id = Auth::id();
@@ -45,8 +44,7 @@ return response()->json([
 
 }
 
-
-public function getContacts(Request $request, $id)
+public function GetContacts(Request $request, $id)
 {
     $user = User::find($id);
 
@@ -60,13 +58,10 @@ public function getContacts(Request $request, $id)
         'linkedin_url' => $user->linkedin_url,
         'biography' => $user->biography,
     ];
-     return response()->json([
+    return response()->json([
             'contactInfo' => $contactInfo,
-        ]);
-  
+    ]);
+
 }
-
-
-
 
 }

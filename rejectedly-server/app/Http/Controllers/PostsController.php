@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
-    public function GetMyPosts(Request $request)
-    {
 
+
+public function GetMyPosts(Request $request)
+{
     $userId = $request->user()->id;
 
     $posts = Post::where('user_id', $userId)
@@ -35,10 +36,10 @@ class PostsController extends Controller
 
     return response()->json(['postStories' => $postStoriesWithUser], 200);
 
-    }
+}
 
-    public function GetAllPosts(Request $request)
-    {
+public function GetAllPosts(Request $request)
+{
     $posts = Post::with('user')->get();
 
     $postStoriesWithUser = [];
@@ -56,55 +57,54 @@ class PostsController extends Controller
     });
 
     return response()->json(['postStories' => $postStoriesWithUser], 200);
+}
+
+public function storePost(Request $request)
+{
+    $post = new Post;
+    $post->story_type = $request->story_type;
+    $post->story_text = $request->story_text;
+    $post->user_id = auth()->user()->id;
+
+    if (!$post->save()) {
+        return response()->json(['message' => 'Failed to save story'], 500);
     }
 
-    public function storePost(Request $request)
-    {
-        $post = new Post;
-        $post->story_type = $request->story_type;
-        $post->story_text = $request->story_text;
-        $post->user_id = auth()->user()->id;
-
-       if (!$post->save()) {
-           return response()->json(['message' => 'Failed to save story'], 500);
-       }
-
-       return response()->json(['message' => 'Post created successfully', 'post' => $post], 201);
-    }
+    return response()->json(['message' => 'Post created successfully', 'post' => $post], 201);
+}
 
 
-    public function StoreComment(Request $request)
-    {
-      try {
-          $validatedData = $request->validate([
-              'story_id' => 'required|integer',
-              'comment_text' => 'required|string|max:255',
-          ]);
+public function StoreComment(Request $request)
+{
+    try {
+        $validatedData = $request->validate([
+            'story_id' => 'required|integer',
+            'comment_text' => 'required|string|max:255',
+        ]);
 
-          $post = Post::find($validatedData['story_id']);
-          if (!$post) {
-             throw new \Exception('Post not found');
-          }
+        $post = Post::find($validatedData['story_id']);
+        if (!$post) {
+            throw new \Exception('Post not found');
+        }
 
-          logger()->debug('Post ID: ' . $post->id);
+        logger()->debug('Post ID: ' . $post->id);
 
-          $comment = new Comment();
-          $comment->comment_text = $validatedData['comment_text'];
-          $comment->user_id = auth()->user()->id;
-          $comment->story_id = $post->id;
+        $comment = new Comment();
+        $comment->comment_text = $validatedData['comment_text'];
+        $comment->user_id = auth()->user()->id;
+        $comment->story_id = $post->id;
+        $comment->save();
 
-          $comment->save();
+        return response()->json(['message' => 'Comment added successfully']);
+        }
+        catch (\Exception $e) {
+           logger()->error($e->getMessage());
+           return response()->json(['error' => $e->getMessage()], 500);
+        }
+}
 
-          return response()->json(['message' => 'Comment added successfully']);
-        } catch (\Exception $e) {
-          logger()->error($e->getMessage());
-          return response()->json(['error' => $e->getMessage()], 500);
-       }
-    }
-
-
-    public function GetComments(Post $story)
-    {
+public function GetComments(Post $story)
+{
        $comments = Comment::where('story_id', $story->id)->with('user')->get(['comment_text', 'user_id']);
 
        $commentsWithUser = $comments->map(function ($comment) {
@@ -118,31 +118,31 @@ class PostsController extends Controller
        return response()->json([
             'comments' => $commentsWithUser,
         ]);
-    }
-     public function storeStoryWithImprovement(Request $request)
-    {
-        $validatedData = $request->validate([
-            'story_type' => 'required',
-            'story_text' => 'required',
-            'story_text_improved' => 'required',
+}
 
-        ]);
-        $user_id = $request->user()->id;
+public function storeStoryWithImprovement(Request $request)
+{
+    $validatedData = $request->validate([
+        'story_type' => 'required',
+        'story_text' => 'required',
+        'story_text_improved' => 'required',
+    ]);
 
-        $rejectionStory = new Post();
-        $rejectionStory->story_type = $validatedData['story_type'];
-        $rejectionStory->story_text = $validatedData['story_text'];
-        $rejectionStory->story_text_improved = $validatedData['story_text_improved'];
-        $rejectionStory->user_id = auth()->id();
-        $rejectionStory->save();
+    $user_id = $request->user()->id;
 
-        return response()->json(['message' => 'Rejection story added successfully']);
-    }
+    $rejectionStory = new Post();
+    $rejectionStory->story_type = $validatedData['story_type'];
+    $rejectionStory->story_text = $validatedData['story_text'];
+    $rejectionStory->story_text_improved = $validatedData['story_text_improved'];
+    $rejectionStory->user_id = auth()->id();
+    $rejectionStory->save();
 
+    return response()->json(['message' => 'Rejection story added successfully']);
+}
 
-    public function GetImproved()
-    {
-     $posts = Post::where('story_text_improved', '!=', '')->with('user')->get();
+public function GetImproved()
+{
+    $posts = Post::where('story_text_improved', '!=', '')->with('user')->get();
 
     $postStoriesWithUser = [];
 
@@ -160,6 +160,6 @@ class PostsController extends Controller
     });
 
     return response()->json(['postStories' => $postStoriesWithUser], 200);
-    }
+}
 
 }

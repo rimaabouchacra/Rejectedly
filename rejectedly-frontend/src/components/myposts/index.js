@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 const Posts = () => {
   const [user, setUser] = useState(null);
   const [postStories, setPostStories] = useState([]);
-  const [comment_text, setCommentText] = useState('');
+  const [comment_text, setCommentText] = useState({}); 
   const [showPopup, setShowPopup] = useState(false);
   const [comments, setComments] = useState([]);
 
@@ -46,13 +46,13 @@ const Posts = () => {
  const handleSubmit = (storyId) => {
   axios.post('http://localhost:8000/api/v1/auth/comments', {
     story_id: storyId,
-    comment_text: comment_text
+    comment_text: comment_text[storyId]
   }, {
     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
   })
   .then(response => {
     console.log(response.data);
-    setCommentText('');
+    setCommentText({ ...comment_text, [storyId]: '' });
   })
   .catch(error => {
     console.log(error);
@@ -92,35 +92,31 @@ const Posts = () => {
       </div>
       {postStories.map((postStory,index) => (
         <div className='post' key={index}>
-          {user && (
-            <div className='user-info'>
-              <img className='post-img' src={user.image_url} alt='user' />
-              <div className='name-email'>
-                <p className='post-name'>{user.name}</p>
-                <p className='post-email'>{user.email}</p>
-              </div>
-            </div>
-          )}
-          <div className='post-contain'>
-            <h3>{postStory.story_type}</h3>
-            <p className='post-text'>{postStory.story_text}</p>
-            <div className='comments'>
-              {/* <Comments onClick={(comment_text) => handleCommentSubmit(postStory.id, comment_text)} /> */}
-              {/* Comments */}
-              <div className='cmnt-container'>
-                  <img src={comment} alt="cmnt" />
-                  <input className="cmnt" placeholder="Write a comment..." value={comment_text} onChange={(e) => setCommentText(e.target.value)} />
-                  <img className='cmnt-img' src={send} alt="send" onClick={() => handleSubmit(postStory.id)} />
+            {user && (
+               <div className='user-info'>
+                  <img className='post-img' src={user.image_url} alt='user' />
+                  <div className='name-email'>
+                     <p className='post-name'>{user.name}</p>
+                     <p className='post-email'>{user.email}</p>
+                  </div>
+               </div>
+            )}
 
-              </div>
-              <div className="view" onClick={() => handleViewComments(postStory.id)}>
-                    <img src={arrow} alt="" />
-                    <p>View comments</p>
-                    
-              </div>
-              
+            <div className='post-contain'>
+                <h3>{postStory.story_type}</h3>
+                <p className='post-text'>{postStory.story_text}</p>
+                <div className='comments'>
+                    <div className='cmnt-container'>
+                        <img src={comment} alt="cmnt" />
+                        <input className="cmnt" placeholder="Write a comment..." value={comment_text[postStory.id] || ''} onChange={(e) => setCommentText({ ...comment_text, [postStory.id]: e.target.value })} />
+                        <img className='cmnt-img' src={send} alt="send" onClick={() => handleSubmit(postStory.id)} />
+                    </div>
+                    <div className="view" onClick={() => handleViewComments(postStory.id)}>
+                       <img src={arrow} alt="" />
+                       <p>View comments</p>   
+                    </div> 
+                </div>
             </div>
-          </div>
           
         </div>
       ))}

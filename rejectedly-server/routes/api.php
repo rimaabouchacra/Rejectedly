@@ -21,9 +21,9 @@ Route::group(['prefix' => 'v1'], function(){
         });
 
         Route::controller(UserController::class)->group(function () {
-           Route::post('/profile',  'profile');
-           Route::get('/user', 'getUser');
-           Route::get('/contacts/{id}', 'getContacts');
+           Route::post('/profile',  'Profile');
+           Route::get('/user', 'GetUser');
+           Route::get('/contacts/{id}', 'GetContacts');
         });
 
         Route::controller(RejectionStoriesController::class)->group(function () {

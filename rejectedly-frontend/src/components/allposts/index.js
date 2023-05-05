@@ -16,7 +16,7 @@ import ViewContacts from '../viewcontact';
 const AllPosts = () => {
   const [user, setUser] = useState(null);
   const [postStories, setPostStories] = useState([]);
-  const [comment_text, setCommentText] = useState('');
+  const [comment_text, setCommentText] = useState({}); 
   const [showPopup, setShowPopup] = useState(false);
   const [showPopup2, setShowPopup2] = useState(false);
   const [comments, setComments] = useState([]);
@@ -47,13 +47,14 @@ const AllPosts = () => {
   const handleSubmit = (storyId) => {
   axios.post('http://localhost:8000/api/v1/auth/comments', {
     story_id: storyId,
-    comment_text: comment_text
+    comment_text: comment_text[storyId]
   }, {
     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
   })
   .then(response => {
     console.log(response.data);
-    setCommentText('');
+    setCommentText({ ...comment_text, [storyId]: '' });
+    
   })
   .catch(error => {
     console.log(error);
@@ -89,7 +90,6 @@ const AllPosts = () => {
       console.log(response.data);
       setContactInfo(response.data.contactInfo);
       setShowPopup2(true);
-      // handle the contact info here
     })
     .catch(error => {
       console.log(error);
@@ -110,35 +110,34 @@ const AllPosts = () => {
         <div className='post' key={postStory.id}>
           {user && (
             <div className='user-info'>
-              <img className='post-img' src={postStory.image_url} onClick={() => handleImageClick (postStory.user_id)} alt='user' />
-              {/* <img className='post-img' src={postStory.image_url}  alt='user' /> */}
+            <img className='post-img' src={postStory.image_url} onClick={() => handleImageClick (postStory.user_id)} alt='user' />      
               {showPopup2 && (
-        <ViewContacts
-          isOpen={showPopup2}
-          onRequestClose={() => setShowPopup2(false)}
-          contactInfo={contactInfo}
-        />
-      )}
+                <ViewContacts
+                isOpen={showPopup2}
+                onRequestClose={() => setShowPopup2(false)}
+                contactInfo={contactInfo}
+                />
+              )}
 
-              <div className='name-email'>
-                <p className='post-name'>{postStory.name}</p>
-                <p className='post-email'>{postStory.email}</p>
-              </div>
+            <div className='name-email'>
+              <p className='post-name'>{postStory.name}</p>
+              <p className='post-email'>{postStory.email}</p>
             </div>
+        </div>
           )}
-          <div className='post-contain'>
+
+        <div className='post-contain'>
             <h3>{postStory.story_type}</h3>
             <p className='post-text'>{postStory.story_text}</p>
             <div className='comments'>
               <div className='cmnt-container'>
                   <img src={comment} alt="cmnt" />
-                  <input className="cmnt" placeholder="Write a comment..." value={comment_text} onChange={(e) => setCommentText(e.target.value)} />
+                  <input className="cmnt" placeholder="Write a comment..." value={comment_text[postStory.id] || ''} onChange={(e) => setCommentText({ ...comment_text, [postStory.id]: e.target.value })}  />
                   <img className='cmnt-img' src={send} alt="send" onClick={() => handleSubmit(postStory.id)} />
               </div>
-             <div className="view" onClick={() => handleViewComments(postStory.id)}>
+              <div className="view" onClick={() => handleViewComments(postStory.id)}>
                     <img src={arrow} alt="" />
-                    <p>View comments</p>
-                    
+                    <p>View comments</p>    
               </div>
             </div>
             
