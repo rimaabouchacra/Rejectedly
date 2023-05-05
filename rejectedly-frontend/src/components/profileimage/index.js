@@ -6,7 +6,10 @@ import "../rejectionstory/index.css";
 import Profile from "../../images/profile.png";
 
 const Profilee = ({ defaultImage }) => {
-  const [image_url, setImage] = useState(defaultImage);
+  const [image_url, setImage] = useState(() => {
+    const profileImage = localStorage.getItem("profileImage");
+    return profileImage ? profileImage : defaultImage;
+  });
   const [isHovering, setIsHovering] = useState(false);
 
   const handleImageChange = (e) => {
@@ -59,7 +62,6 @@ const Profilee = ({ defaultImage }) => {
 };
 
 export default Profilee;
-
 
 
 
