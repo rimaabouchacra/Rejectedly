@@ -54,6 +54,7 @@ public function GetProfile($user_id)
     return response()->json([
         'id' => $user->id,
         'username' => $user->username,
+        'email'=>$user->email,
         'image_url' => $user->image_url,
         'phone_number' => $user->phone_number,
         'biography' => $user->biography,

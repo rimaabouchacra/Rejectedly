@@ -12,16 +12,38 @@ const EditProfile = () => {
   const [phone_number, setPhone] = useState("");
   const [biography, setBio] = useState("");
   const [linkedin_url, setLinkedin] = useState("");
-  const [DataSent, setDataSent] = useState("");
-  const [ErrorSent, setErrorSent] = useState("");
+  const [DataSent, setDataSent] = useState(false);
+  const [ErrorSent, setErrorSent] = useState(false);
 
   useEffect(() => {
     const storedProfile = JSON.parse(localStorage.getItem("profile")) || {};
-    setUsername(storedProfile.username || "");
-    setEmail(storedProfile.email || "");
-    setPhone(storedProfile.phone_number || "");
-    setBio(storedProfile.biography || "");
-    setLinkedin(storedProfile.linkedin_url || "");
+    const user_id = localStorage.getItem("user_id");
+    const token = localStorage.getItem("token");
+
+    if (!token || !user_id) {
+      console.error("No token or user_id found in local storage");
+      return;
+    }
+
+    fetch(`http://localhost:8000/api/v1/auth/profile/${user_id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Profile data retrieved:", data);
+        setUsername(data.username || "");
+        setEmail(data.email || "");
+        setPhone(data.phone_number || "");
+        setBio(data.biography || "");
+        setLinkedin(data.linkedin_url || "");
+      })
+      .catch((error) => {
+        console.error("Error retrieving profile data:", error);
+      });
   }, []);
 
   const handleSubmit = async (e) => {
@@ -38,13 +60,14 @@ const EditProfile = () => {
 
     try {
       const token = localStorage.getItem("token");
+      const user_id = localStorage.getItem("user_id");
 
-      if (!token) {
-        console.error("No token found in local storage");
+      if (!token || !user_id) {
+        console.error("No token or user_id found in local storage");
         return;
       }
 
-      const response = await fetch("http://localhost:8000/api/v1/auth/profile", {
+      const response = await fetch(`http://localhost:8000/api/v1/auth/profile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,21 +79,19 @@ const EditProfile = () => {
       const data = await response.json();
       console.log("Profile data saved:", profileData);
 
-      
       localStorage.setItem("profile", JSON.stringify(profileData));
-      setDataSent(true );
+      setDataSent(true);
       setTimeout(() => {
-      setDataSent(false );
+        setDataSent(false);
       }, 3000);
     } catch (error) {
       console.error("Error saving profile data:", error);
-      setErrorSent(true );
+      setErrorSent(true);
       setTimeout(() => {
-      setErrorSent(false );
+        setErrorSent(false);
       }, 3000);
     }
   };
-
 
   return (
   <form className="story edit-profile" onSubmit={handleSubmit}>
@@ -147,5 +168,5 @@ const EditProfile = () => {
       </div>
     </div>
   </form>
-)}
-export default EditProfile;
+)};
+export default EditProfile

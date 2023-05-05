@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaCamera } from "react-icons/fa";
 import "./index.css";
 import "../index.css";
@@ -11,6 +11,29 @@ const Profilee = ({ defaultImage }) => {
     return profileImage ? profileImage : defaultImage;
   });
   const [isHovering, setIsHovering] = useState(false);
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("user_id");
+    setUserId(storedUserId);
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetch(`http://localhost:8000/api/v1/auth/profile/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.image_url) {
+            setImage(data.image_url);
+          }
+        })
+        .catch((error) => console.error("Error fetching profile image:", error));
+    }
+  }, [userId]);
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
