@@ -36,8 +36,6 @@ const EditProfile = () => {
       image_url: localStorage.getItem("profileImage"),
     };
 
-    console.log(profileData);
-    
     try {
       const token = localStorage.getItem("token");
 

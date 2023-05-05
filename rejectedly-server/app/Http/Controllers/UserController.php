@@ -41,8 +41,26 @@ return response()->json([
     "updated_user" => $user_updated
 ], 200);
 
-
 }
+
+public function GetProfile($user_id)
+{
+    $user = User::find($user_id);
+
+    if (!$user) {
+        return response()->json(['message' => 'User not found'], 404);
+    }
+
+    return response()->json([
+        'id' => $user->id,
+        'username' => $user->username,
+        'image_url' => $user->image_url,
+        'phone_number' => $user->phone_number,
+        'biography' => $user->biography,
+        'linkedin_url' => $user->linkedin_url,
+    ], 200);
+}
+
 
 public function GetContacts(Request $request, $id)
 {
