@@ -62,7 +62,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../signup/index.css'
-import logo1 from '../../images/logo1.png'
+import google from '../../images/google.png'
 const Loginn = ()=>{
 
     const [email, setEmail] = useState('');
@@ -108,10 +108,10 @@ const Loginn = ()=>{
         <div>
         
         <div className='signup-form'>
+        <h1 className='titre'>Login</h1>
         <div>
-            <img src={logo1} alt="logo" />
+            <img className='google' src={google} alt="logo" />
         </div>
-        <h1>Login</h1><br/>
         <form className='form' onSubmit={handleSubmit}>
             <div className='signup-container'>
                 <label className='label' htmlFor="email">Email:</label>

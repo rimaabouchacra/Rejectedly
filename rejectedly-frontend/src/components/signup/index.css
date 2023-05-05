@@ -1,11 +1,22 @@
-/* .body1{
-    background-image: url("../../images/bg.jpg");
-} */
 .form{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.titre{
+    font-size: 2.5rem;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.google{
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 0.4rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  
 }
 .signup-form {
     display: flex;
@@ -14,18 +25,20 @@
     align-items: center;
     margin: auto;
     margin-top: 4rem;
-    padding: 2rem;
+    padding: 1.5rem;
     width: 21.875rem;
     height: fit-content;
     border-radius: 3%;
-    background-color: var(--dark);
-    color: var(--white);
+    background-color: white;
+    color: black;
+    border: 2.5px solid var(--green);
 }
 .signup-container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items:center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:flex-start;
+
 }
 .signup-form a {
     color: var(--blue);
@@ -40,36 +53,33 @@
 .label {
     font-weight: bold;
     font-size: 1rem;
-    margin-right: 2rem;
 }
 
 .input-field {
     border-top: none;
     border-left: none;
     border-right: none;
-    background-color: var(--dark);
+    background-color: white;
     border-bottom: 2px solid var(--green);
-    color: white;
+    color: black;
     outline: none;
     font-size: 14px;
-    width: fit-content;
+    width: 18rem;
+    /* width: fit-content; */
 }
 
 .name {
-    margin-left: 2.8rem;
-    font-weight: normal;
+    margin-top: 0.5rem;
 }
 
 .email {
-    margin-left: 2.96rem;
+    margin-top: 0.5rem;
 }
 
 .pass {
-    margin-bottom: 0.4rem;
+    margin-top: 0.5rem;
 }
-.linkk{
-    margin-right: 1.8rem;
-}
+
 .login-text{
     margin-left: 0.5rem;
 }

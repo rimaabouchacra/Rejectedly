@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import './index.css'
 import '../index.css'
-import logo1 from '../../images/logo1.png'
-
+import logo2 from '../../images/logo2.png'
+import google from '../../images/google.png'
 const Signup = ()=>{
 
 const [name, setName] = useState('');
@@ -71,10 +71,13 @@ const handleSubmit = async (e) => {
 return (
     <div className='body1'>
         <div className='signup-form'>
+        {/* <div>
+            <img src={logo2} alt="logo" />
+        </div> */}
+        <h1 className='titre'>Sign up</h1>
         <div>
-            <img src={logo1} alt="logo" />
+            <img className='google' src={google} alt="" />
         </div>
-        <h1>Create Account</h1><br/>
         <form className='form' onSubmit={handleSubmit}>
             <div className='signup-container'>
                 <label className='label' htmlFor="name">Name:</label>
@@ -98,7 +101,7 @@ return (
 
             <div className='signup-container'>
                 <label className='label' htmlFor="name">Password:</label>
-                <input className={`input-field pass ${passwordError ? "error" : ""}`} type="password" placeholder='Password' value={password} 
+                <input className={`input-field email ${passwordError ? "error" : ""}`} type="password" placeholder='Password' value={password} 
                 onChange={(e) => {
                     setPassword(e.target.value);
                     setPasswordError("");
@@ -108,8 +111,8 @@ return (
             <div>
                 <button className='all-btn singup-btn'>SIGNUP</button>
             </div><br />
-            <div className='linkk'>
-                <label className='label' htmlFor="name">Already have an account?<a className='login-text' href='login'>Login</a></label>
+            <div>
+                <label className='label ' htmlFor="name">Already have an account?<a className='login-text' href='login'>Login</a></label>
             </div>
         </form>
         </div><br/>
