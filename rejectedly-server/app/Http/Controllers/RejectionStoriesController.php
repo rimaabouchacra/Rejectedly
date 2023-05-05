@@ -10,23 +10,6 @@ use Illuminate\Support\Facades\Auth;
 class RejectionStoriesController extends Controller
 {
 
-    public function storeStory(Request $request)
-    {
-        $rejectionStory = new RejectionStory;
-        $rejectionStory->story_type = $request->story_type;
-        $rejectionStory->story_text = $request->story_text;
-        $rejectionStory->user_id = auth()->user()->id;
-
-       if (!$rejectionStory->save()) {
-           return response()->json(['message' => 'Failed to save story'], 500);
-       }
-
-       return response()->json(['message' => 'Story created successfully', 'story' => $rejectionStory], 201);
-    }
-
-
-
-
 public function GetAllStories(Request $request)
 {
     $userId = $request->user()->id;
@@ -56,7 +39,7 @@ public function GetAllStories(Request $request)
     ]);
 }
 
-public function GetAllStorieId($id)
+public function GetStoryById($id)
 {
     $story = RejectionStory::with('user')->find($id);
 
@@ -98,68 +81,6 @@ public function GetNotImproved(Request $request)
 }
 
 
-public function GetLatestNotImproved(Request $request)
-{
-    $rejectionStories = RejectionStory::with('user')->get();
-    $notImprovedStories = $rejectionStories->filter(function($story) {
-        return empty($story->story_text_improved);
-    })->sortByDesc('created_at');
-
-    $latestStory = $notImprovedStories->first();
-
-    $latestStoryWithUser = [
-        'name' => $latestStory->user->name,
-        'email' => $latestStory->user->email,
-        'image_url' => $latestStory->user->image_url,
-        'story_type' => $latestStory->story_type,
-        'story_text' => $latestStory->story_text,
-    ];
-
-    return response()->json(['latest_story' => $latestStoryWithUser], 200);
-}
-
-
-// public function ChatgptResponse(Request $request)
-//     {
-
-//          $data = json_decode($request->getContent(), true);
-//     if ($data === null || !isset($data['story'])) {
-//         return response()->json(['error' => 'Invalid request body'], 400);
-//     }
-//         $story = $data['story'];
-
-//         $url = 'https://api.openai.com/v1/engines/text-davinci-002/completions';
-
-//         $headers = array(
-//             'Content-Type: application/json',
-//             'Authorization: Bearer ' . env('openai_API'),
-//         );
-
-//         $data = array(
-//             'prompt' => $story . 'respond in 10 lines. Interpret this rejected,' . $request->input('story_type') . 'extract the weekness points in it, and tell how to improve it',
-//             'temperature' => 0.4,
-//             'max_tokens' => 1000,
-//             'n' => 1,
-
-//         );
-
-//         $ch = curl_init();
-
-//         curl_setopt($ch, CURLOPT_URL, $url);
-//         curl_setopt($ch, CURLOPT_POST, 1);
-//         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-//         $response = curl_exec($ch);
-
-//         curl_close($ch);
-
-//         return $response;
-//     }
-
-
-
 public function ChatgptResponse(Request $request)
 {
     $data = json_decode($request->getContent(), true);
@@ -192,7 +113,7 @@ public function ChatgptResponse(Request $request)
 
     $completion = json_decode($response, true);
     $text = $completion['choices'][0]['text'];
-    // Insert the analyzed story into the database
+
     $rejectionStory = new RejectionStory();
     $rejectionStory->story_type = $storyType;
     $rejectionStory->story_text = $story;
@@ -204,31 +125,31 @@ public function ChatgptResponse(Request $request)
 }
 
 
-    public function DeleteStory(Request $request, $id)
-    {
-        $story = RejectionStory::find($id);
+public function DeleteStory(Request $request, $id)
+{
+    $story = RejectionStory::find($id);
 
-        if (!$story) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'story not found',
-            ], 404);
-        }
-
-        if ($story->user_id != Auth::id()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized',
-            ], 401);
-        }
-
-        $story->delete();
-
+    if (!$story) {
         return response()->json([
-            'status' => 'success',
-            'message' => 'story deleted successfully',
-        ]);
+            'status' => 'error',
+            'message' => 'story not found',
+        ], 404);
     }
+
+    if ($story->user_id != Auth::id()) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Unauthorized',
+        ], 401);
+    }
+
+    $story->delete();
+
+    return response()->json([
+        'status' => 'success',
+        'message' => 'story deleted successfully',
+    ]);
+}
 
 
 

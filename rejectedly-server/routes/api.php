@@ -19,7 +19,7 @@ Route::group(['prefix' => 'v1'], function(){
            Route::post('/refresh', "refresh");
            Route::get('/logout', "logout");
         });
-        
+
         Route::controller(UserController::class)->group(function () {
            Route::post('/profile',  'profile');
            Route::get('/user', 'getUser');
@@ -27,13 +27,11 @@ Route::group(['prefix' => 'v1'], function(){
         });
 
         Route::controller(RejectionStoriesController::class)->group(function () {
-            Route::post('/rejection-stories', 'storeStory');
+            Route::post('/chatgpt-interpret', "ChatgptResponse");
             Route::get('/rejection-stories', 'GetNotImproved');
             Route::delete('delete-story/{id}', 'DeleteStory');
-            Route::get('/rejection-stories-user/{id}', 'GetAllStorieId');
+            Route::get('/rejection-stories-user/{id}', 'GetStoryById');
             Route::get('/rejection-stories-user', 'GetAllStories');
-            Route::post('/chatgpt-interpret', "ChatgptResponse");
-
         });
 
         Route::controller(PostsController::class)->group(function(){
