@@ -19,6 +19,7 @@ const Posts = () => {
   const [comment_text, setCommentText] = useState({}); 
   const [showPopup, setShowPopup] = useState(false);
   const [comments, setComments] = useState([]);
+  const [commentSent, setCommentSent] = useState({});
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/v1/auth/user', {
@@ -53,6 +54,10 @@ const Posts = () => {
   .then(response => {
     console.log(response.data);
     setCommentText({ ...comment_text, [storyId]: '' });
+    setCommentSent({ ...commentSent, [storyId]: true });
+    setTimeout(() => {
+      setCommentSent({ ...commentSent, [storyId]: false });
+    }, 3000);
   })
   .catch(error => {
     console.log(error);
@@ -115,6 +120,9 @@ const Posts = () => {
                        <img src={arrow} alt="" />
                        <p>View comments</p>   
                     </div> 
+                </div>
+                <div>
+                  {commentSent[postStory.id] && <p className="comment-success">Comment sent successfully</p>}
                 </div>
             </div>
           

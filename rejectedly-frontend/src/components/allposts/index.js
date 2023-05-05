@@ -20,6 +20,7 @@ const AllPosts = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [showPopup2, setShowPopup2] = useState(false);
   const [comments, setComments] = useState([]);
+  const [commentSent, setCommentSent] = useState({});
   const [contactInfo, setContactInfo] = useState(null);
 
   useEffect(() => {
@@ -54,7 +55,10 @@ const AllPosts = () => {
   .then(response => {
     console.log(response.data);
     setCommentText({ ...comment_text, [storyId]: '' });
-    
+    setCommentSent({ ...commentSent, [storyId]: true });
+    setTimeout(() => {
+      setCommentSent({ ...commentSent, [storyId]: false });
+    }, 3000);
   })
   .catch(error => {
     console.log(error);
@@ -135,12 +139,15 @@ const AllPosts = () => {
                   <input className="cmnt" placeholder="Write a comment..." value={comment_text[postStory.id] || ''} onChange={(e) => setCommentText({ ...comment_text, [postStory.id]: e.target.value })}  />
                   <img className='cmnt-img' src={send} alt="send" onClick={() => handleSubmit(postStory.id)} />
               </div>
+              
               <div className="view" onClick={() => handleViewComments(postStory.id)}>
                     <img src={arrow} alt="" />
                     <p>View comments</p>    
               </div>
             </div>
-            
+            <div>
+                 {commentSent[postStory.id] && <p className="comment-success">Comment sent successfully</p>}
+            </div>
           </div>
         </div>
       ))}
