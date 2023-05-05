@@ -4,52 +4,54 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RejectionStoriesController;
-use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ForgotPasswordController;
 
 
 Route::group(['prefix' => 'v1'], function(){
+
     Route::group(['prefix' => 'auth'], function () {
-        Route::post('/login', [AuthController::class, "login"]);
-        Route::post('/signup', [AuthController::class, "register"]);
-        Route::post('/refresh', [AuthController::class, "refresh"]);
-        Route::get('/logout', [AuthController::class, "logout"]);
-        Route::post('/profile',  [UserController::class, 'profile']);
-        Route::post('/rejection-stories', [RejectionStoriesController::class, "storeStory"]);
-        Route::post('/posts', [PostsController::class, "storePost"]);
-        Route::get('/All-posts', [PostsController::class, "GetAllPosts"]);
-        Route::get('/My-posts', [PostsController::class, 'GetMyPosts']);
-        Route::post('/rejection-stories/improved', [PostsController::class, "storeStoryWithImprovement"]);
-        Route::get('/rejection-stories/improved', [PostsController::class, 'GetImproved']);
-        Route::get('/rejection-stories', [RejectionStoriesController::class, 'GetNotImproved']);
-        Route::get('/rejection-stories-user', [RejectionStoriesController::class, 'GetAllStories']);
-        Route::get('/rejection-stories-user/{id}', [RejectionStoriesController::class, 'GetAllStorieId']);
-        Route::delete('delete-story/{id}', [RejectionStoriesController::class, 'DeleteStory']);
-        Route::post('/createGroup', [GroupController::class, 'createGroup']);
-        Route::post('/groups/users', [GroupController::class, 'addUsersToGroup']);
-        Route::get('/user', [UserController::class, 'getUser']);
-        Route::post('/comments', [PostsController::class, 'StoreComment']);
-        Route::get('/comments/{story}', [PostsController::class, 'GetComments']);
-        Route::get('/contacts/{id}', [UserController::class, 'getContacts']);
-        Route::post('/chatgpt-interpret', [RejectionStoriesController::class, "ChatgptResponse"]);
 
+        Route::controller(AuthController::class)->group(function () {
+           Route::post('/login', "login");
+           Route::post('/signup', "register");
+           Route::post('/refresh', "refresh");
+           Route::get('/logout', "logout");
+        });
+        
+        Route::controller(UserController::class)->group(function () {
+           Route::post('/profile',  'profile');
+           Route::get('/user', 'getUser');
+           Route::get('/contacts/{id}', 'getContacts');
+        });
 
+        Route::controller(RejectionStoriesController::class)->group(function () {
+            Route::post('/rejection-stories', 'storeStory');
+            Route::get('/rejection-stories', 'GetNotImproved');
+            Route::delete('delete-story/{id}', 'DeleteStory');
+            Route::get('/rejection-stories-user/{id}', 'GetAllStorieId');
+            Route::get('/rejection-stories-user', 'GetAllStories');
+            Route::post('/chatgpt-interpret', "ChatgptResponse");
+
+        });
+
+        Route::controller(PostsController::class)->group(function(){
+            Route::post('/posts',  "storePost");
+            Route::get('/All-posts', "GetAllPosts");
+            Route::get('/My-posts', 'GetMyPosts');
+            Route::post('/rejection-stories/improved', "storeStoryWithImprovement");
+            Route::get('/rejection-stories/improved', 'GetImproved');
+            Route::post('/comments', 'StoreComment');
+            Route::get('/comments/{story}', 'GetComments');
+        });
 
     });
-
-
 
     Route::group(['middleware' => ['auth:api', 'admin']], function() {
-    Route::get('/users', [AuthController::class, "getUsers"]);
-
+       Route::get('/users', [AuthController::class, "getUsers"]);
     });
 
-    Route::group(['middleware' => 'auth:api'], function(){
-    Route::post('/logout', [AuthController::class, "logout"]);
-
-    });
 });
 
 
