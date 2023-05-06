@@ -121,9 +121,9 @@ const Posts = () => {
                        <p>View comments</p>   
                     </div> 
                 </div>
-                <div>
-                  {commentSent[postStory.id] && <p className="comment-success">Comment sent successfully</p>}
-                </div>
+            
+                {commentSent[postStory.id] && <p className="comment-success">Comment sent successfully!</p>}
+               
             </div>
           
         </div>

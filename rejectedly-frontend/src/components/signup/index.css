@@ -10,6 +10,10 @@
     margin-top: 0;
     margin-bottom: 0.7rem;
 }
+.titre2{
+    text-align: center;
+    width: 20rem;
+}
 .google{
     border-radius: 50%;
     border: 0.113rem solid black;
@@ -65,7 +69,6 @@
     outline: none;
     font-size: 14px;
     width: 18rem;
-    /* width: fit-content; */
 }
 
 .name {

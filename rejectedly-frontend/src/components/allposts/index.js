@@ -146,7 +146,7 @@ const AllPosts = () => {
               </div>
             </div>
             <div>
-                 {commentSent[postStory.id] && <p className="comment-success">Comment sent successfully</p>}
+                 {commentSent[postStory.id] && <p className="comment-success">Comment sent successfully!</p>}
             </div>
           </div>
         </div>

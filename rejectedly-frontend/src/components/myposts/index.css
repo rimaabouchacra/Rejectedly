@@ -68,6 +68,7 @@ margin-left: 1.5rem;
 }
 .post-contain{
     border-bottom: 2px solid var(--offwhite);
+
 }
 .comments{
     width: 43.75rem;
@@ -90,4 +91,8 @@ margin-left: 1.5rem;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 9998;
+}
+.comment-success{
+    margin-top: -0.8rem;
+
 }

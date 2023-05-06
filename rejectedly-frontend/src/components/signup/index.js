@@ -71,9 +71,6 @@ const handleSubmit = async (e) => {
 return (
     <div className='body1'>
         <div className='signup-form'>
-        {/* <div>
-            <img src={logo2} alt="logo" />
-        </div> */}
         <h1 className='titre'>Sign up</h1>
         <div>
             <img className='google' src={google} alt="" />
