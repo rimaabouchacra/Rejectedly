@@ -4,34 +4,33 @@ import axios from 'axios';
 import '../signup/index.css'
 import '../index.css'
 import './index.css'
-import logo1 from '../../images/logo1.png'
+import lock from '../../images/lock.png'
 const Reset = ()=>{
 
 
 return (
     <div>
-        <div className='reset-form'>
-        <div>
-            <img src={logo1} alt="logo" />
-        </div>
-        <h1>Reset Password</h1><br/>
+        <div className='signup-form'>
+        
+        <h1 className='titre'>Reset Password</h1>
+        <img className='lock' src={lock} alt="" />
         <form className='form'>
             <div className='signup-container'>
                 <label className='label' htmlFor="email">Email:</label>
-                <input className='input-field emaill' type="email" placeholder='Email' />
+                <input className='input-field email' type="email" placeholder='Email' />
             </div><br/>
 
             <div className='signup-container'>
                 <label className='label' htmlFor="password">New password:</label>
-                <input className='input-field newpass' type="password" placeholder='New Password'/>
+                <input className='input-field pass' type="password" placeholder='New Password'/>
             </div><br/>
 
             <div className='signup-container'>
                 <label className='label' htmlFor="password">Confirm password:</label>
                 <input className='input-field pass' type="password" placeholder='Confirm Password'/>
-            </div><br/>
+            </div><br/><br />
             <div>
-                <button className='all-btn'>CHANGE</button>
+                <button className='all-btn'>reset</button>
             </div><br />
        
         </form>

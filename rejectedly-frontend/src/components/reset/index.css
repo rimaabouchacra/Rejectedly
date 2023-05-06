@@ -1,23 +1,5 @@
-.pass{
-    margin-left: 1rem;
-}
-.emaill{
-    margin-left: 7rem;
-}
-.newpass{
-    margin-left: 2.8rem;
-}
-.reset-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    margin-top: 4rem;
-    padding: 2rem;
-    width: 22.8rem;
-    height: fit-content;
-    border-radius: 3%;
-    background-color: var(--dark);
-    color: var(--white);
+.lock{
+    width: 3.125rem;
+    height: 3.125rem;
+    margin-bottom: 1rem;
 }

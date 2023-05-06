@@ -1,12 +1,12 @@
 import Navbar from "../../components/navbar";
-import SendEmail from "../../components/sendemail";
+import Reset from "../../components/reset";
 
 
 const Resetpass=()=>{
     return(
         <div>
           <Navbar/>
-          <SendEmail/>
+          <Reset/>
         </div>
     )
 }
