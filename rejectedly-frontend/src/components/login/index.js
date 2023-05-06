@@ -120,13 +120,14 @@ const Loginn = ()=>{
 
             <div className='signup-container'>
                 <label className='label' htmlFor="name">Password:</label>
-                <input className='input-field pass' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input className='input-field' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div><br/>
+            {loginError && <p className="error">{loginError}</p>}
             <div className='btn'>
                 <button className='all-btn loginn-btn '>Login</button>
             </div><br />
-            {loginError && <p className="error">{loginError}</p>}
-            <div className='linkk'>
+            
+            <div>
                 <label className='labell' htmlFor="name"><a className='forget' href="reset">Forget password?</a></label><br /><br />
                 <label className='label' htmlFor="name">Don't have an account?<a className='login-text' href='signup'>Signup</a></label>
             </div>

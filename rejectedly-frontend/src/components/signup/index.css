@@ -8,11 +8,11 @@
     font-size: 2.5rem;
     padding-top: 0;
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
 }
 .google{
     border-radius: 50%;
-    border: 1px solid black;
+    border: 0.113rem solid black;
     padding: 0.4rem;
     cursor: pointer;
     margin-bottom: 1rem;

@@ -81,33 +81,47 @@ return (
         <form className='form' onSubmit={handleSubmit}>
             <div className='signup-container'>
                 <label className='label' htmlFor="name">Name:</label>
-                <input className={`input-field name ${nameError ? "error" : ""}`} type="text" placeholder='Name' value={name}
-                 onChange={(e) => {
-                    setName(e.target.value);
-                    setNameError("");
-                                
-                }} />
+                <input 
+                   className={`input-field name ${nameError ? "error" : ""}`} 
+                   type="text" 
+                   placeholder='Name' 
+                   value={nameError ? nameError : name}
+                   onChange={(e) => {
+                      setName(e.target.value);
+                      setNameError("");
+                    }}
+                   onFocus={() => setNameError("")} // clear error message on focus
+                />
+                
             </div><br/>
-            {nameError && <p className="error signup-container">{nameError}</p>}
             <div className='signup-container'>
                 <label className='label' htmlFor="email">Email:</label>
-                <input className={`input-field email ${emailError ? "error" : ""}`} type="email" placeholder='Email' value={email} 
+                <input className={`input-field email ${emailError ? "error" : ""}`}
+                 type="email"
+                 placeholder='Email'
+                 value={emailError ? emailError: email} 
+                
                 onChange={(e) => {
                     setEmail(e.target.value);
                     setEmailError("");
-                 }}/>
+                 }}
+                 onFocus={() => setEmailError("")}
+                 />
             </div><br/>
-            {emailError && <p className="error signup-container">{emailError}</p>}
 
             <div className='signup-container'>
                 <label className='label' htmlFor="name">Password:</label>
-                <input className={`input-field email ${passwordError ? "error" : ""}`} type="password" placeholder='Password' value={password} 
+                <input className={`input-field email ${passwordError ? "error" : ""}`}
+                 type={passwordError ? "text" : "password"}
+                 placeholder='Password'
+                 value={passwordError ? passwordError: password} 
                 onChange={(e) => {
                     setPassword(e.target.value);
                     setPasswordError("");
-                }}/>
+                }}
+                onFocus={() => setPasswordError("")}
+                />
             </div><br/>
-            {passwordError && <p className="error signup-container">{passwordError}</p>}
             <div>
                 <button className='all-btn singup-btn'>SIGNUP</button>
             </div><br />
