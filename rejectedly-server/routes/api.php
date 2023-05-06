@@ -6,7 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RejectionStoriesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\PasswordResetController;
 
 
 Route::group(['prefix' => 'v1'], function(){
@@ -46,8 +46,9 @@ Route::group(['prefix' => 'v1'], function(){
         });
 
     });
-    
-    Route::post('/password/email', [ForgotPasswordController::class, 'SendResetLinkEmail']);
+
+    // Route::post('/password/email', [MyForgotPasswordController::class, 'SendResetLinkEmail']);
+    Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
 
     Route::group(['middleware' => ['auth:api', 'admin']], function() {
        Route::get('/users', [AuthController::class, "getUsers"]);
