@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,22 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
-Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+Route::get('/send-mail', function () {
+    $data = array(
+        'name' => 'Rima',
+        'body' => 'This is a test email from Laravel.'
+    );
+    
+    Mail::mailer('smtp')->send('emails.mail', $data, function($message) {
+        $message->to('rima.abouchakra.gms@gmail.com', 'Rima')
+                ->subject('Test Email');
+        $message->from('rima.abouchakra.gms@gmail.com', 'Rima');
+    });
+
+    return "Email sent successfully!";
+});
+
+
 
  Route::get('/', function () {
     return view('welcome');

@@ -15,6 +15,14 @@ return [
 
     'default' => env('MAIL_MAILER', 'smtp'),
 
+
+
+    // 'stream' => [
+    // 'ssl' => [
+    //     'verify_peer' => true,
+    //     'cafile' => base_path('certs/cacert.pem'),
+    // ],
+// ],
     /*
     |--------------------------------------------------------------------------
     | Mailer Configurations
@@ -33,58 +41,71 @@ return [
     |
     */
 
-    'mailers' => [
-        'smtp' => [
-            'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
-            'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
-        ],
+'mailers' => [
+    'smtp' => [
+        'transport' => 'smtp',
+        'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+        'port' => env('MAIL_PORT', 587),
+        'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+        'username' => env('MAIL_USERNAME'),
+        'password' => env('MAIL_PASSWORD'),
+        'timeout' => null,
+        'local_domain' => env('MAIL_EHLO_DOMAIN'),
 
-        'ses' => [
-            'transport' => 'ses',
-        ],
+        'auth_mode'  => null,
+        'verify_peer' => false,
+    ],
 
-        'mailgun' => [
-            'transport' => 'mailgun',
-            // 'client' => [
-            //     'timeout' => 5,
-            // ],
-        ],
+    'ses' => [
+        'transport' => 'ses',
+    ],
 
-        'postmark' => [
-            'transport' => 'postmark',
-            // 'client' => [
-            //     'timeout' => 5,
-            // ],
-        ],
+    'mailgun' => [
+        'transport' => 'mailgun',
+        // 'client' => [
+        //     'timeout' => 5,
+        // ],
+    ],
 
-        'sendmail' => [
-            'transport' => 'sendmail',
-            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
-        ],
+    'postmark' => [
+        'transport' => 'postmark',
+        // 'client' => [
+        //     'timeout' => 5,
+        // ],
+    ],
 
-        'log' => [
-            'transport' => 'log',
-            'channel' => env('MAIL_LOG_CHANNEL'),
-        ],
+    'sendmail' => [
+        'transport' => 'sendmail',
+        'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+    ],
 
-        'array' => [
-            'transport' => 'array',
-        ],
+    'log' => [
+        'transport' => 'log',
+        'channel' => env('MAIL_LOG_CHANNEL'),
+    ],
 
-        'failover' => [
-            'transport' => 'failover',
-            'mailers' => [
-                'smtp',
-                'log',
-            ],
+    'array' => [
+        'transport' => 'array',
+    ],
+
+    'failover' => [
+        'transport' => 'failover',
+        'mailers' => [
+            'smtp',
+            'log',
         ],
     ],
+],
+
+
+    'stream' => [
+    'ssl' => [
+        'allow_self_signed' => true,
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+    ],
+],
+
 
     /*
     |--------------------------------------------------------------------------
