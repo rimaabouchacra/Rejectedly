@@ -120,7 +120,7 @@ public function GetComments(Post $story)
         ]);
 }
 
-public function storeStoryWithImprovement(Request $request)
+public function StoreStoryWithImprovement(Request $request)
 {
     $validatedData = $request->validate([
         'story_type' => 'required',

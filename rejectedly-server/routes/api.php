@@ -14,10 +14,10 @@ Route::group(['prefix' => 'v1'], function(){
     Route::group(['prefix' => 'auth'], function () {
 
         Route::controller(AuthController::class)->group(function () {
-           Route::post('/login', "login");
-           Route::post('/signup', "register");
-           Route::post('/refresh', "refresh");
-           Route::get('/logout', "logout");
+           Route::post('/login', 'login');
+           Route::post('/signup', 'register');
+           Route::post('/refresh', 'refresh');
+           Route::get('/logout', 'logout');
         });
 
         Route::controller(UserController::class)->group(function () {
@@ -36,16 +36,18 @@ Route::group(['prefix' => 'v1'], function(){
         });
 
         Route::controller(PostsController::class)->group(function(){
-            Route::post('/posts',  "storePost");
-            Route::get('/All-posts', "GetAllPosts");
+            Route::post('/posts',  'storePost');
+            Route::get('/All-posts', 'GetAllPosts');
             Route::get('/My-posts', 'GetMyPosts');
-            Route::post('/rejection-stories/improved', "storeStoryWithImprovement");
+            Route::post('/rejection-stories/improved', 'StoreStoryWithImprovement');
             Route::get('/rejection-stories/improved', 'GetImproved');
             Route::post('/comments', 'StoreComment');
             Route::get('/comments/{story}', 'GetComments');
         });
 
     });
+    
+    Route::post('/password/email', [ForgotPasswordController::class, 'SendResetLinkEmail']);
 
     Route::group(['middleware' => ['auth:api', 'admin']], function() {
        Route::get('/users', [AuthController::class, "getUsers"]);
