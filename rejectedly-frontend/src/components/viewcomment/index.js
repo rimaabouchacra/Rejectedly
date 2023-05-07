@@ -1,5 +1,4 @@
 import '../newstory/index.css'
-import '../newgroup/index.css'
 import './index.css'
 import '../index.css'
 import React from 'react';
