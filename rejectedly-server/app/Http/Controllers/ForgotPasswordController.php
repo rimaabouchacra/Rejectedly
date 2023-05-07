@@ -59,15 +59,15 @@ class ForgotPasswordController extends Controller
 
 
 
-// public function showResetForm(Request $request, $token)
-// {
-//     return view('emails.reset-password', ['token' => $token, 'email' => $request->email]);
-// }
-
 public function showResetForm(Request $request, $token)
 {
-    return redirect('http://localhost:3000/reset-password?token=' . $token . '&email=' . $request->email);
+    return view('emails.reset-password', ['token' => $token, 'email' => $request->email]);
 }
+
+// public function showResetForm(Request $request, $token)
+// {
+//     return redirect('http://localhost:3000/reset-password?token=' . $token . '&email=' . $request->email);
+// }
 
     public function sendResetLinkEmail(Request $request)
     {
