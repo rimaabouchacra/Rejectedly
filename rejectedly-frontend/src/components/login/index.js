@@ -105,9 +105,11 @@ const Loginn = ()=>{
         }
     };
 
-    const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:8000/api/v1/login/google';
-  };
+    const handleGoogleLogin =  () => {
+    // window.location.href = 'http://localhost:8000/login/google';
+    };
+
+
 
        return (
         <div>
@@ -115,7 +117,10 @@ const Loginn = ()=>{
         <div className='signup-form'>
         <h1 className='titre'>Login</h1>
         <div>
-            <img onClick={handleGoogleLogin} className='google' src={google} alt="logo" />
+            <img
+             onClick={handleGoogleLogin}
+            className='google'
+            src={google} alt="logo" />
         </div>
         <form className='form' onSubmit={handleSubmit}>
             <div className='signup-container'>

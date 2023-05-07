@@ -6,17 +6,17 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RejectionStoriesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 
 
-Route::post('forgot-password', 'Auth\ForgotPasswordController@forgotPassword');
+Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword']);
 
 
-Route::group(['prefix' => 'v1', 'middleware' => ['web']], function(){
-    Route::get('/login/google', [LoginController::class, 'redirectToGoogle']);
-    Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
-});
+// Route::group(['prefix' => 'v1', 'middleware' => ['web']], function(){
+//     Route::get('/login/google', [LoginController::class, 'redirectToGoogle']);
+//     Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallback']);
+// });
 
 Route::group(['prefix' => 'v1'], function(){
 
@@ -53,6 +53,8 @@ Route::group(['prefix' => 'v1'], function(){
             Route::post('/comments', 'StoreComment');
             Route::get('/comments/{story}', 'GetComments');
         });
+
+        
 
     });
 

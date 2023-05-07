@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\GoogleLoginController;
 
 
 /*
@@ -30,8 +31,9 @@ Route::get('/send-mail', function () {
     return "Email sent successfully!";
 });
 
-Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-
+// Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('/login/google', [GoogleLoginController::class, 'redirect'])->name('login.google-redirect');
+Route::get('/login/google/callback', [GoogleLoginController::class, 'callback'])->name('login.google-callback');
 
  Route::get('/', function () {
     return view('welcome');
