@@ -33,7 +33,7 @@ const SendEmail = () => {
                 <h1 className='titre'>Password Reset</h1>
                 <p className='titre2'>You will receive instructions for resetting your password</p>
                 <form className='form' onSubmit={handleSubmit}>
-                      @csrf
+                      
                     <div className='signup-container'>
                         <label className='label' htmlFor="email">Email:</label>
                         <input

@@ -21,14 +21,10 @@ Route::group(['prefix' => 'v1'], function(){
 
 
         Route::controller(ForgotPasswordController::class)->group(function () {
-        //    Route::post('/password/email', 'sendResetLinkEmail');
-        //    Route::post('/reset', 'reset')->name('password.reset');
-        Route::get('/password/reset/{token}', 'showResetForm')->name('password.reset');
-        Route::post('/password/email', 'sendResetLinkEmail');
-        Route::post('/reset', 'reset')->name('password.update');
+           Route::get('/password/reset/{token}', 'showResetForm')->name('password.reset');
+           Route::post('/password/email', 'sendResetLinkEmail');
+           Route::post('/reset', 'reset')->name('password.update');
         });
-
-
 
         Route::controller(AuthController::class)->group(function () {
            Route::post('/login', 'login');
