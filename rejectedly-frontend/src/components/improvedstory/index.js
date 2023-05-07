@@ -7,9 +7,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const PostImprovedStory = () => {
-//   const handleClick = () => {
-//     navigate('/group');
-//   };
+
   
   const [story_type, setType] = useState("");
   const [story_text, setText] = useState("");

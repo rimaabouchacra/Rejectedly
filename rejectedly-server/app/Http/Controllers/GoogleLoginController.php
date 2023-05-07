@@ -9,15 +9,11 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleLoginController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function redirect()
     {
         // return Socialite::driver('google')->redirect();
-           $redirectUrl = Socialite::driver('google');
+     $redirectUrl = Socialite::driver('google');
 
 
     return  $redirectUrl->redirect();
@@ -39,9 +35,6 @@ class GoogleLoginController extends Controller
             if ( $finduser ) {
 
                 Auth::login($finduser);
-
-                // return redirect()->intended('http://localhost:3000/saved');
-
             } else {
                 $newUser = User::create([
                     'name' => $user->name,
@@ -51,9 +44,6 @@ class GoogleLoginController extends Controller
                 ]);
 
                 Auth::login($newUser);
-
-                // return redirect()->intended('/');
-                // return redirect()->intended('http://localhost:3000/saved');
             }
 
             $token = Auth::attempt(['email' => $user->email, 'password' => 'dummypass']);

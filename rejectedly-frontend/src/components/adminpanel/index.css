@@ -25,8 +25,7 @@
     margin-left: 22rem;
     margin-top: 5rem;
     box-shadow: 2px 2px 8px rgb(181, 179, 179);
-    /* max-height: 448px; */
-    /* overflow-y: hidden; */
+
 
 }
 .story1::-webkit-scrollbar {
@@ -38,7 +37,6 @@
     max-height: 70rem;
     overflow-y: auto;
     margin: 2rem;
-    /* padding: 2rem; */
     margin-top: 30rem ;
     overflow-x: hidden;
 }
@@ -72,13 +70,12 @@
     width: 100%;
     margin-top: 1rem;
     padding-top: 1rem;
-    /* padding-left: 2.5rem;
-    padding-right: 2.5rem;  */
+
 }
 @media screen and (max-width: 767px) {
     .table-container {
         margin: 2.5rem auto;
-        /* max-width: 80%; */
+    
     }
 
     .table td {

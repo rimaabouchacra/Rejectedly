@@ -87,7 +87,7 @@ return (
                       setName(e.target.value);
                       setNameError("");
                     }}
-                   onFocus={() => setNameError("")} // clear error message on focus
+                   onFocus={() => setNameError("")} 
                 />
                 
             </div><br/>

@@ -9,21 +9,7 @@
     font-weight: bold;
 }
 
-/* .sidebar {
-    position: fixed;
-    justify-content: baseline;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 11.25rem;
-    background-color: white;
-    border-radius: 0.188rem;
-    margin: 3rem;
-    padding: 1rem;
-    margin-left: 5rem;
-    margin-top: 5rem;
-    box-shadow: 2px 2px 8px rgb(181, 179, 179);
-} */
+
 .admin-sidebar {
     display: flex;
     justify-content: flex-start;

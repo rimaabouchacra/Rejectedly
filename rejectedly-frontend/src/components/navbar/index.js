@@ -20,9 +20,9 @@ const Navbar = () => {
           </>
         ) : (
           <>
-          <a href='/error'>Analysis</a>
-          <a href='/error'>Collaboration</a>
-          <a href='/error'>Marketplace</a>
+          <a href='/login'>Analysis</a>
+          <a href='/login'>Collaboration</a>
+          <a href='/login'>Marketplace</a>
           </>
         )}
       </div>
