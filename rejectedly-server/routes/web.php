@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\ForgotPasswordController;
+// use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ForgotPasswordController;
 
 
 /*
@@ -19,7 +20,7 @@ Route::get('/send-mail', function () {
         'name' => 'Rima',
         'body' => 'This is a test email from Laravel.'
     );
-    
+
     Mail::mailer('smtp')->send('emails.mail', $data, function($message) {
         $message->to('rima.abouchakra.gms@gmail.com', 'Rima')
                 ->subject('Test Email');
@@ -29,6 +30,7 @@ Route::get('/send-mail', function () {
     return "Email sent successfully!";
 });
 
+Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
 
  Route::get('/', function () {

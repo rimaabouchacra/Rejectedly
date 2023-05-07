@@ -6,8 +6,12 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RejectionStoriesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\PasswordResetController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
+
+
+Route::post('forgot-password', 'Auth\ForgotPasswordController@forgotPassword');
+
 
 Route::group(['prefix' => 'v1', 'middleware' => ['web']], function(){
     Route::get('/login/google', [LoginController::class, 'redirectToGoogle']);
