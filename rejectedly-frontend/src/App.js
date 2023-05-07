@@ -16,6 +16,7 @@ import Posts from './pages/posts'
 import AllPosts from './pages/all_posts';
 import ErrorPage from './pages/error_page';
 import MarketplacePosts from './pages/marketplace_posts';
+import Confirmpass from './pages/confirmpass';
 function App() {
   
   const is_admin = JSON.parse(localStorage.getItem('is_admin'));
@@ -37,6 +38,7 @@ function App() {
           <Route path="/marketplaceposts" element={<MarketplacePosts/>} />
           <Route path="/admin" element={is_admin ? <AdminDashboard /> : <Navigate to="/error" />} />
           <Route path="/error" element={<ErrorPage/>} />
+          <Route path="/reset-password" element={<Confirmpass/>} />
       </Routes>  
     </Router> 
 

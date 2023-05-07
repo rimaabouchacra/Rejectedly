@@ -44,3 +44,4 @@
         @include('auth.partials.copy')
     </form>
 @endsection
+

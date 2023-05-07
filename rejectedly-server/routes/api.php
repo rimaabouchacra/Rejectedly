@@ -6,11 +6,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RejectionStoriesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostsController;
-use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
-
-
-Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword']);
 
 
 // Route::group(['prefix' => 'v1', 'middleware' => ['web']], function(){
@@ -21,6 +18,17 @@ Route::post('forgot-password', [ForgotPasswordController::class, 'forgotPassword
 Route::group(['prefix' => 'v1'], function(){
 
     Route::group(['prefix' => 'auth'], function () {
+
+
+        Route::controller(ForgotPasswordController::class)->group(function () {
+        //    Route::post('/password/email', 'sendResetLinkEmail');
+        //    Route::post('/reset', 'reset')->name('password.reset');
+Route::get('/password/reset/{token}', 'showResetForm')->name('password.reset');
+    Route::post('/password/email', 'sendResetLinkEmail');
+    Route::post('/reset', 'reset')->name('password.update');
+        });
+
+
 
         Route::controller(AuthController::class)->group(function () {
            Route::post('/login', 'login');
@@ -54,18 +62,14 @@ Route::group(['prefix' => 'v1'], function(){
             Route::get('/comments/{story}', 'GetComments');
         });
 
-        
-
     });
 
-    // Route::post('/password/email', [MyForgotPasswordController::class, 'SendResetLinkEmail']);
-    Route::post('/password/reset', [PasswordResetController::class, 'resetPassword']);
 
     Route::group(['middleware' => ['auth:api', 'admin']], function() {
        Route::get('/users', [AuthController::class, "getUsers"]);
     });
 
-//    Route::get('/login/google', [LoginController::class, 'redirectToGoogle']);
+// Route::get('/login/google', [LoginController::class, 'redirectToGoogle']);
 
 // Route::group(['middleware' => ['web']], function() {
 

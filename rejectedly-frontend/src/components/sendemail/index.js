@@ -16,7 +16,7 @@ const SendEmail = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:8000/password/email', {
+            const response = await axios.post('http://localhost:8000/api/v1/auth/password/email', {
                 email: email
             });
             setLoading(false);
@@ -60,3 +60,4 @@ const SendEmail = () => {
 };
 
 export default SendEmail;
+
