@@ -48,3 +48,14 @@
     margin-top: 3rem;
     margin-bottom: 4rem;
 }
+.view {
+    display: flex;
+    color: var(--green);
+    justify-content: baseline;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0.2rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}

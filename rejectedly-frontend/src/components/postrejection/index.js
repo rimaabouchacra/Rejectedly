@@ -8,9 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 
 const PostStory = () => {
-  const handleClick = () => {
-    navigate('/group');
-  };
   
   const [story_type, setType] = useState("");
   const [story_text, setText] = useState("");
@@ -54,12 +51,10 @@ const PostStory = () => {
   };  
 return(
     <form className="story"  onSubmit={handleSubmit}>
-        <div className='header collaborate'>
-        <h1>POST YOUR REJECTION</h1>
-        <button onClick={handleClick} className='all-btn'>CREATE GROUP</button>
-        </div>
+      
+    <h1>POST YOUR REJECTION</h1>    
     <div className='new-story'>
-        
+       
         <div className='label-input'>
             <label className='label3 type' htmlFor="type">Rejection type</label>
             <select className='input type' name="types" id="type" value={story_type} onChange={handleTypeChange}>
