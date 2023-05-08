@@ -36,21 +36,25 @@ body{
     }
 
     .features-container {
-        gap: 1rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 1rem;
     }
 
     .feature {
-        width: 25%;
-        height: 25%;
-        margin: 0.2rem;
-        font-size: 0.4rem;
+        width: 90%;
+        height: auto;
+        margin-bottom: -2rem;
+        font-size: 0.8rem;
     }
-    .feature-img{
-        width: 5rem;
-        height: 4rem;
+
+    .feature-img {
+        width: 100px;
+        height: 80px;
     }
+
     .title {
-        font-size: 0.5rem;
+        font-size: 0.8rem;
     }
 }

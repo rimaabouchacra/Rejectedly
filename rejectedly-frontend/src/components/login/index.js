@@ -68,7 +68,7 @@ const Loginn = ()=>{
 
             <div className='signup-container'>
                 <label className='label' htmlFor="name">Password:</label>
-                <input className='input-field' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input className='input-field pass' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div><br/>
             {loginError && <p className="error">{loginError}</p>}
             <div className='btn'>

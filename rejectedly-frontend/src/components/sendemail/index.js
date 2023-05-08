@@ -31,6 +31,7 @@ const SendEmail = () => {
             <div className='signup-form'>
                 <h1 className='titre'>Password Reset</h1>
                 <p className='titre2'>You will receive instructions for resetting your password</p>
+                <br />
                 <form className='form' onSubmit={handleSubmit}>
                       
                     <div className='signup-container'>

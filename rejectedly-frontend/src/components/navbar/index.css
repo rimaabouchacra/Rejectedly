@@ -61,11 +61,13 @@
         flex-direction: column;
         height: auto;
         padding: 1rem;
+        width: 100%;
     }
 
     .links {
         margin-right: 0;
         margin-bottom: 1rem;
+        flex-wrap: wrap;
     }
 
     .links-register {

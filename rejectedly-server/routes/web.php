@@ -16,22 +16,8 @@ use App\Http\Controllers\GoogleLoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/send-mail', function () {
-    $data = array(
-        'name' => 'Rima',
-        'body' => 'This is a test email from Laravel.'
-    );
 
-    Mail::mailer('smtp')->send('emails.mail', $data, function($message) {
-        $message->to('rima.abouchakra.gms@gmail.com', 'Rima')
-                ->subject('Test Email');
-        $message->from('rima.abouchakra.gms@gmail.com', 'Rima');
-    });
 
-    return "Email sent successfully!";
-});
-
-// Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('/login/google', [GoogleLoginController::class, 'redirect'])->name('login.google-redirect');
 Route::get('/login/google/callback', [GoogleLoginController::class, 'callback'])->name('login.google-callback');
 
