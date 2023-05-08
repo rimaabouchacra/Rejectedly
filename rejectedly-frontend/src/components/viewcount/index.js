@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
 import '../viewcomment/index.css';
+import './index.css'
 
 Modal.setAppElement('#root');
 
@@ -25,8 +26,8 @@ const ViewCount = ({ isOpen, onRequestClose }) => {
         contentLabel='View Count'
       >
         <h2 className='view-titlee'>Total Users</h2>
-        <div className='bio'>
-          <p>{count}</p>
+        <div>
+          <p className='count'>{count}</p>
         </div>
         <button className='all-btn close' onClick={onRequestClose}>
           Close

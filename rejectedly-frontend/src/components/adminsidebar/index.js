@@ -136,7 +136,7 @@ const AdminSidebar = () => {
 
         </li>
         <li className="li lii">
-          <a href='admin/count' onClick={handleLogout}>LOGOUT</a>
+          <a onClick={handleLogout}>LOGOUT</a>
         </li>
       </ul>
       <ViewCount

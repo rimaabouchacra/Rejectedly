@@ -1,0 +1,7 @@
+.count{
+    text-align: center;
+    border-bottom: 2px solid var(--green);
+    font-size: 30px;
+    font-weight: bold;
+    
+}
