@@ -66,14 +66,38 @@
 }
 @media only screen and (max-width: 768px) {
     .footer {
-        flex-direction: column;
+        /* flex-direction: column; */
         height: auto;
         padding: 1rem;
+        justify-content: center;
+    }
+
+    .footer-section1 {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .footer-section2 {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        text-align: center;
     }
 
     .footer-links {
-        margin-right: 0;
+        margin: 0;
         margin-bottom: 1rem;
+        text-align: center;
+   
     }
 
+    .social-media {
+        margin-top: 1rem;
+        justify-content: space-evenly;
+    }
+
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
 }
