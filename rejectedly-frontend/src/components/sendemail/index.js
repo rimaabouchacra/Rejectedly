@@ -6,7 +6,6 @@ import '../signup/index.css'
 const SendEmail = () => {
 
     const [email, setEmail] = useState('');
-    const [emailError, setEmailError] = useState("");
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -23,7 +22,7 @@ const SendEmail = () => {
             navigate("/login");
         } catch (error) {
             setLoading(false);
-            setError(error.response.data.message);
+            setError("*Email is invalid");
         }
     }
 
@@ -37,12 +36,16 @@ const SendEmail = () => {
                     <div className='signup-container'>
                         <label className='label' htmlFor="email">Email:</label>
                         <input
-                            className='input-field email'
+                            className={`input-field email ${error ? "error" : ""}`}
                             type="email"
                             placeholder='Email'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
                             required
+                            value={error ? error : email}
+                            onChange={(e) => {
+                               setEmail(e.target.value);
+                               setError("");
+                            }}
+                            onFocus={() => setError("")} 
                         />
                     </div>
                     <br /><br />
@@ -51,7 +54,7 @@ const SendEmail = () => {
                             {loading ? "Loading..." : "Send"}
                         </button>
                     </div>
-                    {error && <div className="error">{error}</div>}
+                   
                 </form>
             </div>
             <br/>

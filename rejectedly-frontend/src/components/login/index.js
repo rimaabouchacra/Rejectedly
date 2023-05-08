@@ -76,8 +76,8 @@ const Loginn = ()=>{
             </div><br />
             
             <div>
-                <label className='labell' htmlFor="name"><a className='forget' href="reset">Forget password?</a></label><br /><br />
-                <label className='label' htmlFor="name">Don't have an account?<a className='login-text' href='signup'>Signup</a></label>
+                <label className='labell link-redirect-signup' htmlFor="name"><a className='forget' href="reset">Forget password?</a></label><br /><br />
+                <label className='label link-redirect-signup' htmlFor="name">Don't have an account?<a className='login-text' href='signup'>Signup</a></label>
             </div>
         </form>
         </div><br/>

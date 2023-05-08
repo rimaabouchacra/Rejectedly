@@ -123,7 +123,7 @@ return (
                 <button className='all-btn singup-btn'>SIGNUP</button>
             </div><br />
             <div>
-                <label className='label ' htmlFor="name">Already have an account?<a className='login-text' href='login'>Login</a></label>
+                <label className='label link-redirect' htmlFor="name">Already have an account?<a className='login-text' href='login'>Login</a></label>
             </div>
         </form>
         </div><br/>

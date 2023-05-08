@@ -103,3 +103,9 @@
 .forget:hover{
     color: var(--green);
 }
+.link-redirect{
+    margin-right: 2.3rem;
+}
+.link-redirect-signup{
+    margin-right: 2.6rem;
+}
