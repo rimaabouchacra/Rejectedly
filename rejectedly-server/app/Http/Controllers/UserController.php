@@ -83,4 +83,11 @@ public function GetContacts(Request $request, $id)
 
 }
 
+ public function Count()
+{
+    $count = User::count();
+
+    return response()->json(['count' => $count]);
+}
+
 }

@@ -38,6 +38,8 @@ Route::group(['prefix' => 'v1'], function(){
            Route::get('/profile/{id}', 'GetProfile');
            Route::get('/user', 'GetUser');
            Route::get('/contacts/{id}', 'GetContacts');
+           Route::get('/users/count', 'Count');
+
         });
 
         Route::controller(RejectionStoriesController::class)->group(function () {
