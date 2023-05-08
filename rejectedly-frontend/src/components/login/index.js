@@ -48,6 +48,15 @@ const Loginn = ()=>{
     const handleGoogleLogin =  () => {
     window.location.href = 'http://localhost:8000/login/google';
     };
+    
+// const handleGoogleLogin = async () => {
+//   try {
+//     const response = await axios.get('http://localhost:8000/login/google');
+//     // window.location.href = response.data.authURL;
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
        return (
         <div>
@@ -68,7 +77,9 @@ const Loginn = ()=>{
 
             <div className='signup-container'>
                 <label className='label' htmlFor="name">Password:</label>
-                <input className='input-field pass' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input className='input-field pass' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
+                <label className='link-redirect-signupp' htmlFor="name"><a className='forget' href="reset">Forget password?</a></label><br /><br />
+
             </div><br/>
             {loginError && <p className="error">{loginError}</p>}
             <div className='btn'>
@@ -76,7 +87,6 @@ const Loginn = ()=>{
             </div><br />
             
             <div>
-                <label className='labell link-redirect-signup' htmlFor="name"><a className='forget' href="reset">Forget password?</a></label><br /><br />
                 <label className='label link-redirect-signup' htmlFor="name">Don't have an account?<a className='login-text' href='signup'>Signup</a></label>
             </div>
         </form>
