@@ -11,8 +11,8 @@
     align-items: center;
     gap: 3rem;
     padding: 3rem;
-    margin-left: 4rem auto;
-    margin-right: 4rem auto;
+    margin-left: 4rem ;
+    margin-right: 4rem;
 }
 .person {
     display: flex;
