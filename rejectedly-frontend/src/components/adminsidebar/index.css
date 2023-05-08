@@ -64,3 +64,9 @@
 .users{
     font-weight: bold;
 }
+.bold {
+    font-weight: bold;
+}
+.notbold{
+    font-weight: normal;
+}
