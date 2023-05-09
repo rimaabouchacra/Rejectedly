@@ -19,7 +19,7 @@ const PostEmpty = () => {
 
       <div className='header'>
         <h1>MY POSTS</h1>
-        <button onClick={handleButtonClick} className='all-btn'>NEW STORY</button>
+        <button onClick={handleButtonClick} className='all-btn'>NEW POST</button>
       </div>
       <div className='new-story text'>
         <h2 className='textt'>NO POSTS YET</h2>

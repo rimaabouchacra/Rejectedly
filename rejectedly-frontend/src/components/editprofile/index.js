@@ -4,6 +4,7 @@ import "./index.css";
 import "../index.css";
 import "../rejectionstory/index.css";
 import "../newstory/index.css";
+import "../signup/index.css"
 import Profile from "../../images/profile.png";
 
 const EditProfile = () => {
@@ -16,7 +17,8 @@ const EditProfile = () => {
   const [DataSent, setDataSent] = useState(false);
   const [ErrorSent, setErrorSent] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  
+  const [LinkedinError, setLinkedinError] = useState("");
+
   useEffect(() => {
     const user_id = localStorage.getItem("user_id");
     const token = localStorage.getItem("token");
@@ -59,6 +61,12 @@ const EditProfile = () => {
       linkedin_url,
       image_url,
     };
+
+     const linkedinRegex = /^https:\/\/www\.linkedin\.com\/in\/[\w-]+\/?$/;
+    if (linkedin_url && !linkedinRegex.test(linkedin_url)) {
+      setLinkedinError("Please enter a valid LinkedIn URL");
+      return;
+    }
 
     try {
       const token = localStorage.getItem("token");
@@ -118,6 +126,11 @@ const EditProfile = () => {
     setIsHovering(false);
   };
 
+   const handleLinkedinChange = (e) => {
+    setLinkedin(e.target.value);
+    setLinkedinError("");
+  };
+
   return (
   <form className="story edit-profile" onSubmit={handleSubmit}>
     <h1 className="myprofile">MY PROFILE</h1>
@@ -174,6 +187,7 @@ const EditProfile = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            readOnly
           />
         </div>
         <div>
@@ -206,11 +220,15 @@ const EditProfile = () => {
           <label className="profile-label" htmlFor="linkedin">
             Linkedin
           </label>
-          <input
+           <input
             type="text"
-            value={linkedin_url}
-            onChange={(e) => setLinkedin(e.target.value)}
+            id="linkedin_url"
+            value={LinkedinError ? LinkedinError: linkedin_url} 
+            onChange={handleLinkedinChange}
+            className={`${LinkedinError ? "error" : ""}`}
+            onFocus={() => setLinkedinError("")}
           />
+          
         </div>
         <div>
           <button className="all-btn save" type="submit">
