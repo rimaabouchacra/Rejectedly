@@ -25,6 +25,17 @@
     overflow-y: auto;
     max-height: 25rem;
 }
+
+.modal::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+.modal::-webkit-scrollbar-thumb {
+    background-color: var(--green);
+    border-radius: 6px;
+    width: 10px;
+}
 .commented{
     border: 2px solid var(--offwhite);
     border-radius: 3px;
@@ -38,6 +49,7 @@
 .view-title{
     margin: 1rem;
     padding: 0.5rem;
+    text-align: center;
 }
 .close{
     width: 7rem;
@@ -61,36 +73,3 @@
     cursor: pointer;
 }
 
-.modal-delete{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-
-  border: 2px solid var(--green);
-  max-width: 25rem;
-  margin-top: 15rem;
-}
-.delete-btn{
-    width: 4rem;
-    margin: 0.2rem;
-    padding: 0.5rem;
-    background-color: white;
-
-}
-.trash{
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.2rem;
-    margin: 0;
-    width: 24px;
-}
-.yes{
-    border: 2px solid var(--green);
-    border-radius: 10%;
-}
-.no{
-    border: 2px solid red;
-    border-radius: 10%;
-}

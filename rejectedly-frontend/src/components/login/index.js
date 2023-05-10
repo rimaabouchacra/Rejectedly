@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../signup/index.css'
-import google from '../../images/google.png'
+import account from '../../images/account.png'
 const Loginn = ()=>{
 
     const [email, setEmail] = useState('');
@@ -45,18 +45,7 @@ const Loginn = ()=>{
         }
     };
 
-    const handleGoogleLogin =  () => {
-    window.location.href = 'http://localhost:8000/login/google';
-    };
-    
-// const handleGoogleLogin = async () => {
-//   try {
-//     const response = await axios.get('http://localhost:8000/login/google');
-//     // window.location.href = response.data.authURL;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+
 
        return (
         <div>
@@ -64,10 +53,7 @@ const Loginn = ()=>{
         <div className='signup-form'>
         <h1 className='titre'>Login</h1>
         <div>
-            <img
-             onClick={handleGoogleLogin}
-            className='google'
-            src={google} alt="logo" />
+            <img className='account'src={account} alt="logo" />
         </div>
         <form className='form' onSubmit={handleSubmit}>
             <div className='signup-container'>

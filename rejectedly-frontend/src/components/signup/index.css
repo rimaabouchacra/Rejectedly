@@ -14,13 +14,9 @@
     text-align: center;
     width: 20rem;
 }
-.google{
-    border-radius: 50%;
-    border: 0.113rem solid black;
+.account{
     padding: 0.4rem;
-    cursor: pointer;
-    margin-bottom: 1rem;
-  
+    margin-bottom: 0.5rem;
 }
 .signup-form {
     display: flex;

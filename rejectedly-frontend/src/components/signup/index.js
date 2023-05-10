@@ -4,7 +4,7 @@ import axios from 'axios';
 import './index.css'
 import '../index.css'
 import logo2 from '../../images/logo2.png'
-import google from '../../images/google.png'
+import account from '../../images/account.png'
 const Signup = ()=>{
 
 const [name, setName] = useState('');
@@ -73,7 +73,7 @@ return (
         <div className='signup-form'>
         <h1 className='titre'>Sign up</h1>
         <div>
-            <img className='google' src={google} alt="" />
+            <img className='account' src={account} alt="" />
         </div>
         <form className='form' onSubmit={handleSubmit}>
             <div className='signup-container'>
