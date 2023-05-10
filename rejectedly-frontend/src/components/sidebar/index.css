@@ -48,8 +48,9 @@
 .sidebar a:hover {
     background-color: var(--green);
     color: white;
-    padding: 0.3rem;
+    padding: 0.5rem;
     border-radius: 0.188rem ;
+    font-size: 14px;
 }
 .li{
     margin-top: 7rem;

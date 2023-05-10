@@ -53,14 +53,14 @@
 ### User Screens (web)
 | Login screen  | Register screen | Landing screen | AddPost screen |
 | ---| ---| ---| ---|
-| ![fsdaf](./readme/demo/login2.png) | ![fsdaf](./readme/demo/Signup2.png) | ![fsdaf](./readme/demo/landing.png) | ![fsdaf](./readme/demo/addpost.png) |
+| ![fsdaf](./readme/demo/Login.gif) | ![fsdaf](./readme/demo/Signup.gif) | ![fsdaf](./readme/demo/Reset.gif) | ![fsdaf](./readme/demo/Homepage.gif) |
 | Posts screen  | Marketplace Screen | Analysis Screen | StoryBoard Screen |
-| ![Landing](./readme/demo/post.png) | ![fsdaf](./readme/demo/marketplace.png) | ![fsdaf](./readme/demo/analysis.png) | ![fsdaf](./readme/demo/storyboard.png) |
+| ![Landing](./readme/demo/Collaboration.gif) | ![fsdaf](./readme/demo/Marketplace.gif) | ![fsdaf](./readme/demo/Analysis.gif) | ![fsdaf](./readme/demo/NewStory.gif) |
 
 ### Admin Screens (Web)
 | Login screen  | Register screen |  Landing screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/login2.png) | ![Landing](./readme/demo/Signup2.png) | ![fsdaf](./readme/demo/Admin.png) |
+| ![Landing](./readme/demo/login2.png) | ![Landing](./readme/demo/Signup2.png) | ![fsdaf](./readme/demo/Admin.gif) |
 
 
 <br><br>
