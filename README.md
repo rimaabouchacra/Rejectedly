@@ -51,7 +51,7 @@
 > Using the wireframes and mockups as a guide, we implemented Rejectedly website with the following features:
 
 ### User Screens (web)
-| Login screen  | Register screen | Landing screen | AddPost screen |
+| Login screen  | Register screen | Reset Password screen | Homepage screen |
 | ---| ---| ---| ---|
 | ![fsdaf](./readme/demo/Login.gif) | ![fsdaf](./readme/demo/Signup.gif) | ![fsdaf](./readme/demo/Reset.gif) | ![fsdaf](./readme/demo/Homepage.gif) |
 | Posts screen  | Marketplace Screen | Analysis Screen | StoryBoard Screen |
