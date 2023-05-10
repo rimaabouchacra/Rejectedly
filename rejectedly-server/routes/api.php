@@ -58,6 +58,8 @@ Route::group(['prefix' => 'v1'], function(){
             Route::get('/rejection-stories/improved', 'GetImproved');
             Route::post('/comments', 'StoreComment');
             Route::get('/comments/{story}', 'GetComments');
+            Route::delete('/comments/{id}', 'Delete');
+
         });
 
     });

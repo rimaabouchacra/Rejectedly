@@ -85,6 +85,22 @@ const AllPosts = () => {
     navigate('/collaboration')
   };
   
+  const handleDeleteComment = (commentId) => {
+  console.log('Deleting comment:', commentId);
+  alert("Hey")
+  axios.delete(`http://localhost:8000/api/v1/auth/comments/${commentId}`, {
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+  })
+  .then(response => {
+    console.log(response.data);
+    // Remove the deleted comment from the comments array
+    const updatedComments = comments.filter(comment => comment.id !== commentId);
+    setComments(updatedComments);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+}
   
   const handleImageClick = (id) => {
     axios.get(`http://localhost:8000/api/v1/auth/contacts/${id}`, {
@@ -156,6 +172,7 @@ const AllPosts = () => {
           isOpen={showPopup}
           onRequestClose={() => setShowPopup(false)}
           comments={comments}
+          onDeleteComment={handleDeleteComment}
         />
       )}
     </div>

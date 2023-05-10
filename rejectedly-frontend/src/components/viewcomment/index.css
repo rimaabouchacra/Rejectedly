@@ -30,6 +30,7 @@
     border-radius: 3px;
     margin: 1rem;
     padding: 0.5rem;
+    position: relative;
 }
 .view-name{
     font-weight: bold;
@@ -58,4 +59,38 @@
     padding: 0.2rem;
     margin-bottom: 1rem;
     cursor: pointer;
+}
+
+.modal-delete{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+
+  border: 2px solid var(--green);
+  max-width: 25rem;
+  margin-top: 15rem;
+}
+.delete-btn{
+    width: 4rem;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    background-color: white;
+
+}
+.trash{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.2rem;
+    margin: 0;
+    width: 24px;
+}
+.yes{
+    border: 2px solid var(--green);
+    border-radius: 10%;
+}
+.no{
+    border: 2px solid red;
+    border-radius: 10%;
 }

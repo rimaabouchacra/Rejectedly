@@ -13,7 +13,7 @@ import remove from '../../images/remove.png'
 const Drafts = () => {
   const [showStory, setShowStory] = useState(false);
   const overlayRef = useRef(null);
-    const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [storyToDelete, setStoryToDelete] = useState(null);
   const deletePopupRef = useRef(null);
 

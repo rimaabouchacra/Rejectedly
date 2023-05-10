@@ -162,4 +162,12 @@ public function GetImproved()
     return response()->json(['postStories' => $postStoriesWithUser], 200);
 }
 
+ public function Delete($id)
+{
+    $comment = Comment::findOrFail($id);
+    $comment->delete();
+
+    return response()->json(['message' => 'Comment deleted successfully.']);
+}
+
 }
