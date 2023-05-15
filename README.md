@@ -11,14 +11,9 @@
 
 ### User Stories/User
 
-- As a user, I want to be able to reset my password, so that I can regain access to my account if I forget my password or suspect that my account has been compromised for security purposes.
-- As a user of Rejectedly, I want to be able to upload my rejection letters or feedback for analysis, so that I can identify the points that need improvements.
-- As a user, I want to save my rejection stories, so that I can reflect on them later.
-- As a user, I want to receive actionable suggestions on how to improve my approach, so that I can implement changes and see better results.
-- As a user, I want to be able to delete a story, so that I can remove stories that i don't need.
+- As a user of Rejectedly, I want to be able to upload my rejection letters or feedback for analysis and receive actionable suggestions on how to improve my approach, I can implement changes and see better results.
 - As a user, I want to edit my profile information so that I can update my personal details or change my account settings as needed.
 - As a user of Rejectedly, I want to be able to create a “Rejection Profile” showcasing my rejected work, so that I can receive feedback and constructive criticism from the community.
-- As a user of a “Rejectedly”, I want to be able to provide and receive constructive feedback (comments) on my rejected submissions, so that I can identify areas for improvement and refine my approach.
 - As a user of Rejectedly, I want to upload my rejected ideas or projects before and after improvements to the marketplace, so that I can showcase my skills and expertise.
 - As a user who values personal connections, I want the option to provide my contact information (such as email, phone number, or social media handles) in my profile, so that potential clients or collaborators can reach out to me directly.
 
