@@ -12,10 +12,9 @@
 ### User Stories/User
 
 - As a user of Rejectedly, I want to be able to upload my rejection letters or feedback for analysis and receive actionable suggestions on how to improve my approach, I can implement changes and see better results.
-- As a user, I want to edit my profile information so that I can update my personal details or change my account settings as needed.
 - As a user of Rejectedly, I want to be able to create a “Rejection Profile” showcasing my rejected work, so that I can receive feedback and constructive criticism from the community.
 - As a user of Rejectedly, I want to upload my rejected ideas or projects before and after improvements to the marketplace, so that I can showcase my skills and expertise.
-- As a user who values personal connections, I want the option to provide my contact information (such as email, phone number, or social media handles) in my profile, so that potential clients or collaborators can reach out to me directly.
+
 
 ### User Stories/Admin
 - As an admin, I want to view a list of all registered users, so that I can easily monitor the user base and track any potential issues.
